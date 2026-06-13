@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budapest · Oct 11–15, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --danube:#0E2A3B;--danube-2:#13384b;--teal:#2A8C99;--brass:#D4AF61;--brass-deep:#b8893a;
+    --paprika:#C0492E;--parchment:#F6F1E7;--parchment-2:#efe7d6;--ink:#1c1c1a;--muted:#5d6b72;
+    --line:#d9cfba;--card:#fffdf8;--shadow:0 1px 2px rgba(14,42,59,.06),0 8px 28px rgba(14,42,59,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--parchment);color:var(--ink);
+    font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;line-height:1.12;margin:0}
+  .mono{font-family:"Space Mono",ui-monospace,monospace}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+
+  /* image helper */
+  .imgwrap{position:relative;overflow:hidden;background:linear-gradient(135deg,#2a6f7c,#102f42)}
+  .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+  .tphoto{height:168px;border-radius:13px;margin:0 0 15px}
+  .cphoto{height:150px;border-radius:16px 16px 0 0;margin:-18px -18px 15px}
+  .imgwrap .maplink{position:absolute;inset:0;display:block;text-decoration:none}
+  .mappill{position:absolute;right:8px;bottom:8px;z-index:3;background:rgba(14,42,59,.86);color:#fff;font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.4px;padding:5px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(212,162,97,.55);backdrop-filter:blur(2px);transition:.18s}
+  .imgwrap:hover .mappill{background:var(--brass);color:var(--danube)}
+  .btn{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-family:"Space Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.3px;text-decoration:none;background:var(--danube);color:#fff;padding:9px 14px;border-radius:10px;border:1px solid var(--danube);transition:.18s}
+  .btn:hover{background:var(--brass);color:var(--danube);border-color:var(--brass)}
+  .booknote{font-family:"Space Mono",monospace;font-size:11.5px;line-height:1.5;color:var(--muted);margin-top:12px}
+  .card:hover .imgwrap img,.tblock:hover .imgwrap img{transform:scale(1.045)}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(14,42,59,.97);backdrop-filter:blur(6px);border-bottom:1px solid rgba(212,162,97,.25)}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{color:var(--parchment);font-family:"Fraunces",serif;font-weight:600;font-size:18px;white-space:nowrap}
+  .brand b{color:var(--brass)}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+  .nav-links a{color:#cdd9de;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.3px;padding:6px 10px;border-radius:999px;transition:.18s;white-space:nowrap}
+  .nav-links a:hover,.nav-links a.active{background:var(--brass);color:var(--danube)}
+
+  /* HERO */
+  .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,#10324a,#0a2030)}
+  .hero .ph,.banner .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,44,.15) 0%,rgba(10,30,44,.35) 45%,rgba(10,28,40,.93) 100%)}
+  .hero-content{position:relative;z-index:2;max-width:1080px;margin:0 auto;width:100%;padding:0 24px 64px;color:#fff}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--brass)}
+  .hero h1{font-size:clamp(42px,8vw,86px);font-weight:600;margin:.18em 0 .1em;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+  .hero h1 em{font-style:italic;color:var(--brass)}
+  .hero-sub{font-size:clamp(17px,2.4vw,21px);max-width:46ch;color:#e7eef1}
+  .hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;backdrop-filter:blur(4px)}
+  .fact .k{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brass);display:block}
+  .fact .v{font-size:15px;font-weight:600;color:#fff}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section.block{padding:56px 0}
+  .sec-label{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--paprika);margin-bottom:8px}
+
+  /* LEGEND */
+  .legend{background:var(--danube);color:#e7eef1}
+  .legend h2{color:#fff;font-size:26px}
+  .legend .sec-label{color:var(--brass)}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+  .legend-item{display:flex;gap:12px;align-items:flex-start}
+  .legend-item .desc{font-size:14px;color:#b9c7ce}
+
+  .badge{display:inline-flex;align-items:center;gap:5px;font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;line-height:1}
+  .b-kosher{background:var(--brass);color:#3a2c08}
+  .b-gf{background:#d6efe9;color:#0c5a52;border:1px solid #9fd6cb}
+  .b-reg{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .b-acc{background:#dfe9ef;color:#16435c;border:1px solid #b7cdda}
+  .b-night{background:#241733;color:#e3c9ff;border:1px solid #5a3f78}
+  .legend .b-reg{color:#e7eef1;border-color:#3d5667}
+
+  /* DAY */
+  .day{border-top:1px solid var(--line)}
+  .banner{position:relative;min-height:300px;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,var(--danube-2),var(--danube))}
+  .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,44,.1),rgba(10,28,40,.86))}
+  .banner-in{position:relative;z-index:2;max-width:1080px;margin:0 auto;width:100%;padding:0 24px 28px;color:#fff}
+  .daytag{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .daynum{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:2px;color:var(--brass)}
+  .banner h2{font-size:clamp(28px,5vw,46px);text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .banner .when{font-family:"Space Mono",monospace;font-size:13px;color:#dfe7eb;margin-top:6px}
+
+  .day-body{padding:34px 0 18px}
+  .daymeta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;align-items:center}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13.5px;box-shadow:var(--shadow)}
+  .chip b{font-family:"Space Mono",monospace;color:var(--paprika);font-size:13px}
+
+  .spine{position:relative;margin-left:8px;padding-left:30px;border-left:2px solid var(--line)}
+  .tblock{position:relative;padding:0 0 34px}
+  .tblock::before{content:"";position:absolute;left:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--parchment);border:3px solid var(--brass)}
+  .tblock.rest::before{border-color:var(--teal)}
+  .tblock.eve::before{border-color:var(--paprika)}
+  .tblock.night::before{border-color:#7a52a3}
+  .ttime{font-family:"Space Mono",monospace;font-size:12.5px;letter-spacing:1px;color:var(--muted)}
+  .tcat{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--brass-deep);font-weight:700;margin-top:2px}
+  .tblock.rest .tcat{color:var(--teal)}
+  .tblock.eve .tcat{color:var(--paprika)}
+  .tblock.night .tcat{color:#7a52a3}
+  .tblock h3{font-size:22px;margin:5px 0 7px}
+  .tblock p{margin:0 0 12px;color:#33312c;font-size:15.5px}
+  .meta-line{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--muted);margin:3px 0;display:flex;gap:8px;flex-wrap:wrap}
+  .meta-line span{color:var(--ink)}
+  .cost{display:inline-block;font-family:"Space Mono",monospace;font-size:13px;font-weight:700;background:var(--parchment-2);border-radius:7px;padding:3px 9px;color:var(--danube)}
+  .badgerow{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px;margin-top:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .card .kind{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .card h4{font-size:18.5px;margin:5px 0 6px}
+  .card p{margin:0 0 10px;font-size:14.5px;color:#3a3833}
+  .card .addr{font-family:"Space Mono",monospace;font-size:12px;color:var(--muted);line-height:1.5}
+  .card .addr b{color:var(--ink);font-weight:700}
+  .subhead{display:flex;align-items:center;gap:12px;margin:34px 0 4px}
+  .subhead .sec-label{margin:0}
+  .subhead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .transport{background:var(--parchment-2);border-radius:16px;padding:20px 22px;margin-top:14px;border:1px solid var(--line)}
+  .transport ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+  .transport li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px}
+  .transport li .ico{flex:none;width:24px;text-align:center}
+  .transport li .price{margin-left:auto;font-family:"Space Mono",monospace;font-weight:700;font-size:13px;color:var(--danube);white-space:nowrap}
+
+  .notes{background:var(--danube);color:#dfe7eb}
+  .notes h2{color:#fff}
+  .notes .sec-label{color:var(--brass)}
+  .notegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+  .note{background:rgba(255,255,255,.05);border:1px solid rgba(212,162,97,.22);border-radius:14px;padding:18px 20px}
+  .note h4{color:var(--brass);font-size:17px;margin-bottom:8px}
+  .note p{font-size:14px;color:#c4d0d6;margin:0 0 8px}
+  .note .flag{color:var(--paprika);font-weight:700}
+
+  footer{background:#081a26;color:#7e919b;text-align:center;padding:34px 24px;font-size:13px}
+  footer .mono{color:var(--brass)}
+
+  @media (max-width:560px){
+    body{font-size:16px}.hero{min-height:78vh}
+    .nav-links{width:100%;margin-left:0;justify-content:flex-start}.spine{margin-left:4px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Budapest <b>·</b> <span class="mono" style="font-size:14px">11–15 OCT</span></div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a><a href="#day1">Sun</a><a href="#day2">Mon</a>
+      <a href="#day3">Tue</a><a href="#day4">Wed</a><a href="#day5">Thu</a><a href="#notes">Notes</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="ph" alt="The Hungarian Parliament glowing over the Danube at blue hour"
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=1600" onerror="this.remove()">
+  <div class="hero-content">
+    <div class="eyebrow">A family trip · 4 nights · autumn on the Danube</div>
+    <h1>Five days in <em>Budapest</em></h1>
+    <p class="hero-sub">Based in the heart of the Jewish Quarter, walking distance to the kosher table, the great synagogues, and the river. Built around the whole group — including easy, flat days that work for everyone.</p>
+    <div class="hero-facts">
+      <div class="fact"><span class="k">Dates</span><span class="v">Oct 11–15, 2026</span></div>
+      <div class="fact"><span class="k">Group</span><span class="v">4 adults</span></div>
+      <div class="fact"><span class="k">Base</span><span class="v">Síp utca 16–18, District VII</span></div>
+      <div class="fact"><span class="k">Dining</span><span class="v">Kosher + gluten-free aware</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="block legend" id="overview">
+  <div class="wrap">
+    <div class="sec-label">How to read this plan</div>
+    <h2>One base, five days, something for everyone</h2>
+    <p style="max-width:62ch;color:#c4d0d6;margin-top:14px">
+      Each day runs on the same rhythm you asked for: a <b style="color:#fff">morning</b> out, a <b style="color:#fff">slow break (14:00–17:00)</b> back near the apartment, and an <b style="color:#fff">evening</b>. Most days also have a late <b style="color:#fff">brothers' night</b>. Every meal lists a kosher option and a gluten-free / regular option, so the table never has to compromise.</p>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="badge b-kosher">Kosher</span><span class="desc">Glatt / mehadrin, under Chabad or Orthodox supervision. Everyone can share these tables.</span></div>
+      <div class="legend-item"><span class="badge b-gf">Gluten-free</span><span class="desc">Dedicated 100% gluten-free kitchen — celiac-safe, and genuinely good food.</span></div>
+      <div class="legend-item"><span class="badge b-reg">Regular</span><span class="desc">A great local pick for the three without restrictions (not kosher).</span></div>
+      <div class="legend-item"><span class="badge b-acc">♿ Easy</span><span class="desc">Flat, step-light, or solved with a lift/funicular — gentle on mobility.</span></div>
+      <div class="legend-item"><span class="badge b-night">🌙 Brothers</span><span class="desc">Late-night options for the brothers only.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<article class="day" id="day1">
+  <div class="banner">
+    <img class="ph" alt="Chain Bridge lit up over the Danube at night"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Sz%C3%A9chenyi%20Chain%20Bridge%20in%20Budapest%20at%20night.jpg?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">DAY 01 — SUNDAY</span></div>
+      <h2>Land, settle, breathe</h2><div class="when">Oct 11 · arrival 21:30 · no plans, just home base</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">Day budget <b>≈ €20 pp</b></span><span class="chip">Mood: low-key arrival</span><span class="badge b-acc">♿ Easy</span></div>
+    <div class="spine">
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Budapest Parliament at night" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">21:30 → ~22:30</div><div class="tcat">Arrival</div>
+        <h3>Airport → the apartment</h3>
+        <p>You land at Ferenc Liszt (BUD), about 22 km out. With luggage and a late hour, a pre-booked private transfer or a Bolt is the easy call — door to door in 25–35 minutes, no stairs to negotiate.</p>
+        <div class="meta-line">⏱ <span>~30 min drive into District VII</span></div>
+        <div class="badgerow"><span class="badge b-acc">♿ Door-to-door car</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Israeli plate" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~22:45</div><div class="tcat">Late bite (optional)</div>
+        <h3>A first taste, if anyone's hungry</h3>
+        <p>Most kosher kitchens are closing by now, but the Carmel takeaway window stays open late — shawarma, schnitzel, falafel a few minutes from the door. Otherwise, just stock the fridge tomorrow and call it a night.</p>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Tonight's table</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Israeli food plate" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">Kosher · late window</span><h4>Carmel Express (takeaway)</h4>
+        <p>The fast-food counter from the Carmel kitchen — open latest in the quarter.</p>
+        <div class="addr"><b>Kazinczy u. 32</b><br>Sun–Thu until ~00:00 · Mehadrin (Chabad)</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€8–14 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Budapest market hall interior" src="https://commons.wikimedia.org/wiki/Special:FilePath/Central%20market%20hall%2C%20Budapest.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Stock the kitchen</span><h4>Apartment basics</h4>
+        <p>With a full kitchen, an early supermarket run tomorrow (Klauzál tér market hall, or a nearby Spar) covers breakfasts and snacks all week.</p>
+        <div class="addr"><b>Klauzál tér market hall</b><br>~4 min walk · Mon–Sat mornings best</div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Getting in</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚗</span> Pre-booked private transfer (up to 4 + bags, accessible car on request) <span class="price">≈ €35–45 / car</span></li>
+      <li><span class="ico">📱</span> Bolt / taxi from the rank (one larger car for the group) <span class="price">≈ €30–40 / car</span></li>
+      <li><span class="ico">🚌</span> 100E airport bus — cheapest, but not ideal late with luggage <span class="price">≈ €5 pp</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 2 -->
+<article class="day" id="day2">
+  <div class="banner">
+    <img class="ph" alt="The Dohány Street Great Synagogue"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Synagogue%20Budapest.jpg?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">DAY 02 — MONDAY</span></div>
+      <h2>The Jewish Quarter, on foot</h2><div class="when">Oct 12 · gentle first day · everything within 10 minutes</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">Day budget <b>≈ €73 pp</b></span><span class="chip">All flat, all walkable</span><span class="badge b-acc">♿ Easy</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Dohány Street Great Synagogue" src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Synagogue%20Budapest.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">09:30 → 13:00</div><div class="tcat">Morning</div>
+        <h3>Dohány Street Synagogue & the quarter</h3>
+        <p>Start at the largest synagogue in Europe — the guided visit covers the Jewish Museum and the Tree of Life memorial in the garden, all wheelchair-accessible by ramp. Then a slow loop past the Kazinczy and Rumbach synagogues and through the Gozsdu courtyard passage. Nothing is more than a few minutes apart.</p>
+        <div class="meta-line">📍 <span>Dohány u. 2</span> · 🕒 Sun–Thu, closed Sat</div>
+        <div class="badgerow"><span class="badge b-acc">♿ Ramp access</span><span class="cost">Synagogue ≈ €30 pp</span></div>
+      </div>
+      <div class="tblock rest reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Flódni, traditional Hungarian-Jewish pastry" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B3dni.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">14:00 → 17:00</div><div class="tcat">The slow break</div>
+        <h3>Back to the apartment</h3>
+        <p>Lunch first (below), then rest at home base. A coffee and a flódni pastry from Fröhlich on Dob utca is a nice quiet errand for anyone with energy left.</p>
+        <div class="badgerow"><span class="badge b-acc">♿ 3 min from base</span></div>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="St. Stephen's Basilica" src="https://commons.wikimedia.org/wiki/Special:FilePath/St%20Stephen%27s%20Basilica%20%2827184201240%29.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">17:30 → 20:30</div><div class="tcat">Evening</div>
+        <h3>Basilica square at dusk + dinner</h3>
+        <p>An easy stroll (or a 5-minute Bolt) to St. Stephen's Basilica — the square is grand, flat, and lovely as the lights come on. The ground floor is fully accessible; skip the tower stairs. Dinner back in the quarter.</p>
+        <div class="meta-line">📍 <span>Szent István tér</span> · 🕒 open late</div>
+        <div class="badgerow"><span class="badge b-acc">♿ Flat square</span><span class="cost">Basilica entry ≈ €3 pp</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Szimpla Kert ruin bar" src="https://commons.wikimedia.org/wiki/Special:FilePath/Budapest%20-%20Szimpla%20Kert%20%2826688416599%29.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">21:30 →</div><div class="tcat">Brothers' night</div>
+        <h3>Szimpla Kert — the original ruin bar</h3>
+        <p>The one that started Budapest's ruin-bar scene: a crumbling courtyard full of mismatched furniture, fairy lights, and a buzzing crowd. Two minutes from the apartment, so it's an easy in-and-out.</p>
+        <div class="meta-line">📍 <span>Kazinczy u. 14</span> · 🕒 till late</div>
+        <div class="badgerow"><span class="badge b-night">🌙 Brothers</span><span class="cost">Drinks €3–6 each</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Where to eat today</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Hummus plate" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">Lunch · shared table</span><h4>Hummus Bar (kosher)</h4>
+        <p>Israeli plates — hummus, shakshuka, salads — light and quick. Hummus and shakshuka are naturally gluten-free; just flag the pita/falafel.</p>
+        <div class="addr"><b>Wesselényi u. 14</b><br>Sun–Thu 12:00–23:00 · Mehadrin (Chabad)</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€10–15 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Hungarian goulash" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Lunch · gluten-free</span><h4>Drop Restaurant</h4>
+        <p>100% gluten-free Hungarian cooking — the goulash and ratatouille get rave reviews. Celiac-safe and a treat for everyone. Two minutes from the apartment.</p>
+        <div class="addr"><b>Dohány u. 7</b><br>Daily · 100% gluten-free kitchen</div>
+        <div class="badgerow"><span class="badge b-gf">Gluten-free</span><span class="badge b-reg">Regular</span><span class="cost">€15–25 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Hungarian-Jewish meat dish" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Dinner · shared table</span><h4>Carmel (kosher)</h4>
+        <p>The quarter's reliable glatt-kosher institution — classic Hungarian-Jewish plates with a live klezmer trio. Book ahead for a group. Grilled meats and soups are the gluten-free-friendly picks here.</p>
+        <div class="addr"><b>Kazinczy u. 31</b><br>Sun–Thu 12:00–22:30 · Glatt (Chabad)</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€20–30 pp</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Getting around</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚶</span> The whole day is on foot — base to everything is 3–10 min, flat <span class="price">free</span></li>
+      <li><span class="ico">📱</span> Optional Bolt to the Basilica and back if legs are tired <span class="price">≈ €4–6 / ride</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 3 -->
+<article class="day" id="day3">
+  <div class="banner">
+    <img class="ph" alt="Fisherman's Bastion on the Buda side"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Fishermans%20bastion%20Budapest%20IMG%201429.JPG?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">DAY 03 — TUESDAY</span></div>
+      <h2>The big sightseeing day</h2><div class="when">Oct 13 · Parliament, the river, Buda Castle hill</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">Day budget <b>≈ €110 pp</b></span><span class="chip">Hills solved by funicular</span><span class="badge b-acc">♿ Easy with taxis + funicular</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Hungarian Parliament" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">09:00 → 11:00</div><div class="tcat">Morning · part 1</div>
+        <h3>Hungarian Parliament</h3>
+        <p>Hungary's most iconic building, right on the river. The guided interior tour is fully accessible and worth booking online in advance — slots sell out. Even just the exterior and Kossuth tér are a highlight.</p>
+        <div class="meta-line">📍 <span>Kossuth Lajos tér 1–3</span> · 🎟 book ahead</div>
+        <div class="badgerow"><span class="badge b-acc">♿ Accessible tour</span><span class="cost">Tour ≈ €20 pp</span></div>
+      </div>
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Fisherman's Bastion terraces" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fishermans%20bastion%20Budapest%20IMG%201429.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">11:15 → 13:30</div><div class="tcat">Morning · part 2</div>
+        <h3>Shoes on the Danube → Buda Castle hill</h3>
+        <p>A short riverside walk to the moving Shoes memorial and the Chain Bridge, then hop the historic funicular up to the castle — no climbing. Up top: Fisherman's Bastion's fairy-tale terraces and Matthias Church, with the best view back over the city. The main Trinity Square terrace is reachable without the stairs.</p>
+        <div class="meta-line">📍 <span>Funicular: Clark Ádám tér</span></div>
+        <div class="badgerow"><span class="badge b-acc">♿ Funicular up the hill</span><span class="cost">Funicular ≈ €12 return</span></div>
+      </div>
+      <div class="tblock rest reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Hungarian goulash lunch" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">14:30 → 17:00</div><div class="tcat">The slow break</div>
+        <h3>Lunch + rest</h3>
+        <p>Lunch up near the castle or back in Pest (see below), then home to recharge before the evening on the water.</p>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Chain Bridge and Danube at night" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sz%C3%A9chenyi%20Chain%20Bridge%20in%20Budapest%20at%20night.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">18:30 → 21:00</div><div class="tcat">Evening</div>
+        <h3>Danube cruise after dark</h3>
+        <p>The single most beautiful thing in Budapest: the lit Parliament, bridges, and castle drifting past from the river. Seated the whole time, you step on at river level — ask the operator to confirm step-free boarding. A perfect easy evening for the whole group.</p>
+        <div class="meta-line">📍 <span>Piers around Vigadó tér</span> · 🕒 evening sailings</div>
+        <div class="badgerow"><span class="badge b-acc">♿ Seated, step-on</span><span class="cost">Cruise ≈ €25–35 pp</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Ruin bar in the Jewish Quarter" src="https://commons.wikimedia.org/wiki/Special:FilePath/Budapest%20-%20Szimpla%20Kert%20%2826688416599%29.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">21:30 →</div><div class="tcat">Brothers' night</div>
+        <h3>Instant-Fogas — the mega ruin complex</h3>
+        <p>A warren of connected ruin bars, dance floors, and courtyards — the biggest party venue in the quarter, five minutes from home. Or keep it mellow at a Gozsdu wine bar with a flight of Hungarian Tokaji.</p>
+        <div class="meta-line">📍 <span>Akácfa u. 49–51</span></div>
+        <div class="badgerow"><span class="badge b-night">🌙 Brothers</span><span class="cost">Drinks €3–8 each</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Where to eat today</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Margherita pizza" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eq%20it-na%20pizza-margherita%20sep2005%20sml.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Lunch · gluten-free</span><h4>NonGlutén Pizzéria</h4>
+        <p>100% gluten-free Italian — properly good pizza, pasta, even tiramisu. A crowd-pleaser that happens to be celiac-safe. Short tram ride from the center.</p>
+        <div class="addr"><b>Király u. 58</b><br>Daily · 100% gluten-free kitchen</div>
+        <div class="badgerow"><span class="badge b-gf">Gluten-free</span><span class="badge b-reg">Regular</span><span class="cost">€12–20 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Hungarian-Jewish dish" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Dinner · shared table</span><h4>Hanna (kosher)</h4>
+        <p>Orthodox glatt-kosher in the Kazinczy synagogue courtyard — old-school Ashkenazi and Hungarian cooking, recently refreshed by an Israeli chef. A different flavor from Carmel.</p>
+        <div class="addr"><b>Dob u. 35 (synagogue courtyard)</b><br>Sun–Thu · Glatt Orthodox</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€18–28 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Goulash stew" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Dinner · regular (the three)</span><h4>Gettó Gulyás</h4>
+        <p>Beloved Hungarian comfort cooking — goulash, stews, big plates — in the heart of the quarter. Not kosher; a great call when the three want the local classic.</p>
+        <div class="addr"><b>Wesselényi u. 18</b><br>Daily · book ahead, it's popular</div>
+        <div class="badgerow"><span class="badge b-reg">Regular</span><span class="cost">€15–25 pp</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Getting around</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">📱</span> Bolt between the quarter, Parliament and the river (short hops) <span class="price">≈ €4–7 / ride</span></li>
+      <li><span class="ico">🚠</span> Buda Castle funicular (the easy way up the hill) <span class="price">≈ €12 return</span></li>
+      <li><span class="ico">🚋</span> Tram 2 along the river is scenic and low-floor <span class="price">≈ €1.15 / ride</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 4 -->
+<article class="day" id="day4">
+  <div class="banner">
+    <img class="ph" alt="The colourful main square of Szentendre"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Main%20Square%2C%20Szentendre%2C%20Hungary.JPG?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">DAY 04 — WEDNESDAY</span></div>
+      <h2>Out into Hungary — the day trip</h2><div class="when">Oct 14 · joining a small-group guided tour</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">Day budget <b>≈ €120 pp</b></span><span class="chip">Full day · coach + guide</span><span class="badge b-acc">♿ See accessibility note</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Szentendre riverside town" src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Main%20Square%2C%20Szentendre%2C%20Hungary.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~08:30 → ~18:00</div><div class="tcat">All day · group tour</div>
+        <h3>The Danube Bend: Szentendre, Visegrád & Esztergom</h3>
+        <p>A shared-group day out (not private) with an English-speaking guide — exactly the "see how Hungary lives outside the capital" you wanted. Cobbled riverside Szentendre and its artists' shops, the hilltop castle views at Visegrád, and Hungary's vast green-domed basilica at Esztergom. Transport and a sit-down lunch are included; the guide handles all the timing.</p>
+        <div class="meta-line">🚌 <span>Central pickup</span> · 🍽 lunch included · 👥 small group</div>
+        <div class="badgerow"><span class="badge b-acc">♿ Partly — read note</span><span class="cost">Tour ≈ €90–110 pp</span></div>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Hungarian dinner" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~19:30 → 21:30</div><div class="tcat">Evening</div>
+        <h3>An easy dinner back home</h3>
+        <p>After a long day on the road, keep it close and simple — a kosher dinner in the quarter, no extra travel.</p>
+        <div class="badgerow"><span class="badge b-acc">♿ Walk from base</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Glass of red wine" src="https://commons.wikimedia.org/wiki/Special:FilePath/Red%20Wine%20Glass.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">22:00 →</div><div class="tcat">Brothers' night (lighter)</div>
+        <h3>A wine bar wind-down</h3>
+        <p>A slower note tonight: a Hungarian wine bar in the Gozsdu passage (Doblo or DiVino) for a glass of Tokaji or Egri Bikavér rather than the full ruin-bar circuit.</p>
+        <div class="meta-line">📍 <span>Dob u. 20 / Gozsdu</span></div>
+        <div class="badgerow"><span class="badge b-night">🌙 Brothers</span><span class="cost">Glasses €4–8 each</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Where to eat today</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Gluten-free bakery pastries" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B3dni.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Daytime · on tour</span><h4>Lunch is included</h4>
+        <p>The tour lunch won't be kosher or guaranteed gluten-free. Carry a kosher/GF backup from the apartment (the market hall and Manioka GF bakery are good for packing snacks the day before).</p>
+        <div class="addr"><b>Pack ahead</b><br>Manioka GF bakery · Kertész u. 41</div>
+        <div class="badgerow"><span class="badge b-gf">GF backup</span><span class="badge b-kosher">Kosher backup</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Hummus plate" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">Dinner · shared table</span><h4>Carmel or Hummus Bar (kosher)</h4>
+        <p>Whichever you didn't do earlier in the week — both are minutes from the door and open Sun–Thu.</p>
+        <div class="addr"><b>Kazinczy u. 31 / Wesselényi u. 14</b><br>Sun–Thu evenings</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€15–30 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Hungarian comfort food" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Dinner · gluten-free</span><h4>Bohémtanya</h4>
+        <p>Hearty Hungarian classics with reliable dedicated gluten-free dishes and generous portions — a relaxed regular-and-GF spot after a big day.</p>
+        <div class="addr"><b>Paulay Ede u. 6</b><br>Daily · GF dishes available</div>
+        <div class="badgerow"><span class="badge b-gf">Gluten-free</span><span class="badge b-reg">Regular</span><span class="cost">€12–20 pp</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Getting there</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚌</span> Air-conditioned coach, included in the tour price <span class="price">included</span></li>
+      <li><span class="ico">♿</span> Gentler alternative if the Bend feels too much: a flatter <b>Szentendre + Gödöllő Palace</b> group tour <span class="price">≈ €80–100 pp</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 5 -->
+<article class="day" id="day5">
+  <div class="banner">
+    <img class="ph" alt="The grand outdoor pools of the Széchenyi thermal baths"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Szechenyi%20Baths%20and%20Pool%20Budapest%208.JPG?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">DAY 05 — THURSDAY</span></div>
+      <h2>One last morning, then home</h2><div class="when">Oct 15 · depart 16:30 · morning only</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">Day budget <b>≈ €60 pp</b></span><span class="chip">Leave for airport ~14:00</span><span class="badge b-acc">♿ Easy</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Széchenyi thermal baths" src="https://commons.wikimedia.org/wiki/Special:FilePath/Szechenyi%20Baths%20and%20Pool%20Budapest%208.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">09:30 → 12:30</div><div class="tcat">Morning · choose one</div>
+        <h3>Thermal baths, or the Great Market Hall</h3>
+        <p><b>Option A — Széchenyi Baths:</b> Budapest's grand thermal pools in the City Park, a warm, easy farewell (some pools have lifts; ask at entry). Note the famous Gellért baths are closed for renovation until 2028, so Széchenyi is the pick.<br>
+        <b>Option B — Great Market Hall:</b> flat, indoor, and fully accessible — last souvenirs, paprika, and a relaxed wander before you go.</p>
+        <div class="meta-line">📍 <span>Baths: Állatkerti krt. 9–11</span> · <span>Market: Vámház krt. 1–3</span></div>
+        <div class="badgerow"><span class="badge b-acc">♿ Both easy</span><span class="cost">Baths ≈ €32 pp · Market free</span></div>
+      </div>
+      <div class="tblock rest reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Final Hungarian lunch" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">12:30 → 13:30</div><div class="tcat">Last lunch</div>
+        <h3>A final bite near base</h3>
+        <p>Quick lunch close to the apartment so there's no rush, then pack up.</p>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="Budapest Parliament farewell" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~14:00 → 16:30</div><div class="tcat">Departure</div>
+        <h3>Apartment → airport</h3>
+        <p>Pre-book the return transfer for around 14:00 to give a comfortable buffer for a 16:30 flight.</p>
+        <div class="badgerow"><span class="badge b-acc">♿ Door-to-door car</span><span class="cost">Transfer ≈ €35–45 / car</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Last meals</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Israeli plate" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">Lunch · shared table</span><h4>Café Tel Aviv (kosher)</h4>
+        <p>Easy Israeli plates — falafel, shakshuka, hummus — quick and close for a no-stress final lunch.</p>
+        <div class="addr"><b>Kazinczy u. 30</b><br>Sun–Thu · Kosher (Chabad)</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€8–14 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Gluten-free goulash" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Lunch · gluten-free</span><h4>Drop Restaurant (again)</h4>
+        <p>If the GF goulash was a hit on Day 2, it's a worthy encore — and it's two minutes away.</p>
+        <div class="addr"><b>Dohány u. 7</b><br>Daily · 100% gluten-free</div>
+        <div class="badgerow"><span class="badge b-gf">Gluten-free</span><span class="badge b-reg">Regular</span><span class="cost">€15–25 pp</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="Flódni pastry" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B3dni.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">Sweet send-off</span><h4>Fröhlich Confectionery (kosher)</h4>
+        <p>Pick up flódni and Hungarian-Jewish pastries for the road. (Note: not gluten-free.)</p>
+        <div class="addr"><b>Dob u. 22</b><br>Sun–Thu, Fri morning · Kosher</div>
+        <div class="badgerow"><span class="badge b-kosher">Kosher</span><span class="cost">€3–6</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">Getting out</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚗</span> Pre-booked transfer to BUD (~14:00 pickup) <span class="price">≈ €35–45 / car</span></li>
+      <li><span class="ico">📱</span> Or Bolt XL for the group <span class="price">≈ €30–40 / car</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<section class="block notes" id="notes">
+  <div class="wrap">
+    <div class="sec-label">Before you go — the fine print that matters</div>
+    <h2>Practical notes</h2>
+    <div class="notegrid">
+      <div class="note"><h4>Kosher — who can share</h4>
+        <p>The kosher restaurants (Carmel, Hanna, Hummus Bar, Café Tel Aviv) are the tables all four can share. Carmel and Hanna are glatt under Chabad / Orthodox supervision; all are Sun–Thu and closed Saturday.</p>
+        <p><span class="flag">Tip:</span> book Carmel ahead for a group.</p></div>
+      <div class="note"><h4>Gluten-free — safest bets</h4>
+        <p>Dedicated 100% GF kitchens (Drop, NonGlutén, Bohémtanya) are the celiac-safe choices and double as great regular restaurants. Inside the kosher places, lean on grilled meats, soups and salads, and ask the kitchen — cholent (barley) and matzo balls contain gluten.</p></div>
+      <div class="note"><h4>Accessibility</h4>
+        <p>Pest is flat; the apartment is minutes from the kosher table on level streets. The Buda hill is solved by the funicular, and the river cruise is seated. <span class="flag">Day 4 caution:</span> Szentendre is cobbled and Visegrád is a hilltop — the coach does the driving, but the gentler Gödöllő alternative is there if needed.</p></div>
+      <div class="note"><h4>Book ahead</h4>
+        <p>Parliament tour (slots sell out), the Danube Bend group tour, the evening cruise, and a group table at Carmel. Confirm step-free boarding with the cruise operator and an accessible car with the transfer.</p></div>
+      <div class="note"><h4>Live music & concerts</h4>
+        <p>Big-name October shows aren't all announced this far out. Check <span class="flag">eventim.hu</span> and <span class="flag">songkick.com</span> closer to the date. For a reliable, accessible evening, the Hungarian State Opera House (Andrássy út 22) and the Liszt Academy (Liszt Ferenc tér 8) are world-class and beautiful.</p></div>
+      <div class="note"><h4>Money & transport</h4>
+        <p>Prices are approximate, per person, ~€1 ≈ 395 HUF. The center is walkable; for everything else, Bolt is cheap and door-to-door (best with mobility). A 72-hour BKK travelcard (~€15) covers trams and metro if you'd rather ride.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="mono">BUDAPEST · 11–15 OCTOBER 2026 · DISTRICT VII</div>
+  <p style="margin:10px 0 0">A working plan — times, prices and openings to confirm when you book.</p>
+</footer>
+
+<script>
+  const links=[...document.querySelectorAll('.nav-links a')];
+  const secs=[...document.querySelectorAll('article.day, section#overview, section#notes')];
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}});},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>io.observe(s));
+  const rev=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+
+  // Make every photo tile a tap-through link to the real place on Google Maps.
+  const maps=[
+    "Budapest Ferenc Liszt Airport",
+    "Carmel Budapest Kazinczy utca 32",
+    "Carmel Budapest Kazinczy utca 32",
+    "Klauzál tér Vásárcsarnok Budapest",
+    "Dohány Street Synagogue Budapest",
+    "Fröhlich Cukrászda Dob utca 22 Budapest",
+    "St Stephen's Basilica Budapest",
+    "Szimpla Kert Budapest",
+    "Hummus Bar Wesselényi utca 14 Budapest",
+    "Drop Restaurant Dohány utca 7 Budapest",
+    "Carmel Restaurant Kazinczy utca 31 Budapest",
+    "Hungarian Parliament Building Budapest",
+    "Fisherman's Bastion Budapest",
+    "Buda Castle Budapest",
+    "Vigadó tér Budapest",
+    "Instant-Fogas Akácfa utca Budapest",
+    "NonGlutén Pizzéria Király utca 58 Budapest",
+    "Hanna Kosher Restaurant Dob utca Budapest",
+    "Gettó Gulyás Wesselényi utca 18 Budapest",
+    "Szentendre Hungary",
+    "Carmel Restaurant Kazinczy utca 31 Budapest",
+    "DiVino Gozsdu Budapest",
+    "Manioka gluten free bakery Kertész utca 41 Budapest",
+    "Carmel Restaurant Kazinczy utca 31 Budapest",
+    "Bohémtanya Paulay Ede utca Budapest",
+    "Széchenyi Thermal Bath Budapest",
+    "Café Tel Aviv Kazinczy utca 30 Budapest",
+    "Budapest Ferenc Liszt Airport",
+    "Café Tel Aviv Kazinczy utca 30 Budapest",
+    "Drop Restaurant Dohány utca 7 Budapest",
+    "Fröhlich Cukrászda Dob utca 22 Budapest"
+  ];
+  const GMAP=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+
+  // Booking / ticket / reservation action for each tile, in document order.
+  // Verified official or booking sites where they exist; small phone-only
+  // restaurants link to their Google listing (call / reserve / website live there).
+  const book=[
+    null,
+    {l:"🍽 Menu & contact",u:"https://www.carmel.hu/en",note:"Open late (Sun–Thu) · takeaway window"},
+    {l:"🍽 Menu & contact",u:"https://www.carmel.hu/en",note:"Reserve / order: +36 30 259 7022"},
+    null,
+    {l:"🎟 Book tickets",u:"https://www.getyourguide.com/dohany-street-synagogue-l23656/",note:"Ticket ≈ €24 · includes guided tour · valid 90 days · fast-track when booked online"},
+    null,
+    {l:"🎟 Visit info",u:"https://www.bazilika.hu/",note:"Nave: entry by donation · panorama tower ticket sold on-site"},
+    {l:"ℹ️ Events & info",u:"https://szimpla.hu/",note:"Free entry · drinks pay-as-you-go"},
+    {l:"📞 Reserve / call",u:GMAP("Hummus Bar Wesselényi utca 14 Budapest"),note:"Walk-in friendly · call to hold a table for 4"},
+    {l:"📞 Reserve / call",u:GMAP("Drop Restaurant Dohany utca 7 Budapest"),note:"Small room — reserve ahead, especially evenings"},
+    {l:"🍽 Menu & contact",u:"https://www.carmel.hu/en",note:"Reserve: +36 30 259 7022 · book ahead for a group · live klezmer"},
+    {l:"🎟 Book tickets",u:"https://jegymester.hu/parlament",note:"Official site · 45-min guided tour · book 2–4 weeks ahead · ≈ €18 EEA / €35 non-EEA"},
+    null,
+    null,
+    {l:"🚢 Book cruise",u:"https://www.legenda.hu/en",note:"≈ 1–1.5 hr evening sailing · confirm step-free boarding when booking"},
+    {l:"ℹ️ Events & info",u:"https://www.instant-fogas.com/",note:"Free entry · pay-as-you-go"},
+    {l:"📞 Reserve / call",u:GMAP("NonGluten Pizzeria Kiraly utca 58 Budapest"),note:"Reserve ahead — small, popular GF spot"},
+    {l:"🍽 Reserve / menu",u:"https://www.hannabudapest.com/",note:"Reserve ahead for a group"},
+    {l:"📞 Reserve / call",u:GMAP("Getto Gulyas Wesselenyi utca 18 Budapest"),note:"Very popular — reserve a table in advance"},
+    {l:"🎟 Book this tour",u:"https://www.getyourguide.com/szentendre-l1568/",note:"Full day (~8.5 hr) · small group · lunch included · check accessibility before booking"},
+    {l:"🍽 Menu & contact",u:"https://www.carmel.hu/en",note:"Reserve: +36 30 259 7022"},
+    null,
+    {l:"📞 Call / info",u:GMAP("Manioka gluten free bakery Kertesz utca 41 Budapest"),note:"100% gluten-free · good for packing tour snacks"},
+    {l:"🍽 Menu & contact",u:"https://www.carmel.hu/en",note:"Whichever kosher spot you've not yet tried"},
+    {l:"📞 Reserve / call",u:GMAP("Bohemtanya Paulay Ede utca Budapest"),note:"Hearty portions · GF dishes · reserve ahead"},
+    {l:"🎟 Book tickets",u:"https://szechenyibath.com/booking/",note:"Full-day ticket · weekday ≈ €30 · private cabin option · book online to skip the queue"},
+    null,
+    null,
+    {l:"📞 Reserve / call",u:GMAP("Cafe Tel Aviv Kazinczy utca 30 Budapest"),note:"Quick & casual · good final lunch"},
+    {l:"📞 Reserve / call",u:GMAP("Drop Restaurant Dohany utca 7 Budapest"),note:"100% gluten-free · 2 min from the apartment"},
+    {l:"📞 Call / info",u:GMAP("Frohlich Cukraszda Dob utca 22 Budapest"),note:"Takeaway pastries · closed Saturday · not gluten-free"}
+  ];
+
+  document.querySelectorAll('.imgwrap').forEach((w,i)=>{
+    const q=maps[i];
+    if(q){
+      const a=document.createElement('a');
+      a.href=GMAP(q); a.target='_blank'; a.rel='noopener'; a.className='maplink';
+      a.setAttribute('aria-label','View '+q+' on Google Maps');
+      while(w.firstChild){a.appendChild(w.firstChild);}
+      const pill=document.createElement('span');
+      pill.className='mappill'; pill.textContent='📍 View on map';
+      a.appendChild(pill);
+      w.appendChild(a);
+    }
+    const b=book[i];
+    if(b){
+      const host=w.closest('.card')||w.closest('.tblock');
+      if(host){
+        if(b.note){const n=document.createElement('div');n.className='booknote';n.textContent=b.note;host.appendChild(n);}
+        const btn=document.createElement('a');
+        btn.href=b.u; btn.target='_blank'; btn.rel='noopener'; btn.className='btn'; btn.textContent=b.l;
+        host.appendChild(btn);
+      }
+    }
+  });
+</script>
+</body>
+</html>
