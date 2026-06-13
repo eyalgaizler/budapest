@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>בודפשט · 11–15 באוק׳ 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700;800&family=Frank+Ruhl+Libre:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --danube:#0E2A3B;--danube-2:#13384b;--teal:#2A8C99;--brass:#D4AF61;--brass-deep:#b8893a;
+    --paprika:#C0492E;--parchment:#F6F1E7;--parchment-2:#efe7d6;--ink:#1c1c1a;--muted:#5d6b72;
+    --line:#d9cfba;--card:#fffdf8;--shadow:0 1px 2px rgba(14,42,59,.06),0 8px 28px rgba(14,42,59,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--parchment);color:var(--ink);
+    font-family:"Heebo","Hanken Grotesk",system-ui,sans-serif;font-size:17.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:"Frank Ruhl Libre","Fraunces",Georgia,serif;font-weight:600;line-height:1.2;margin:0}
+  .mono{font-family:"Space Mono","Heebo",ui-monospace,monospace}
+  a{color:inherit}
+  img{display:block;max-width:100%}
+
+  .imgwrap{position:relative;overflow:hidden;background:linear-gradient(135deg,#2a6f7c,#102f42)}
+  .imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s ease}
+  .tphoto{height:168px;border-radius:13px;margin:0 0 15px}
+  .cphoto{height:150px;border-radius:16px 16px 0 0;margin:-18px -18px 15px}
+  .imgwrap .maplink{position:absolute;inset:0;display:block;text-decoration:none}
+  .mappill{position:absolute;inset-inline-end:8px;bottom:8px;z-index:3;background:rgba(14,42,59,.86);color:#fff;font-family:"Space Mono","Heebo",monospace;font-size:11px;letter-spacing:.2px;padding:5px 9px;border-radius:999px;display:inline-flex;align-items:center;gap:4px;border:1px solid rgba(212,162,97,.55);backdrop-filter:blur(2px);transition:.18s}
+  .imgwrap:hover .mappill{background:var(--brass);color:var(--danube)}
+  .btn{display:inline-flex;align-items:center;gap:6px;margin-top:13px;font-family:"Space Mono","Heebo",monospace;font-size:12.5px;font-weight:700;letter-spacing:.2px;text-decoration:none;background:var(--danube);color:#fff;padding:9px 14px;border-radius:10px;border:1px solid var(--danube);transition:.18s}
+  .btn:hover{background:var(--brass);color:var(--danube);border-color:var(--brass)}
+  .booknote{font-family:"Space Mono","Heebo",monospace;font-size:12px;line-height:1.6;color:var(--muted);margin-top:12px}
+  .card:hover .imgwrap img,.tblock:hover .imgwrap img{transform:scale(1.045)}
+
+  .nav{position:sticky;top:0;z-index:50;background:rgba(14,42,59,.97);backdrop-filter:blur(6px);border-bottom:1px solid rgba(212,162,97,.25)}
+  .nav-inner{max-width:1080px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{color:var(--parchment);font-family:"Frank Ruhl Libre",serif;font-weight:700;font-size:19px;white-space:nowrap}
+  .brand b{color:var(--brass)}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap;margin-inline-start:auto}
+  .nav-links a{color:#cdd9de;text-decoration:none;font-size:13.5px;font-weight:600;padding:6px 10px;border-radius:999px;transition:.18s;white-space:nowrap}
+  .nav-links a:hover,.nav-links a.active{background:var(--brass);color:var(--danube)}
+
+  .hero{position:relative;min-height:86vh;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,#10324a,#0a2030)}
+  .hero .ph,.banner .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,44,.15) 0%,rgba(10,30,44,.35) 45%,rgba(10,28,40,.93) 100%)}
+  .hero-content{position:relative;z-index:2;max-width:1080px;margin:0 auto;width:100%;padding:0 24px 64px;color:#fff}
+  .eyebrow{font-family:"Space Mono","Heebo",monospace;font-size:13px;letter-spacing:1px;color:var(--brass)}
+  .hero h1{font-size:clamp(42px,8vw,86px);font-weight:700;margin:.18em 0 .1em;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+  .hero h1 em{font-style:normal;color:var(--brass)}
+  .hero-sub{font-size:clamp(17px,2.4vw,21px);max-width:50ch;color:#e7eef1}
+  .hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .fact{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:10px 14px;backdrop-filter:blur(4px)}
+  .fact .k{font-family:"Space Mono","Heebo",monospace;font-size:11.5px;letter-spacing:.5px;color:var(--brass);display:block}
+  .fact .v{font-size:15.5px;font-weight:600;color:#fff}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section.block{padding:56px 0}
+  .sec-label{font-family:"Space Mono","Heebo",monospace;font-size:12.5px;letter-spacing:1px;color:var(--paprika);margin-bottom:8px}
+
+  .legend{background:var(--danube);color:#e7eef1}
+  .legend h2{color:#fff;font-size:27px}
+  .legend .sec-label{color:var(--brass)}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:22px}
+  .legend-item{display:flex;gap:12px;align-items:flex-start}
+  .legend-item .desc{font-size:14.5px;color:#b9c7ce}
+
+  .badge{display:inline-flex;align-items:center;gap:5px;font-family:"Space Mono","Heebo",monospace;font-size:11.5px;letter-spacing:.2px;font-weight:700;padding:4px 9px;border-radius:999px;white-space:nowrap;line-height:1.2}
+  .b-kosher{background:var(--brass);color:#3a2c08}
+  .b-gf{background:#d6efe9;color:#0c5a52;border:1px solid #9fd6cb}
+  .b-reg{background:transparent;color:var(--ink);border:1px solid var(--line)}
+  .b-acc{background:#dfe9ef;color:#16435c;border:1px solid #b7cdda}
+  .b-night{background:#241733;color:#e3c9ff;border:1px solid #5a3f78}
+  .legend .b-reg{color:#e7eef1;border-color:#3d5667}
+
+  .day{border-top:1px solid var(--line)}
+  .banner{position:relative;min-height:300px;display:flex;align-items:flex-end;overflow:hidden;background:linear-gradient(160deg,var(--danube-2),var(--danube))}
+  .banner::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,44,.1),rgba(10,28,40,.86))}
+  .banner-in{position:relative;z-index:2;max-width:1080px;margin:0 auto;width:100%;padding:0 24px 28px;color:#fff}
+  .daytag{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .daynum{font-family:"Space Mono","Heebo",monospace;font-size:13.5px;letter-spacing:.5px;color:var(--brass)}
+  .banner h2{font-size:clamp(28px,5vw,46px);text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .banner .when{font-family:"Space Mono","Heebo",monospace;font-size:13.5px;color:#dfe7eb;margin-top:6px}
+
+  .day-body{padding:34px 0 18px}
+  .daymeta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;align-items:center}
+  .chip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;box-shadow:var(--shadow)}
+  .chip b{font-family:"Space Mono","Heebo",monospace;color:var(--paprika);font-size:13px}
+
+  .spine{position:relative;margin-inline-start:8px;padding-inline-start:30px;border-inline-start:2px solid var(--line)}
+  .tblock{position:relative;padding:0 0 34px}
+  .tblock::before{content:"";position:absolute;inset-inline-start:-39px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--parchment);border:3px solid var(--brass)}
+  .tblock.rest::before{border-color:var(--teal)}
+  .tblock.eve::before{border-color:var(--paprika)}
+  .tblock.night::before{border-color:#7a52a3}
+  .ttime{font-family:"Space Mono","Heebo",monospace;font-size:13px;letter-spacing:.3px;color:var(--muted)}
+  .tcat{font-family:"Space Mono","Heebo",monospace;font-size:11.5px;letter-spacing:.3px;color:var(--brass-deep);font-weight:700;margin-top:2px}
+  .tblock.rest .tcat{color:var(--teal)}
+  .tblock.eve .tcat{color:var(--paprika)}
+  .tblock.night .tcat{color:#7a52a3}
+  .tblock h3{font-size:23px;margin:5px 0 7px}
+  .tblock p{margin:0 0 12px;color:#33312c;font-size:16px}
+  .meta-line{font-family:"Space Mono","Heebo",monospace;font-size:13px;color:var(--muted);margin:3px 0;display:flex;gap:8px;flex-wrap:wrap}
+  .meta-line span{color:var(--ink)}
+  .cost{display:inline-block;font-family:"Space Mono","Heebo",monospace;font-size:13.5px;font-weight:700;background:var(--parchment-2);border-radius:7px;padding:3px 9px;color:var(--danube)}
+  .badgerow{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 4px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:16px;margin-top:6px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .card .kind{font-family:"Space Mono","Heebo",monospace;font-size:11.5px;letter-spacing:.3px;color:var(--muted)}
+  .card h4{font-size:19.5px;margin:5px 0 6px}
+  .card p{margin:0 0 10px;font-size:15px;color:#3a3833}
+  .card .addr{font-family:"Space Mono","Heebo",monospace;font-size:12.5px;color:var(--muted);line-height:1.6}
+  .card .addr b{color:var(--ink);font-weight:700}
+  .subhead{display:flex;align-items:center;gap:12px;margin:34px 0 4px}
+  .subhead .sec-label{margin:0}
+  .subhead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+  .transport{background:var(--parchment-2);border-radius:16px;padding:20px 22px;margin-top:14px;border:1px solid var(--line)}
+  .transport ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:9px}
+  .transport li{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+  .transport li .ico{flex:none;width:24px;text-align:center}
+  .transport li .price{margin-inline-start:auto;font-family:"Space Mono","Heebo",monospace;font-weight:700;font-size:13.5px;color:var(--danube);white-space:nowrap}
+
+  .notes{background:var(--danube);color:#dfe7eb}
+  .notes h2{color:#fff}
+  .notes .sec-label{color:var(--brass)}
+  .notegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+  .note{background:rgba(255,255,255,.05);border:1px solid rgba(212,162,97,.22);border-radius:14px;padding:18px 20px}
+  .note h4{color:var(--brass);font-size:18px;margin-bottom:8px}
+  .note p{font-size:14.5px;color:#c4d0d6;margin:0 0 8px}
+  .note .flag{color:var(--paprika);font-weight:700}
+
+  footer{background:#081a26;color:#7e919b;text-align:center;padding:34px 24px;font-size:13.5px}
+  footer .mono{color:var(--brass)}
+
+  .langfab{position:fixed;bottom:18px;right:18px;z-index:60;display:inline-flex;align-items:center;gap:7px;background:var(--brass);color:var(--danube);font-family:"Space Mono","Heebo",monospace;font-weight:700;font-size:14px;letter-spacing:.2px;text-decoration:none;padding:11px 17px;border-radius:999px;box-shadow:0 6px 20px rgba(14,42,59,.35);border:1px solid var(--brass-deep);transition:.18s}
+  .langfab:hover{background:#fff;color:var(--danube)}
+
+  @media (max-width:560px){
+    body{font-size:16.5px}.hero{min-height:78vh}
+    .nav-links{width:100%;margin-inline-start:0;justify-content:flex-start}.spine{margin-inline-start:4px}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">בודפשט <b>·</b> <span class="mono" style="font-size:14px">11–15 אוק׳</span></div>
+    <div class="nav-links">
+      <a href="#overview">סקירה</a><a href="#day1">א׳</a><a href="#day2">ב׳</a>
+      <a href="#day3">ג׳</a><a href="#day4">ד׳</a><a href="#day5">ה׳</a><a href="#notes">הערות</a>
+      <a href="index.html" style="background:var(--brass);color:var(--danube)">English</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="ph" alt="בניין הפרלמנט ההונגרי זוהר מעל הדנובה בשעת בין הערביים"
+    src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=1600" onerror="this.remove()">
+  <div class="hero-content">
+    <div class="eyebrow">טיול משפחתי · 4 לילות · סתיו על הדנובה</div>
+    <h1>חמישה ימים ב<em>בודפשט</em></h1>
+    <p class="hero-sub">בלב הרובע היהודי, במרחק הליכה מהשולחן הכשר, מבתי הכנסת הגדולים ומהנהר. בנוי סביב כל הקבוצה — כולל ימים קלים ושטוחים שמתאימים לכולם.</p>
+    <div class="hero-facts">
+      <div class="fact"><span class="k">תאריכים</span><span class="v">11–15 באוק׳ 2026</span></div>
+      <div class="fact"><span class="k">קבוצה</span><span class="v">4 מבוגרים</span></div>
+      <div class="fact"><span class="k">בסיס</span><span class="v">סִיפּ אוטצה 16–18, רובע VII</span></div>
+      <div class="fact"><span class="k">אוכל</span><span class="v">כשר + מודע לגלוטן</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="block legend" id="overview">
+  <div class="wrap">
+    <div class="sec-label">איך לקרוא את התוכנית</div>
+    <h2>בסיס אחד, חמישה ימים, משהו לכל אחד</h2>
+    <p style="max-width:64ch;color:#c4d0d6;margin-top:14px">
+      כל יום מתנהל על אותו קצב שביקשתם: <b style="color:#fff">בוקר</b> בחוץ, <b style="color:#fff">הפוגה איטית (14:00–17:00)</b> ליד הדירה, ו<b style="color:#fff">ערב</b>. ברוב הימים יש גם <b style="color:#fff">ערב אחים</b> מאוחר. כל ארוחה כוללת אפשרות כשרה ואפשרות ללא-גלוטן / רגילה, כך שהשולחן אף פעם לא צריך להתפשר.</p>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="badge b-kosher">כשר</span><span class="desc">גלאט / מהדרין, בהשגחת חב״ד או אורתודוקסית. כולם יכולים לשבת יחד לשולחנות האלה.</span></div>
+      <div class="legend-item"><span class="badge b-gf">ללא גלוטן</span><span class="desc">מטבח ייעודי 100% ללא גלוטן — בטוח לצליאק, ואוכל באמת טוב.</span></div>
+      <div class="legend-item"><span class="badge b-reg">רגיל</span><span class="desc">בחירה מקומית מצוינת לשלושה שללא הגבלות (לא כשר).</span></div>
+      <div class="legend-item"><span class="badge b-acc">♿ נוח</span><span class="desc">שטוח, מעט מדרגות, או נפתר במעלית/פוניקולר — עדין על הניידות.</span></div>
+      <div class="legend-item"><span class="badge b-night">🌙 האחים</span><span class="desc">אפשרויות לילה מאוחרות לאחים בלבד.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<article class="day" id="day1">
+  <div class="banner">
+    <img class="ph" alt="גשר השרשרת מואר מעל הדנובה בלילה"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Sz%C3%A9chenyi%20Chain%20Bridge%20in%20Budapest%20at%20night.jpg?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">יום 01 — ראשון</span></div>
+      <h2>נחיתה, התמקמות, נשימה</h2><div class="when">11 באוק׳ · הגעה 21:30 · בלי תוכניות, רק בסיס בית</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">תקציב יומי <b>≈ €20 לאדם</b></span><span class="chip">אווירה: הגעה רגועה</span><span class="badge b-acc">♿ נוח</span></div>
+    <div class="spine">
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="הפרלמנט של בודפשט בלילה" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">21:30 → ~22:30</div><div class="tcat">הגעה</div>
+        <h3>משדה התעופה אל הדירה</h3>
+        <p>נוחתים בנמל התעופה פרנץ ליסט (BUD), כ-22 ק״מ מהמרכז. עם מזוודות ובשעה מאוחרת, הסעה פרטית מוזמנת מראש או Bolt הם הבחירה הקלה — מדלת לדלת תוך 25–35 דקות, בלי מדרגות.</p>
+        <div class="meta-line">⏱ <span>~30 דק׳ נסיעה לרובע VII</span></div>
+        <div class="badgerow"><span class="badge b-acc">♿ רכב מדלת לדלת</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="צלחת ישראלית" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~22:45</div><div class="tcat">ביס מאוחר (רשות)</div>
+        <h3>טעימה ראשונה, אם מישהו רעב</h3>
+        <p>רוב המטבחים הכשרים נסגרים בשעה זו, אבל חלון הטייקאווי של כרמל נשאר פתוח עד מאוחר — שווארמה, שניצל, פלאפל כמה דקות מהדלת. אחרת, פשוט למלא את המקרר מחר ולקרוא לזה לילה.</p>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">השולחן הלילה</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="צלחת אוכל ישראלי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">כשר · חלון מאוחר</span><h4>כרמל אקספרס (טייקאווי)</h4>
+        <p>דלפק המזון המהיר של מטבח כרמל — נסגר הכי מאוחר ברובע.</p>
+        <div class="addr"><b>Kazinczy u. 32</b><br>א׳–ה׳ עד ~00:00 · מהדרין (חב״ד)</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€8–14 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="פנים שוק מקורה בבודפשט" src="https://commons.wikimedia.org/wiki/Special:FilePath/Central%20market%20hall%2C%20Budapest.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">למלא את המטבח</span><h4>מצרכי בסיס לדירה</h4>
+        <p>עם מטבח מלא, קנייה מוקדמת מחר (שוק כיכר קלאוזאל, או Spar קרוב) מכסה ארוחות בוקר וחטיפים לכל השבוע.</p>
+        <div class="addr"><b>שוק כיכר קלאוזאל</b><br>~4 דק׳ הליכה · הבוקר הכי טוב, ב׳–ש׳</div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">ההגעה</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚗</span> הסעה פרטית מוזמנת מראש (עד 4 + מזוודות, רכב נגיש לפי בקשה) <span class="price">≈ €35–45 לרכב</span></li>
+      <li><span class="ico">📱</span> Bolt / מונית מהתחנה (רכב גדול אחד לקבוצה) <span class="price">≈ €30–40 לרכב</span></li>
+      <li><span class="ico">🚌</span> אוטובוס שדה התעופה 100E — הזול ביותר, אך לא אידיאלי מאוחר עם מזוודות <span class="price">≈ €5 לאדם</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 2 -->
+<article class="day" id="day2">
+  <div class="banner">
+    <img class="ph" alt="בית הכנסת הגדול ברחוב דוהאני"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Synagogue%20Budapest.jpg?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">יום 02 — שני</span></div>
+      <h2>הרובע היהודי, ברגל</h2><div class="when">12 באוק׳ · יום ראשון עדין · הכול במרחק 10 דקות</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">תקציב יומי <b>≈ €73 לאדם</b></span><span class="chip">הכול שטוח, הכול להליכה</span><span class="badge b-acc">♿ נוח</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="בית הכנסת הגדול ברחוב דוהאני" src="https://commons.wikimedia.org/wiki/Special:FilePath/Great%20Synagogue%20Budapest.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">09:30 → 13:00</div><div class="tcat">בוקר</div>
+        <h3>בית הכנסת ברחוב דוהאני והרובע</h3>
+        <p>מתחילים בבית הכנסת הגדול באירופה — הביקור המודרך כולל את המוזיאון היהודי ואנדרטת עץ החיים בגן, הכול נגיש בכיסא גלגלים דרך רמפה. אחר כך הקפה איטי ליד בתי הכנסת קזינצי ורומבך ודרך מעבר חצר גוז׳דו. שום דבר אינו רחוק יותר מכמה דקות.</p>
+        <div class="meta-line">📍 <span>Dohány u. 2</span> · 🕒 א׳–ה׳, סגור בשבת</div>
+        <div class="badgerow"><span class="badge b-acc">♿ גישת רמפה</span><span class="cost">בית הכנסת ≈ €30 לאדם</span></div>
+      </div>
+      <div class="tblock rest reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="פלודני, מאפה יהודי-הונגרי מסורתי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B3dni.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">14:00 → 17:00</div><div class="tcat">ההפוגה האיטית</div>
+        <h3>חזרה לדירה</h3>
+        <p>קודם צהריים (למטה), ואז מנוחה בבסיס הבית. קפה ומאפה פלודני מ-Fröhlich ברחוב דוב הם שליחות שקטה ונחמדה למי שנשארה אנרגיה.</p>
+        <div class="badgerow"><span class="badge b-acc">♿ 3 דק׳ מהבסיס</span></div>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="בזיליקת סנט סטפן" src="https://commons.wikimedia.org/wiki/Special:FilePath/St%20Stephen%27s%20Basilica%20%2827184201240%29.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">17:30 → 20:30</div><div class="tcat">ערב</div>
+        <h3>כיכר הבזיליקה בין הערביים + ארוחת ערב</h3>
+        <p>טיול קל (או Bolt של 5 דקות) אל בזיליקת סנט סטפן — הכיכר מרשימה, שטוחה ומקסימה כשהאורות נדלקים. קומת הקרקע נגישה לחלוטין; דלגו על מדרגות המגדל. ארוחת ערב בחזרה ברובע.</p>
+        <div class="meta-line">📍 <span>Szent István tér</span> · 🕒 פתוח עד מאוחר</div>
+        <div class="badgerow"><span class="badge b-acc">♿ כיכר שטוחה</span><span class="cost">כניסה לבזיליקה ≈ €3 לאדם</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="בר חורבה סימפלה קרט" src="https://commons.wikimedia.org/wiki/Special:FilePath/Budapest%20-%20Szimpla%20Kert%20%2826688416599%29.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">21:30 →</div><div class="tcat">ערב האחים</div>
+        <h3>סימפלה קרט — בר החורבה המקורי</h3>
+        <p>זה שהתחיל את סצנת בארי-החורבה של בודפשט: חצר מתפוררת מלאה רהיטים לא תואמים, אורות פיות וקהל תוסס. שתי דקות מהדירה, כך שזו כניסה-ויציאה קלה.</p>
+        <div class="meta-line">📍 <span>Kazinczy u. 14</span> · 🕒 עד מאוחר</div>
+        <div class="badgerow"><span class="badge b-night">🌙 האחים</span><span class="cost">משקאות €3–6 כל אחד</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איפה לאכול היום</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="צלחת חומוס" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">צהריים · שולחן משותף</span><h4>האמוס בר (כשר)</h4>
+        <p>צלחות ישראליות — חומוס, שקשוקה, סלטים — קל ומהיר. חומוס ושקשוקה הם בטבעם ללא גלוטן; רק שימו לב לפיתה/פלאפל.</p>
+        <div class="addr"><b>Wesselényi u. 14</b><br>א׳–ה׳ 12:00–23:00 · מהדרין (חב״ד)</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€10–15 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="גולאש הונגרי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">צהריים · ללא גלוטן</span><h4>מסעדת Drop</h4>
+        <p>בישול הונגרי 100% ללא גלוטן — הגולאש והרטטוי מקבלים ביקורות נלהבות. בטוח לצליאק ופינוק לכולם. שתי דקות מהדירה.</p>
+        <div class="addr"><b>Dohány u. 7</b><br>בכל יום · מטבח 100% ללא גלוטן</div>
+        <div class="badgerow"><span class="badge b-gf">ללא גלוטן</span><span class="badge b-reg">רגיל</span><span class="cost">€15–25 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="מנת בשר יהודית-הונגרית" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">ערב · שולחן משותף</span><h4>כרמל (כשר)</h4>
+        <p>מוסד הגלאט-כשר האמין של הרובע — מנות יהודיות-הונגריות קלאסיות עם שלישיית קלזמר חיה. הזמינו מראש לקבוצה. הבשרים בגריל והמרקים הם הבחירות הידידותיות לללא-גלוטן כאן.</p>
+        <div class="addr"><b>Kazinczy u. 31</b><br>א׳–ה׳ 12:00–22:30 · גלאט (חב״ד)</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€20–30 לאדם</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איך מתניידים</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚶</span> כל היום ברגל — מהבסיס לכל מקום 3–10 דק׳, שטוח <span class="price">חינם</span></li>
+      <li><span class="ico">📱</span> Bolt רשות לבזיליקה ובחזרה אם הרגליים עייפות <span class="price">≈ €4–6 לנסיעה</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 3 -->
+<article class="day" id="day3">
+  <div class="banner">
+    <img class="ph" alt="מצודת הדייגים בצד בודה"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Fishermans%20bastion%20Budapest%20IMG%201429.JPG?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">יום 03 — שלישי</span></div>
+      <h2>יום הסיורים הגדול</h2><div class="when">13 באוק׳ · הפרלמנט, הנהר, גבעת ארמון בודה</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">תקציב יומי <b>≈ €110 לאדם</b></span><span class="chip">הגבעות נפתרות בפוניקולר</span><span class="badge b-acc">♿ נוח עם מוניות + פוניקולר</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="הפרלמנט ההונגרי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">09:00 → 11:00</div><div class="tcat">בוקר · חלק 1</div>
+        <h3>הפרלמנט ההונגרי</h3>
+        <p>הבניין האייקוני ביותר בהונגריה, ממש על הנהר. הסיור הפנימי המודרך נגיש לחלוטין ושווה הזמנה מראש אונליין — המקומות נחטפים. גם רק החזית וכיכר קושוט הם שיא.</p>
+        <div class="meta-line">📍 <span>Kossuth Lajos tér 1–3</span> · 🎟 הזמינו מראש</div>
+        <div class="badgerow"><span class="badge b-acc">♿ סיור נגיש</span><span class="cost">סיור ≈ €20 לאדם</span></div>
+      </div>
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="מרפסות מצודת הדייגים" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fishermans%20bastion%20Budapest%20IMG%201429.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">11:15 → 13:30</div><div class="tcat">בוקר · חלק 2</div>
+        <h3>הנעליים על הדנובה ← גבעת ארמון בודה</h3>
+        <p>הליכה קצרה לאורך הנהר אל אנדרטת הנעליים המרגשת וגשר השרשרת, ואז קפיצה בפוניקולר ההיסטורי אל הארמון — בלי טיפוס. למעלה: המרפסות האגדיות של מצודת הדייגים וכנסיית מתיאש, עם הנוף הטוב ביותר על העיר. מרפסת כיכר השילוש המרכזית נגישה ללא המדרגות.</p>
+        <div class="meta-line">📍 <span>פוניקולר: Clark Ádám tér</span></div>
+        <div class="badgerow"><span class="badge b-acc">♿ פוניקולר במעלה הגבעה</span><span class="cost">פוניקולר ≈ €12 הלוך-חזור</span></div>
+      </div>
+      <div class="tblock rest reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="צהריים של גולאש הונגרי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">14:30 → 17:00</div><div class="tcat">ההפוגה האיטית</div>
+        <h3>צהריים + מנוחה</h3>
+        <p>צהריים למעלה ליד הארמון או בחזרה בפשט (ראו למטה), ואז הביתה להיטען לפני הערב על המים.</p>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="גשר השרשרת והדנובה בלילה" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sz%C3%A9chenyi%20Chain%20Bridge%20in%20Budapest%20at%20night.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">18:30 → 21:00</div><div class="tcat">ערב</div>
+        <h3>שייט על הדנובה אחרי החשכה</h3>
+        <p>הדבר היפה ביותר בבודפשט: הפרלמנט המואר, הגשרים והארמון חולפים מהנהר. בישיבה לכל אורך הדרך, עולים בגובה המים — בקשו מהמפעיל לאשר עלייה ללא מדרגות. ערב קל ומושלם לכל הקבוצה.</p>
+        <div class="meta-line">📍 <span>רציפים סביב Vigadó tér</span> · 🕒 הפלגות ערב</div>
+        <div class="badgerow"><span class="badge b-acc">♿ בישיבה, עלייה בגובה הרציף</span><span class="cost">שייט ≈ €25–35 לאדם</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="בר חורבה ברובע היהודי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Budapest%20-%20Szimpla%20Kert%20%2826688416599%29.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">21:30 →</div><div class="tcat">ערב האחים</div>
+        <h3>אינסטנט-פוגאש — מתחם החורבה הענק</h3>
+        <p>מבוך של בארי חורבה מחוברים, רחבות ריקוד וחצרות — מתחם המסיבות הגדול ברובע, חמש דקות מהבית. או לשמור על רגוע בבר יין בגוז׳דו עם מבחר טוקאי הונגרי.</p>
+        <div class="meta-line">📍 <span>Akácfa u. 49–51</span></div>
+        <div class="badgerow"><span class="badge b-night">🌙 האחים</span><span class="cost">משקאות €3–8 כל אחד</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איפה לאכול היום</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="פיצה מרגריטה" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eq%20it-na%20pizza-margherita%20sep2005%20sml.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">צהריים · ללא גלוטן</span><h4>NonGlutén Pizzéria</h4>
+        <p>איטלקי 100% ללא גלוטן — פיצה, פסטה ואפילו טירמיסו ברמה גבוהה. שובה לב שבמקרה גם בטוח לצליאק. נסיעת חשמלית קצרה מהמרכז.</p>
+        <div class="addr"><b>Király u. 58</b><br>בכל יום · מטבח 100% ללא גלוטן</div>
+        <div class="badgerow"><span class="badge b-gf">ללא גלוטן</span><span class="badge b-reg">רגיל</span><span class="cost">€12–20 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="מנה יהודית-הונגרית" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">ערב · שולחן משותף</span><h4>חנה (כשר)</h4>
+        <p>גלאט-כשר אורתודוקסי בחצר בית הכנסת קזינצי — בישול אשכנזי והונגרי בנוסח ישן, רוענן לאחרונה בידי שף ישראלי. טעם שונה מכרמל.</p>
+        <div class="addr"><b>Dob u. 35 (חצר בית הכנסת)</b><br>א׳–ה׳ · גלאט אורתודוקסי</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€18–28 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="תבשיל גולאש" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">ערב · רגיל (השלושה)</span><h4>Gettó Gulyás</h4>
+        <p>בישול נחמה הונגרי אהוב — גולאש, תבשילים, מנות גדולות — בלב הרובע. לא כשר; בחירה מצוינת כשהשלושה רוצים את הקלאסיקה המקומית.</p>
+        <div class="addr"><b>Wesselényi u. 18</b><br>בכל יום · הזמינו מראש, זה פופולרי</div>
+        <div class="badgerow"><span class="badge b-reg">רגיל</span><span class="cost">€15–25 לאדם</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איך מתניידים</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">📱</span> Bolt בין הרובע, הפרלמנט והנהר (קפיצות קצרות) <span class="price">≈ €4–7 לנסיעה</span></li>
+      <li><span class="ico">🚠</span> פוניקולר ארמון בודה (הדרך הקלה במעלה הגבעה) <span class="price">≈ €12 הלוך-חזור</span></li>
+      <li><span class="ico">🚋</span> חשמלית 2 לאורך הנהר — נופית ורצפה נמוכה <span class="price">≈ €1.15 לנסיעה</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 4 -->
+<article class="day" id="day4">
+  <div class="banner">
+    <img class="ph" alt="הכיכר הראשית הצבעונית של סנטֶנדרֶה"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Main%20Square%2C%20Szentendre%2C%20Hungary.JPG?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">יום 04 — רביעי</span></div>
+      <h2>החוצה אל הונגריה — טיול היום</h2><div class="when">14 באוק׳ · מצטרפים לסיור מודרך בקבוצה קטנה</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">תקציב יומי <b>≈ €120 לאדם</b></span><span class="chip">יום מלא · אוטובוס + מדריך</span><span class="badge b-acc">♿ ראו הערת נגישות</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="העיירה הנהרית סנטֶנדרֶה" src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Main%20Square%2C%20Szentendre%2C%20Hungary.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~08:30 → ~18:00</div><div class="tcat">יום שלם · סיור קבוצתי</div>
+        <h3>פיתול הדנובה: סנטֶנדרֶה, וישֶגרד ואֶסטֶרגום</h3>
+        <p>יום בחוץ בקבוצה משותפת (לא פרטי) עם מדריך דובר אנגלית — בדיוק ה"לראות איך הונגריה חיה מחוץ לבירה" שביקשתם. סנטֶנדרֶה המרוצפת על הנהר וחנויות האמנים שלה, נופי המצודה על הגבעה בווישֶגרד, והבזיליקה ההונגרית העצומה כחולת-הכיפה באֶסטֶרגום. תחבורה וצהריים בישיבה כלולים; המדריך מטפל בכל התזמון.</p>
+        <div class="meta-line">🚌 <span>איסוף מרכזי</span> · 🍽 צהריים כלול · 👥 קבוצה קטנה</div>
+        <div class="badgerow"><span class="badge b-acc">♿ חלקית — ראו הערה</span><span class="cost">סיור ≈ €90–110 לאדם</span></div>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="ארוחת ערב הונגרית" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~19:30 → 21:30</div><div class="tcat">ערב</div>
+        <h3>ארוחת ערב קלה בחזרה בבית</h3>
+        <p>אחרי יום ארוך על הכביש, נשארים קרוב ופשוט — ארוחת ערב כשרה ברובע, בלי נסיעות נוספות.</p>
+        <div class="badgerow"><span class="badge b-acc">♿ הליכה מהבסיס</span></div>
+      </div>
+      <div class="tblock night reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="כוס יין אדום" src="https://commons.wikimedia.org/wiki/Special:FilePath/Red%20Wine%20Glass.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">22:00 →</div><div class="tcat">ערב האחים (קליל יותר)</div>
+        <h3>רגיעה בבר יין</h3>
+        <p>נימה איטית יותר הערב: בר יין הונגרי במעבר גוז׳דו (Doblo או DiVino) לכוס טוקאי או אֶגרי בּיקאוֶר במקום כל מסלול בארי-החורבה.</p>
+        <div class="meta-line">📍 <span>Dob u. 20 / Gozsdu</span></div>
+        <div class="badgerow"><span class="badge b-night">🌙 האחים</span><span class="cost">כוסות €4–8 כל אחת</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איפה לאכול היום</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="מאפים ממאפיית ללא גלוטן" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B3dni.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">במהלך היום · בסיור</span><h4>צהריים כלול</h4>
+        <p>צהריים הסיור לא יהיה כשר ולא מובטח ללא-גלוטן. קחו גיבוי כשר/ללא-גלוטן מהדירה (השוק ומאפיית Manioka ללא-גלוטן מצוינים לאריזת חטיפים יום קודם).</p>
+        <div class="addr"><b>ארזו מראש</b><br>מאפיית Manioka ללא-גלוטן · Kertész u. 41</div>
+        <div class="badgerow"><span class="badge b-gf">גיבוי ללא גלוטן</span><span class="badge b-kosher">גיבוי כשר</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="צלחת חומוס" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">ערב · שולחן משותף</span><h4>כרמל או האמוס בר (כשר)</h4>
+        <p>מה שלא עשיתם קודם בשבוע — שניהם דקות מהדלת ופתוחים א׳–ה׳.</p>
+        <div class="addr"><b>Kazinczy u. 31 / Wesselényi u. 14</b><br>א׳–ה׳ בערב</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€15–30 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="אוכל נחמה הונגרי" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">ערב · ללא גלוטן</span><h4>Bohémtanya</h4>
+        <p>קלאסיקות הונגריות דשנות עם מנות ללא-גלוטן ייעודיות אמינות ומנות נדיבות — מקום רגוע לרגיל-וללא-גלוטן אחרי יום גדול.</p>
+        <div class="addr"><b>Paulay Ede u. 6</b><br>בכל יום · יש מנות ללא גלוטן</div>
+        <div class="badgerow"><span class="badge b-gf">ללא גלוטן</span><span class="badge b-reg">רגיל</span><span class="cost">€12–20 לאדם</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איך מגיעים</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚌</span> אוטובוס ממוזג, כלול במחיר הסיור <span class="price">כלול</span></li>
+      <li><span class="ico">♿</span> חלופה עדינה יותר אם הפיתול נראה יותר מדי: סיור קבוצתי שטוח יותר ל<b>סנטֶנדרֶה + ארמון גֶדֶלֶה</b> <span class="price">≈ €80–100 לאדם</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<!-- DAY 5 -->
+<article class="day" id="day5">
+  <div class="banner">
+    <img class="ph" alt="הבריכות החיצוניות הגדולות של מרחצאות סצֶ׳ני"
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Szechenyi%20Baths%20and%20Pool%20Budapest%208.JPG?width=1600" onerror="this.remove()">
+    <div class="banner-in"><div class="daytag"><span class="daynum">יום 05 — חמישי</span></div>
+      <h2>בוקר אחרון, ואז הביתה</h2><div class="when">15 באוק׳ · יציאה 16:30 · בוקר בלבד</div></div>
+  </div>
+  <div class="wrap day-body">
+    <div class="daymeta"><span class="chip">תקציב יומי <b>≈ €60 לאדם</b></span><span class="chip">יוצאים לשדה התעופה ~14:00</span><span class="badge b-acc">♿ נוח</span></div>
+    <div class="spine">
+      <div class="tblock reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="מרחצאות תרמיים סצֶ׳ני" src="https://commons.wikimedia.org/wiki/Special:FilePath/Szechenyi%20Baths%20and%20Pool%20Budapest%208.JPG?width=800" onerror="this.remove()"></div>
+        <div class="ttime">09:30 → 12:30</div><div class="tcat">בוקר · בחרו אחת</div>
+        <h3>מרחצאות תרמיים, או שוק האוכל הגדול</h3>
+        <p><b>אפשרות א׳ — מרחצאות סצֶ׳ני:</b> הבריכות התרמיות המפוארות של בודפשט בפארק העיר, פרידה חמה וקלה (לחלק מהבריכות יש מעליות; שאלו בכניסה). שימו לב: מרחצאות גֶלֶרט המפורסמים סגורים לשיפוץ עד 2028, אז סצֶ׳ני הם הבחירה.<br>
+        <b>אפשרות ב׳ — שוק האוכל הגדול:</b> שטוח, מקורה ונגיש לחלוטין — מזכרות אחרונות, פפריקה ושיטוט נינוח לפני שיוצאים.</p>
+        <div class="meta-line">📍 <span>מרחצאות: Állatkerti krt. 9–11</span> · <span>שוק: Vámház krt. 1–3</span></div>
+        <div class="badgerow"><span class="badge b-acc">♿ שניהם נוחים</span><span class="cost">מרחצאות ≈ €32 לאדם · השוק חינם</span></div>
+      </div>
+      <div class="tblock rest reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="צהריים הונגרי אחרון" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">12:30 → 13:30</div><div class="tcat">צהריים אחרון</div>
+        <h3>ביס אחרון ליד הבסיס</h3>
+        <p>צהריים מהיר קרוב לדירה כדי שלא יהיה לחץ, ואז אורזים.</p>
+      </div>
+      <div class="tblock eve reveal">
+        <div class="imgwrap tphoto"><img loading="lazy" alt="פרידה מהפרלמנט של בודפשט" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parliament%20Building%20Budapest%20Hungary.jpg?width=800" onerror="this.remove()"></div>
+        <div class="ttime">~14:00 → 16:30</div><div class="tcat">יציאה</div>
+        <h3>מהדירה אל שדה התעופה</h3>
+        <p>הזמינו את ההסעה חזרה לסביבות 14:00 כדי לתת מרווח נוח לטיסה ב-16:30.</p>
+        <div class="badgerow"><span class="badge b-acc">♿ רכב מדלת לדלת</span><span class="cost">הסעה ≈ €35–45 לרכב</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">הארוחות האחרונות</span></div>
+    <div class="cards">
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="צלחת ישראלית" src="https://commons.wikimedia.org/wiki/Special:FilePath/Hummus-Tahine-03.JPG?width=800" onerror="this.remove()"></div>
+        <span class="kind">צהריים · שולחן משותף</span><h4>קפה תל אביב (כשר)</h4>
+        <p>צלחות ישראליות קלות — פלאפל, שקשוקה, חומוס — מהיר וקרוב לצהריים אחרון ללא לחץ.</p>
+        <div class="addr"><b>Kazinczy u. 30</b><br>א׳–ה׳ · כשר (חב״ד)</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€8–14 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="גולאש ללא גלוטן" src="https://commons.wikimedia.org/wiki/Special:FilePath/Guly%C3%A1sleves.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">צהריים · ללא גלוטן</span><h4>מסעדת Drop (שוב)</h4>
+        <p>אם הגולאש ללא-הגלוטן היה להיט ביום ב׳, זה הדרן ראוי — וזה שתי דקות משם.</p>
+        <div class="addr"><b>Dohány u. 7</b><br>בכל יום · 100% ללא גלוטן</div>
+        <div class="badgerow"><span class="badge b-gf">ללא גלוטן</span><span class="badge b-reg">רגיל</span><span class="cost">€15–25 לאדם</span></div>
+      </div>
+      <div class="card">
+        <div class="imgwrap cphoto"><img loading="lazy" alt="מאפה פלודני" src="https://commons.wikimedia.org/wiki/Special:FilePath/Fl%C3%B3dni.jpg?width=800" onerror="this.remove()"></div>
+        <span class="kind">פרידה מתוקה</span><h4>קונדיטוריית Fröhlich (כשר)</h4>
+        <p>קחו פלודני ומאפים יהודיים-הונגריים לדרך. (שימו לב: לא ללא גלוטן.)</p>
+        <div class="addr"><b>Dob u. 22</b><br>א׳–ה׳, שישי בבוקר · כשר</div>
+        <div class="badgerow"><span class="badge b-kosher">כשר</span><span class="cost">€3–6</span></div>
+      </div>
+    </div>
+
+    <div class="subhead"><span class="sec-label">איך יוצאים</span></div>
+    <div class="transport"><ul>
+      <li><span class="ico">🚗</span> הסעה מוזמנת מראש ל-BUD (איסוף ~14:00) <span class="price">≈ €35–45 לרכב</span></li>
+      <li><span class="ico">📱</span> או Bolt XL לקבוצה <span class="price">≈ €30–40 לרכב</span></li>
+    </ul></div>
+  </div>
+</article>
+
+<section class="block notes" id="notes">
+  <div class="wrap">
+    <div class="sec-label">לפני שיוצאים — האותיות הקטנות שחשובות</div>
+    <h2>הערות מעשיות</h2>
+    <div class="notegrid">
+      <div class="note"><h4>כשר — מי יכול לשבת יחד</h4>
+        <p>המסעדות הכשרות (כרמל, חנה, האמוס בר, קפה תל אביב) הן השולחנות שכל הארבעה יכולים לחלוק. כרמל וחנה הן גלאט בהשגחת חב״ד / אורתודוקסית; כולן א׳–ה׳ וסגורות בשבת.</p>
+        <p><span class="flag">טיפ:</span> הזמינו את כרמל מראש לקבוצה.</p></div>
+      <div class="note"><h4>ללא גלוטן — הבחירות הבטוחות</h4>
+        <p>מטבחים ייעודיים 100% ללא גלוטן (Drop, NonGlutén, Bohémtanya) הם הבחירות הבטוחות לצליאק ומשמשים גם כמסעדות רגילות מצוינות. במקומות הכשרים, הישענו על בשרים בגריל, מרקים וסלטים, ושאלו את המטבח — חמין (שעורה) וכדורי מצה מכילים גלוטן.</p></div>
+      <div class="note"><h4>נגישות</h4>
+        <p>פשט שטוחה; הדירה דקות מהשולחן הכשר ברחובות מישוריים. גבעת בודה נפתרת בפוניקולר, ושייט הנהר בישיבה. <span class="flag">אזהרת יום ד׳:</span> סנטֶנדרֶה מרוצפת ווישֶגרד היא על גבעה — האוטובוס עושה את הנהיגה, אך חלופת גֶדֶלֶה העדינה זמינה אם צריך.</p></div>
+      <div class="note"><h4>להזמין מראש</h4>
+        <p>סיור הפרלמנט (המקומות נחטפים), סיור קבוצת פיתול הדנובה, שייט הערב, ושולחן קבוצתי בכרמל. אשרו עלייה ללא מדרגות עם מפעיל השייט ורכב נגיש עם ההסעה.</p></div>
+      <div class="note"><h4>מוזיקה חיה וקונצרטים</h4>
+        <p>הופעות אוקטובר הגדולות עדיין לא כולן מפורסמות כל כך מוקדם. בדקו ב-<span class="flag">eventim.hu</span> וב-<span class="flag">songkick.com</span> קרוב לתאריך. לערב אמין ונגיש, בית האופרה הממלכתי ההונגרי (Andrássy út 22) ואקדמיית ליסט (Liszt Ferenc tér 8) הם ברמה עולמית ויפהפיים.</p></div>
+      <div class="note"><h4>כסף ותחבורה</h4>
+        <p>המחירים משוערים, לאדם, ~€1 ≈ 395 פורינט. המרכז להליכה; לכל השאר, Bolt זול ומדלת לדלת (הכי טוב עם ניידות מוגבלת). כרטיס נסיעות 72 שעות של BKK (~€15) מכסה חשמליות ומטרו אם תעדיפו לנסוע.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="mono">בודפשט · 11–15 באוקטובר 2026 · רובע VII</div>
+  <p style="margin:10px 0 0">תוכנית עבודה — זמנים, מחירים ושעות פתיחה לאישור בעת ההזמנה.</p>
+</footer>
+
+<a class="langfab" href="index.html" aria-label="Switch to English">🌐 English</a>
+
+<script>
+  const links=[...document.querySelectorAll('.nav-links a')];
+  const secs=[...document.querySelectorAll('article.day, section#overview, section#notes')];
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));}});},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>io.observe(s));
+  const rev=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rev.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>rev.observe(el));
+
+  const maps=[
+    "Budapest Ferenc Liszt Airport",
+    "Carmel Budapest Kazinczy utca 32",
+    "Carmel Budapest Kazinczy utca 32",
+    "Klauzál tér Vásárcsarnok Budapest",
+    "Dohány Street Synagogue Budapest",
+    "Fröhlich Cukrászda Dob utca 22 Budapest",
+    "St Stephen's Basilica Budapest",
+    "Szimpla Kert Budapest",
+    "Hummus Bar Wesselényi utca 14 Budapest",
+    "Drop Restaurant Dohány utca 7 Budapest",
+    "Carmel Restaurant Kazinczy utca 31 Budapest",
+    "Hungarian Parliament Building Budapest",
+    "Fisherman's Bastion Budapest",
+    "Buda Castle Budapest",
+    "Vigadó tér Budapest",
+    "Instant-Fogas Akácfa utca Budapest",
+    "NonGlutén Pizzéria Király utca 58 Budapest",
+    "Hanna Kosher Restaurant Dob utca Budapest",
+    "Gettó Gulyás Wesselényi utca 18 Budapest",
+    "Szentendre Hungary",
+    "Carmel Restaurant Kazinczy utca 31 Budapest",
+    "DiVino Gozsdu Budapest",
+    "Manioka gluten free bakery Kertész utca 41 Budapest",
+    "Carmel Restaurant Kazinczy utca 31 Budapest",
+    "Bohémtanya Paulay Ede utca Budapest",
+    "Széchenyi Thermal Bath Budapest",
+    "Café Tel Aviv Kazinczy utca 30 Budapest",
+    "Budapest Ferenc Liszt Airport",
+    "Café Tel Aviv Kazinczy utca 30 Budapest",
+    "Drop Restaurant Dohány utca 7 Budapest",
+    "Fröhlich Cukrászda Dob utca 22 Budapest"
+  ];
+  const GMAP=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+
+  const book=[
+    null,
+    {l:"🍽 תפריט ויצירת קשר",u:"https://www.carmel.hu/en",note:"פתוח עד מאוחר (א׳–ה׳) · חלון טייקאווי"},
+    {l:"🍽 תפריט ויצירת קשר",u:"https://www.carmel.hu/en",note:"הזמנה: +36 30 259 7022"},
+    null,
+    {l:"🎟 הזמנת כרטיסים",u:"https://www.getyourguide.com/dohany-street-synagogue-l23656/",note:"כרטיס ≈ €24 · כולל סיור מודרך · תקף 90 יום · כניסה מהירה בהזמנה אונליין"},
+    null,
+    {l:"🎟 פרטי ביקור",u:"https://www.bazilika.hu/",note:"אולם: כניסה בתרומה · כרטיס למגדל התצפית נמכר במקום"},
+    {l:"ℹ️ אירועים ומידע",u:"https://szimpla.hu/",note:"כניסה חופשית · משקאות בתשלום לפי צריכה"},
+    {l:"📞 הזמנה / טלפון",u:GMAP("Hummus Bar Wesselényi utca 14 Budapest"),note:"מתאים גם בלי הזמנה · התקשרו לשמור שולחן ל-4"},
+    {l:"📞 הזמנה / טלפון",u:GMAP("Drop Restaurant Dohany utca 7 Budapest"),note:"חדר קטן — הזמינו מראש, במיוחד בערב"},
+    {l:"🍽 תפריט ויצירת קשר",u:"https://www.carmel.hu/en",note:"הזמנה: +36 30 259 7022 · הזמינו מראש לקבוצה · קלזמר חי"},
+    {l:"🎟 הזמנת כרטיסים",u:"https://jegymester.hu/parlament",note:"אתר רשמי · סיור מודרך 45 דק׳ · הזמינו 2–4 שבועות מראש · ≈ €18 לאזרחי EEA / €35 לאחרים"},
+    null,
+    null,
+    {l:"🚢 הזמנת שייט",u:"https://www.legenda.hu/en",note:"שייט ערב ~1–1.5 שעות · אשרו עלייה ללא מדרגות בהזמנה"},
+    {l:"ℹ️ אירועים ומידע",u:"https://www.instant-fogas.com/",note:"כניסה חופשית · תשלום לפי צריכה"},
+    {l:"📞 הזמנה / טלפון",u:GMAP("NonGluten Pizzeria Kiraly utca 58 Budapest"),note:"הזמינו מראש — מקום קטן ופופולרי ללא גלוטן"},
+    {l:"🍽 הזמנה / תפריט",u:"https://www.hannabudapest.com/",note:"הזמינו מראש לקבוצה"},
+    {l:"📞 הזמנה / טלפון",u:GMAP("Getto Gulyas Wesselenyi utca 18 Budapest"),note:"פופולרי מאוד — הזמינו שולחן מראש"},
+    {l:"🎟 הזמנת הסיור",u:"https://www.getyourguide.com/szentendre-l1568/",note:"יום מלא (~8.5 שעות) · קבוצה קטנה · כולל צהריים · בדקו נגישות לפני הזמנה"},
+    {l:"🍽 תפריט ויצירת קשר",u:"https://www.carmel.hu/en",note:"הזמנה: +36 30 259 7022"},
+    null,
+    {l:"📞 טלפון / מידע",u:GMAP("Manioka gluten free bakery Kertesz utca 41 Budapest"),note:"100% ללא גלוטן · מצוין לחטיפים לסיור"},
+    {l:"🍽 תפריט ויצירת קשר",u:"https://www.carmel.hu/en",note:"איזה ממקומות הכשר שעוד לא ניסיתם"},
+    {l:"📞 הזמנה / טלפון",u:GMAP("Bohemtanya Paulay Ede utca Budapest"),note:"מנות נדיבות · מנות ללא גלוטן · הזמינו מראש"},
+    {l:"🎟 הזמנת כרטיסים",u:"https://szechenyibath.com/booking/",note:"כרטיס ליום שלם · ביום חול ≈ €30 · אפשרות תא פרטי · הזמינו אונליין לדלג על התור"},
+    null,
+    null,
+    {l:"📞 הזמנה / טלפון",u:GMAP("Cafe Tel Aviv Kazinczy utca 30 Budapest"),note:"מהיר וקז׳ואל · צהריים אחרון טוב"},
+    {l:"📞 הזמנה / טלפון",u:GMAP("Drop Restaurant Dohany utca 7 Budapest"),note:"100% ללא גלוטן · 2 דק׳ מהדירה"},
+    {l:"📞 טלפון / מידע",u:GMAP("Frohlich Cukraszda Dob utca 22 Budapest"),note:"מאפים לקחת · סגור בשבת · לא ללא גלוטן"}
+  ];
+
+  document.querySelectorAll('.imgwrap').forEach((w,i)=>{
+    const q=maps[i];
+    if(q){
+      const a=document.createElement('a');
+      a.href=GMAP(q); a.target='_blank'; a.rel='noopener'; a.className='maplink';
+      a.setAttribute('aria-label','הצג את '+q+' במפה');
+      while(w.firstChild){a.appendChild(w.firstChild);}
+      const pill=document.createElement('span');
+      pill.className='mappill'; pill.textContent='📍 הצג במפה';
+      a.appendChild(pill);
+      w.appendChild(a);
+    }
+    const b=book[i];
+    if(b){
+      const host=w.closest('.card')||w.closest('.tblock');
+      if(host){
+        if(b.note){const n=document.createElement('div');n.className='booknote';n.textContent=b.note;host.appendChild(n);}
+        const btn=document.createElement('a');
+        btn.href=b.u; btn.target='_blank'; btn.rel='noopener'; btn.className='btn'; btn.textContent=b.l;
+        host.appendChild(btn);
+      }
+    }
+  });
+</script>
+</body>
+</html>

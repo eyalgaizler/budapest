@@ -148,6 +148,8 @@
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .reveal.in{opacity:1;transform:none}
   }
+  .langfab{position:fixed;bottom:18px;left:18px;z-index:60;display:inline-flex;align-items:center;gap:7px;background:var(--brass);color:var(--danube);font-family:"Space Mono",monospace;font-weight:700;font-size:14px;letter-spacing:.3px;text-decoration:none;padding:11px 17px;border-radius:999px;box-shadow:0 6px 20px rgba(14,42,59,.35);border:1px solid var(--brass-deep);transition:.18s}
+  .langfab:hover{background:#fff;color:var(--danube)}
 </style>
 </head>
 <body>
@@ -157,7 +159,7 @@
     <div class="brand">Budapest <b>·</b> <span class="mono" style="font-size:14px">11–15 OCT</span></div>
     <div class="nav-links">
       <a href="#overview">Overview</a><a href="#day1">Sun</a><a href="#day2">Mon</a>
-      <a href="#day3">Tue</a><a href="#day4">Wed</a><a href="#day5">Thu</a><a href="#notes">Notes</a>
+      <a href="#day3">Tue</a><a href="#day4">Wed</a><a href="#day5">Thu</a><a href="#notes">Notes</a><a href="index-he.html" style="background:var(--brass);color:var(--danube)">עברית</a>
     </div>
   </div>
 </nav>
@@ -679,5 +681,6 @@
     }
   });
 </script>
+<a class="langfab" href="index-he.html" aria-label="עבור לעברית">🌐 עברית</a>
 </body>
 </html>
