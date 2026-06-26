@@ -1,0 +1,16 @@
+{
+  "name": "Budapest Trip 2026",
+  "short_name": "Budapest",
+  "lang": "en",
+  "description": "Budapest itinerary — Jewish Quarter, sights & a live map",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0E2A3B",
+  "theme_color": "#0E2A3B",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

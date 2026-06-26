@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>בודפשט · 11–15 באוק׳ 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0E2A3B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="בודפשט">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Heebo:wght@400;500;700;800&family=Frank+Ruhl+Libre:wght@500;600;700&display=swap" rel="stylesheet">
@@ -154,7 +161,7 @@
   <div class="nav-inner">
     <div class="brand">בודפשט <b>·</b> <span class="mono" style="font-size:14px">11–15 אוק׳</span></div>
     <div class="nav-links">
-      <a href="#overview">סקירה</a><a href="#day1">א׳</a><a href="#day2">ב׳</a>
+      <a href="#overview">סקירה</a><a href="map.html" style="background:var(--teal);color:#fff">🗺️ מפה</a><a href="#day1">א׳</a><a href="#day2">ב׳</a>
       <a href="#day3">ג׳</a><a href="#day4">ד׳</a><a href="#day5">ה׳</a><a href="#notes">הערות</a>
       <a href="index.html" style="background:var(--brass);color:var(--danube)">English</a>
     </div>
@@ -648,5 +655,6 @@
     }
   });
 </script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
 </body>
 </html>

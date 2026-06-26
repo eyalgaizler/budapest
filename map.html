@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Trip map · Budapest</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0E2A3B">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Budapest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+  :root{--danube:#0E2A3B;--brass:#D4AF61;--teal:#2A8C99;--ink:#1c1c1a}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;font-family:"Hanken Grotesk",system-ui,sans-serif;background:var(--danube)}
+  #topbar{position:fixed;top:0;inset-inline:0;z-index:1000;background:rgba(14,42,59,.97);color:#fff;
+    display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(212,175,97,.3)}
+  #topbar b{font-family:"Fraunces",serif;font-size:18px;color:#fff}
+  #topbar b span{color:var(--brass)}
+  #topbar .sp{margin-left:auto}
+  .tbtn{font-size:13px;font-weight:700;text-decoration:none;color:var(--danube);background:var(--brass);
+    padding:8px 12px;border-radius:999px;border:1px solid #b8893a;white-space:nowrap;cursor:pointer}
+  .tbtn.ghost{background:transparent;color:#cdd9de;border-color:#3d5667}
+  #map{position:absolute;inset:54px 0 0 0}
+  #info{position:fixed;inset-inline:10px;bottom:10px;z-index:1000;background:rgba(255,253,248,.96);
+    border:1px solid #d9cfba;border-radius:14px;padding:12px 14px;box-shadow:0 6px 20px rgba(14,42,59,.35);
+    font-size:14.5px;color:var(--ink);max-width:520px;margin:0 auto}
+  #info b{color:#b8893a}
+  .leaflet-popup-content{font-family:"Hanken Grotesk",sans-serif;font-size:14px}
+  .leaflet-popup-content a{color:#0c5a52;font-weight:700}
+  .me{width:18px;height:18px;border-radius:50%;background:#1e88ff;border:3px solid #fff;box-shadow:0 0 0 3px rgba(30,136,255,.4)}
+  .num{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;
+    color:#fff;font-weight:800;font-size:12px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)}
+  .legend{position:fixed;top:62px;inset-inline-end:10px;z-index:1000;background:rgba(255,253,248,.95);border:1px solid #d9cfba;
+    border-radius:10px;padding:8px 10px;font-size:12.5px;color:var(--ink);box-shadow:0 4px 14px rgba(14,42,59,.3)}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-inline-end:5px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div id="topbar">
+  <b>Budapest <span>·</span> trip map</b>
+  <span class="sp"></span>
+  <button class="tbtn" id="locate">📍 Locate me</button>
+  <a class="tbtn ghost" href="index.html">← Itinerary</a>
+</div>
+<div id="map"></div>
+<div class="legend"><span><i style="background:#2A8C99"></i>Sights</span> &nbsp; <span><i style="background:#D4AF61"></i>Kosher food</span> &nbsp; <span><i style="background:#C0492E"></i>Base</span></div>
+<div id="info">Tap <b>📍 Locate me</b> to show your position and the distance to the nearest stop. Pins are numbered by day — tap one for details and navigation.</div>
+
+<script>
+const SIGHT='#2A8C99', FOOD='#D4AF61', BASE='#C0492E', AIR='#5d6b72';
+const stops=[
+ {n:"Ferenc Liszt Airport (BUD)",d:"Arrive 11 Oct / depart 15 Oct",lat:47.4399,lng:19.2618,c:AIR,route:false},
+ {n:"Apartment — Síp utca 16–18",d:"Base · District VII",lat:47.4979,lng:19.0610,c:BASE,route:true},
+ {n:"Dohány St. Great Synagogue",d:"Day 2",lat:47.4956,lng:19.0608,c:SIGHT,route:true},
+ {n:"St Stephen's Basilica",d:"Day 2 · evening",lat:47.5008,lng:19.0537,c:SIGHT,route:true},
+ {n:"Szimpla Kert (ruin bar)",d:"Day 2 · night",lat:47.4969,lng:19.0637,c:SIGHT,route:true},
+ {n:"Hungarian Parliament",d:"Day 3",lat:47.5072,lng:19.0456,c:SIGHT,route:true},
+ {n:"Shoes on the Danube",d:"Day 3",lat:47.5045,lng:19.0447,c:SIGHT,route:true},
+ {n:"Fisherman's Bastion",d:"Day 3 · Buda hill",lat:47.5020,lng:19.0349,c:SIGHT,route:true},
+ {n:"Buda Castle (funicular)",d:"Day 3",lat:47.4960,lng:19.0397,c:SIGHT,route:true},
+ {n:"Danube cruise · Vigadó tér",d:"Day 3 · evening",lat:47.4961,lng:19.0488,c:SIGHT,route:true},
+ {n:"Great Market Hall",d:"Day 4 · shopping",lat:47.4875,lng:19.0596,c:SIGHT,route:true},
+ {n:"Váci utca (shopping street)",d:"Day 4",lat:47.4925,lng:19.0533,c:SIGHT,route:true},
+ {n:"Hungarian State Opera",d:"Day 4 · Andrássy",lat:47.5026,lng:19.0588,c:SIGHT,route:true},
+ {n:"Carmel (kosher)",d:"Kosher + GF",lat:47.4969,lng:19.0636,c:FOOD,route:false},
+ {n:"Hummus Bar (kosher)",d:"Kosher + GF",lat:47.4977,lng:19.0610,c:FOOD,route:false},
+ {n:"Café Tel Aviv (kosher)",d:"Kosher + GF",lat:47.4971,lng:19.0639,c:FOOD,route:false},
+ {n:"Hanna (kosher)",d:"Kosher + GF",lat:47.4965,lng:19.0623,c:FOOD,route:false}
+];
+
+const map=L.map('map',{zoomControl:true}).setView([47.4979,19.0530],13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+
+L.polyline(stops.filter(s=>s.route).map(s=>[s.lat,s.lng]),{color:'#D4AF61',weight:3,opacity:.65,dashArray:'2,7'}).addTo(map);
+
+const GM=(la,ln)=>'https://www.google.com/maps/search/?api=1&query='+la+','+ln;
+const bounds=[];
+stops.forEach((s,i)=>{
+  bounds.push([s.lat,s.lng]);
+  const icon=L.divIcon({className:'',html:`<div class="num" style="background:${s.c}">${i+1}</div>`,iconSize:[24,24],iconAnchor:[12,12]});
+  L.marker([s.lat,s.lng],{icon}).addTo(map)
+    .bindPopup(`<b>${i+1}. ${s.n}</b><br>${s.d}<br><a href="${GM(s.lat,s.lng)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>`);
+});
+map.fitBounds(bounds,{padding:[50,50]});
+
+let meMarker=null, meAcc=null;
+const info=document.getElementById('info');
+function hav(a,b,c,d){const R=6371,t=x=>x*Math.PI/180;const dLat=t(c-a),dLon=t(d-b);
+  const x=Math.sin(dLat/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(x));}
+function onPos(p){
+  const {latitude:la,longitude:ln,accuracy:ac}=p.coords;
+  if(!meMarker){
+    meMarker=L.marker([la,ln],{icon:L.divIcon({className:'',html:'<div class="me"></div>',iconSize:[18,18],iconAnchor:[9,9]})}).addTo(map);
+    meAcc=L.circle([la,ln],{radius:ac,color:'#1e88ff',weight:1,fillColor:'#1e88ff',fillOpacity:.08}).addTo(map);
+  } else { meMarker.setLatLng([la,ln]); meAcc.setLatLng([la,ln]).setRadius(ac); }
+  let best=null,bd=1e9;
+  stops.forEach(s=>{const dd=hav(la,ln,s.lat,s.lng);if(dd<bd){bd=dd;best=s;}});
+  const dist=bd<1?Math.round(bd*1000)+' m':bd.toFixed(1)+' km';
+  info.innerHTML=`📍 <b>You are here.</b> Nearest stop: <b>${best.n}</b> — ${dist} away (as the crow flies).`;
+}
+function onErr(){ info.innerHTML='⚠️ Couldn\'t get your location. Make sure location permission is allowed and GPS is on.'; }
+document.getElementById('locate').addEventListener('click',()=>{
+  if(!navigator.geolocation){info.textContent='This browser has no geolocation.';return;}
+  info.innerHTML='⏳ Locating…';
+  navigator.geolocation.getCurrentPosition(p=>{onPos(p);map.setView([p.coords.latitude,p.coords.longitude],15);},onErr,{enableHighAccuracy:true,timeout:10000,maximumAge:5000});
+  navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:5000});
+});
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
+</script>
+</body>
+</html>
