@@ -1,5 +1,5 @@
 // Budapest trip — service worker v2 (offline app shell + offline map tiles)
-const CORE = 'bud-core-v3';
+const CORE = 'bud-core-v4';
 const RUNTIME = 'bud-runtime-v1';
 const TILES = 'bud-tiles-v1';
 const KEEP = [CORE, RUNTIME, TILES];
@@ -21,6 +21,11 @@ self.addEventListener('fetch', e => {
     e.respondWith(caches.match(req).then(h => h || fetch(req).then(r => {
       const c = r.clone(); caches.open(TILES).then(t => t.put(req, c)).catch(() => {}); return r;
     }).catch(() => caches.match(req))));
+    return;
+  }
+  // Weather API: always network-first (live), no caching
+  if (url.hostname === 'api.open-meteo.com') {
+    e.respondWith(fetch(req).catch(() => caches.match(req)));
     return;
   }
   if (req.mode === 'navigate') {

@@ -66,6 +66,13 @@
     .card{box-shadow:none;border:1px solid #bbb;break-inside:avoid;page-break-inside:avoid}
     .wrap{max-width:none;padding:0}
   }
+  .wxloc{font-family:"Space Mono","Heebo",monospace;font-size:12px;font-weight:700;color:var(--paprika);margin:10px 0 4px}
+  .wxd{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+  .wxdt{flex:1;color:var(--ink)}
+  .wxic{font-size:18px}
+  .wxtemp{font-family:"Space Mono","Heebo",monospace;font-weight:700;color:var(--danube);white-space:nowrap}
+  .wxpr{font-family:"Space Mono","Heebo",monospace;font-size:12px;color:var(--teal);min-width:48px;text-align:end}
+  #wxlive .hint{margin:0 0 6px}
 </style>
 </head>
 <body>
@@ -76,7 +83,6 @@
       <a class="home" href="index.html">← Itinerary</a>
       <a href="essentials-he.html">עברית</a>
       <a href="map.html">🗺️ Map</a>
-      <button onclick="window.print()">🖨️ Print / PDF</button>
     </div>
   </div>
 </nav>
@@ -89,7 +95,6 @@
   <div class="toolbar">
     <a class="tbtn" href="index.html">← Full itinerary</a>
     <a class="tbtn" href="map.html">🗺️ Live map</a>
-    <button class="tbtn" onclick="window.print()">🖨️ Save as PDF / Print</button>
   </div>
 
   <div class="grid">
@@ -140,7 +145,9 @@
 
     <div class="card">
       <h3>🌤️ Weather</h3>
-      <p class="hint">Mid-October in Budapest</p>
+      <p class="hint">Mid-October in Budapest · live forecast</p>
+      <div id="wxlive"><p class="hint">…</p></div>
+      <p class="hint" style="margin:14px 0 4px;font-weight:700;color:var(--ink)">Typical for the season</p>
       <ul class="kv">
         <li><span>Daytime highs</span> <b>15–17°C</b></li>
         <li><span>Evenings / nights</span> <b>7–9°C, chilly</b></li>
@@ -192,6 +199,34 @@
   <div class="mono">Budapest · pocket guide · 2026</div>
   <p style="margin:8px 0 0">Works offline · times &amp; prices to confirm when booking</p>
 </footer>
+<script>
+(function(){
+ var WX={locs:[{n:"Budapest",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15"}, L={locale:'en',future:'Live day-by-day forecast appears about two weeks before the trip. Conditions right now:',nowIn:'Now in {c}',unavail:'Live forecast needs a connection \u2014 see seasonal averages below.'};
+ var WMO={0:'\u2600\ufe0f',1:'\ud83c\udf24\ufe0f',2:'\u26c5',3:'\u2601\ufe0f',45:'\ud83c\udf2b\ufe0f',48:'\ud83c\udf2b\ufe0f',51:'\ud83c\udf26\ufe0f',53:'\ud83c\udf26\ufe0f',55:'\ud83c\udf26\ufe0f',56:'\ud83c\udf27\ufe0f',57:'\ud83c\udf27\ufe0f',61:'\ud83c\udf27\ufe0f',63:'\ud83c\udf27\ufe0f',65:'\ud83c\udf27\ufe0f',66:'\ud83c\udf27\ufe0f',67:'\ud83c\udf27\ufe0f',71:'\ud83c\udf28\ufe0f',73:'\ud83c\udf28\ufe0f',75:'\u2744\ufe0f',77:'\ud83c\udf28\ufe0f',80:'\ud83c\udf26\ufe0f',81:'\ud83c\udf26\ufe0f',82:'\u26c8\ufe0f',85:'\ud83c\udf28\ufe0f',86:'\u2744\ufe0f',95:'\u26c8\ufe0f',96:'\u26c8\ufe0f',99:'\u26c8\ufe0f'};
+ var box=document.getElementById('wxlive'); if(!box) return;
+ function ico(c){return WMO[c]||'\u2022';}
+ function fmtDay(iso){var d=new Date(iso+'T00:00:00');return d.toLocaleDateString(L.locale,{weekday:'short',day:'numeric',month:'short'});}
+ function rows(loc,t){var r=t.time.map(function(iso,i){return '<div class="wxd"><span class="wxdt">'+fmtDay(iso)+'</span><span class="wxic">'+ico(t.code[i])+'</span><span class="wxtemp">'+Math.round(t.tmax[i])+'\u00b0 / '+Math.round(t.tmin[i])+'\u00b0</span><span class="wxpr">'+(t.prc[i]!=null?('\ud83d\udca7'+t.prc[i]+'%'):'')+'</span></div>';}).join('');return (WX.locs.length>1?'<div class="wxloc">'+loc.n+'</div>':'')+r;}
+ function base(loc){return 'https://api.open-meteo.com/v1/forecast?latitude='+loc.lat+'&longitude='+loc.lon+'&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto';}
+ function get(loc){
+  return fetch(base(loc)+'&start_date='+WX.start+'&end_date='+WX.end).then(function(r){return r.json();}).then(function(d){
+   if(d&&d.daily&&d.daily.time&&d.daily.temperature_2m_max&&d.daily.temperature_2m_max.some(function(v){return v!=null;})){
+    return {mode:'f',loc:loc,t:{time:d.daily.time,tmax:d.daily.temperature_2m_max,tmin:d.daily.temperature_2m_min,prc:d.daily.precipitation_probability_max,code:d.daily.weathercode}};
+   }
+   return fetch(base(loc)+'&current=temperature_2m,weather_code&forecast_days=1').then(function(r){return r.json();}).then(function(c){return {mode:'c',loc:loc,cur:(c&&c.current)?c.current:null};});
+  });
+ }
+ Promise.all(WX.locs.map(get)).then(function(res){
+  var anyF=res.some(function(x){return x.mode==='f';}), html='';
+  if(anyF){ html=res.map(function(x){return x.mode==='f'?rows(x.loc,x.t):('<div class="wxloc">'+x.loc.n+'</div>');}).join(''); }
+  else {
+   html='<p class="hint">'+L.future+'</p>';
+   html+=res.map(function(x){ if(x.cur){var nm=WX.locs.length>1?x.loc.n:L.nowIn.replace('{c}',x.loc.n);return '<div class="wxd"><span class="wxdt">'+nm+'</span><span class="wxic">'+ico(x.cur.weather_code)+'</span><span class="wxtemp">'+Math.round(x.cur.temperature_2m)+'\u00b0</span></div>';} return ''; }).join('');
+  }
+  box.innerHTML=html||('<p class="hint">'+L.unavail+'</p>');
+ }).catch(function(){ box.innerHTML='<p class="hint">'+L.unavail+'</p>'; });
+})();
+</script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
 </body>
 </html>

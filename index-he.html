@@ -155,18 +155,11 @@
   }
 
   /* --- enhancements: readability, today, print --- */
-  .toolsfab{position:fixed;bottom:18px;left:18px;z-index:60;display:flex;gap:4px;background:rgba(14,42,59,.95);border:1px solid rgba(212,162,97,.45);border-radius:999px;padding:5px;box-shadow:0 6px 20px rgba(14,42,59,.35)}
-  .toolsfab button{all:unset;cursor:pointer;color:#e7eef1;font-family:"Space Mono","Heebo",monospace;font-weight:700;font-size:14px;padding:8px 11px;border-radius:999px;line-height:1;display:inline-flex;align-items:center}
-  .toolsfab button:hover{background:var(--brass);color:var(--danube)}
-  html.az-1 article.day,html.az-1 section.block{zoom:1.12}
-  html.az-2 article.day,html.az-2 section.block{zoom:1.25}
-  html.az-3 article.day,html.az-3 section.block{zoom:1.4}
   article.day.is-today::after{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:5px;background:var(--paprika);z-index:3}
   article.day.is-today{position:relative}
   .todaytag{display:inline-flex;align-items:center;gap:6px;background:var(--paprika);color:#fff;font-family:"Space Mono","Heebo",monospace;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin-inline-start:10px;vertical-align:middle}
   @media print{
-    .nav,.toolsfab,.langfab,.hero .ph,.banner .ph,.btn,.mappill{display:none!important}
-    html.az-1 article.day,html.az-2 article.day,html.az-3 article.day,html.az-1 section.block,html.az-2 section.block,html.az-3 section.block{zoom:1!important}
+    .nav,.langfab,.hero .ph,.banner .ph,.btn,.mappill{display:none!important}
     body{background:#fff;color:#000;font-size:11.5pt}
     .hero,.banner{min-height:auto!important;background:#fff!important}
     .hero::after,.banner::after{display:none!important}
@@ -681,9 +674,8 @@
     }
   });
 </script>
-<div class="toolsfab" role="group"><button onclick="window.__azDec()" title="טקסט קטן יותר">A−</button><button onclick="window.__azInc()" title="טקסט גדול יותר">A+</button><button onclick="window.print()" title="הדפסה / שמירה כ-PDF">🖨️</button></div>
 <script>var TRIP={start:"2026-10-11",days:5,todayLabel:'היום'};</script>
-<script>(function(){var H=document.documentElement,AZ=+(localStorage.getItem("az")||0);function a(){H.classList.remove("az-1","az-2","az-3");if(AZ>0)H.classList.add("az-"+AZ);}a();window.__azInc=function(){AZ=Math.min(3,AZ+1);localStorage.setItem("az",AZ);a();};window.__azDec=function(){AZ=Math.max(0,AZ-1);localStorage.setItem("az",AZ);a();};try{var st=new Date(TRIP.start+"T00:00:00"),td=new Date();td.setHours(0,0,0,0);var df=Math.round((td-st)/86400000);if(df>=0&&df<TRIP.days){var el=document.getElementById("day"+(df+1));if(el){el.classList.add("is-today");var h=el.querySelector(".banner h2")||el.querySelector("h2");if(h){var t=document.createElement("span");t.className="todaytag";t.textContent=TRIP.todayLabel;h.appendChild(t);}if(!location.hash){setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"start"});},500);}}}}catch(e){}})();</script>
+<script>(function(){try{var st=new Date(TRIP.start+"T00:00:00"),td=new Date();td.setHours(0,0,0,0);var df=Math.round((td-st)/86400000);if(df>=0&&df<TRIP.days){var el=document.getElementById("day"+(df+1));if(el){el.classList.add("is-today");var h=el.querySelector(".banner h2")||el.querySelector("h2");if(h){var t=document.createElement("span");t.className="todaytag";t.textContent=TRIP.todayLabel;h.appendChild(t);}if(!location.hash){setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"start"});},500);}}}}catch(e){}})();</script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
 </body>
 </html>
