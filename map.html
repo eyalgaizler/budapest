@@ -46,6 +46,7 @@
 <div id="topbar">
   <b>Budapest <span>·</span> trip map</b>
   <span class="sp"></span>
+  <button class="tbtn" id="dl">⬇️ Offline map</button>
   <button class="tbtn" id="locate">📍 Locate me</button>
   <a class="tbtn ghost" href="index.html">← Itinerary</a>
 </div>
@@ -76,7 +77,7 @@ const stops=[
 ];
 
 const map=L.map('map',{zoomControl:true}).setView([47.4979,19.0530],13);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(map);
 
 L.polyline(stops.filter(s=>s.route).map(s=>[s.lat,s.lng]),{color:'#D4AF61',weight:3,opacity:.65,dashArray:'2,7'}).addTo(map);
 
@@ -112,6 +113,25 @@ document.getElementById('locate').addEventListener('click',()=>{
   navigator.geolocation.getCurrentPosition(p=>{onPos(p);map.setView([p.coords.latitude,p.coords.longitude],15);},onErr,{enableHighAccuracy:true,timeout:10000,maximumAge:5000});
   navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:5000});
 });
+// ---- offline map download ----
+const OFF={s:47.475,w:19.025,n:47.515,e:19.075,minZ:12,maxZ:15,cache:'bud-tiles-v1'};
+function _x(lon,z){return Math.floor((lon+180)/360*Math.pow(2,z));}
+function _y(lat,z){const r=lat*Math.PI/180;return Math.floor((1-Math.log(Math.tan(r)+1/Math.cos(r))/Math.PI)/2*Math.pow(2,z));}
+function tileList(){const o=[];for(let z=OFF.minZ;z<=OFF.maxZ;z++){const x0=_x(OFF.w,z),x1=_x(OFF.e,z),y0=_y(OFF.n,z),y1=_y(OFF.s,z);for(let x=x0;x<=x1;x++)for(let y=y0;y<=y1;y++)o.push(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`);}return o;}
+async function downloadOffline(){
+  if(!('caches' in window)){info.textContent='This browser does not support offline saving.';return;}
+  const urls=tileList(),total=urls.length; let done=0,ok=0;
+  const cache=await caches.open(OFF.cache); const q=urls.slice();
+  info.innerHTML='\u23f3 Downloading offline map\u2026 0/'+total+' (keep this page open)';
+  async function w(){while(q.length){const u=q.shift();try{const r=await fetch(u,{mode:'no-cors'});await cache.put(u,r);ok++;}catch(e){}done++;if(done%15===0||done===total)info.innerHTML='\u23f3 Downloading offline map\u2026 '+done+'/'+total;}}
+  await Promise.all(Array.from({length:6},w));
+  try{localStorage.setItem('bud-offline','1');}catch(e){}
+  info.innerHTML='\u2705 Map saved for offline use ('+ok+' tiles). The city map now works without signal.';
+  const b=document.getElementById('dl'); if(b)b.textContent='\u2713 Offline ready';
+}
+document.getElementById('dl').addEventListener('click',downloadOffline);
+try{if(localStorage.getItem('bud-offline')){const b=document.getElementById('dl');if(b)b.textContent='\u2713 Offline ready';}}catch(e){}
+
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));}
 </script>
 </body>
