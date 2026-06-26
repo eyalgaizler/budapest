@@ -1,10 +1,10 @@
 // Budapest trip — service worker v2 (offline app shell + offline map tiles)
-const CORE = 'bud-core-v2';
+const CORE = 'bud-core-v3';
 const RUNTIME = 'bud-runtime-v1';
 const TILES = 'bud-tiles-v1';
 const KEEP = [CORE, RUNTIME, TILES];
 const ASSETS = [
-  './', './index.html', './index-he.html', './map.html',
+  './', './index.html', './index-he.html', './map.html', './essentials.html', './essentials-he.html', './qr-install.png',
   './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png'
 ];
 self.addEventListener('install', e => {

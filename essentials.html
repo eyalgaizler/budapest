@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pocket guide · Budapest 2026</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0E2A3B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Budapest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--danube:#0E2A3B;--teal:#2A8C99;--brass:#D4AF61;--brass-deep:#b8893a;--paprika:#C0492E;
+    --parchment:#F6F1E7;--ink:#1c1c1a;--muted:#5d6b72;--line:#d9cfba;--card:#fffdf8;
+    --shadow:0 1px 2px rgba(14,42,59,.06),0 8px 28px rgba(14,42,59,.08)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--parchment);color:var(--ink);font-family:"Hanken Grotesk",system-ui,sans-serif;font-size:17px;line-height:1.7}
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;margin:0;line-height:1.25}
+  .mono{font-family:"Space Mono",ui-monospace,monospace}
+  a{color:var(--teal)}
+  .nav{position:sticky;top:0;z-index:50;background:rgba(14,42,59,.97);backdrop-filter:blur(6px);border-bottom:1px solid rgba(212,162,97,.25)}
+  .nav-inner{max-width:920px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .brand{color:var(--parchment);font-family:"Fraunces",serif;font-weight:700;font-size:19px}
+  .brand b{color:var(--brass)}
+  .nav-links{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+  .nav-links a,.nav-links button{color:#cdd9de;background:none;border:0;cursor:pointer;text-decoration:none;font-size:13.5px;font-weight:600;font-family:inherit;padding:6px 11px;border-radius:999px}
+  .nav-links a:hover,.nav-links button:hover{background:var(--brass);color:var(--danube)}
+  .nav-links a.home{background:var(--teal);color:#fff}
+  .wrap{max-width:920px;margin:0 auto;padding:30px 22px 60px}
+  .lead{font-size:18px;color:#33312c;max-width:62ch;margin:0 0 26px}
+  h1.title{font-size:clamp(30px,6vw,44px);margin:0 0 6px}
+  .sub{font-family:"Space Mono",monospace;font-size:13px;color:var(--paprika);letter-spacing:.5px;margin-bottom:18px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow)}
+  .card h3{font-size:21px;margin-bottom:4px;display:flex;align-items:center;gap:9px}
+  .card .hint{font-size:13.5px;color:var(--muted);margin:0 0 12px}
+  ul.list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+  ul.list li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+  ul.list li::before{content:"▢";color:var(--brass-deep);flex:none;font-size:14px;line-height:1.55}
+  .phr{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+  .phr li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:7px;font-size:15.5px}
+  .phr .x{color:var(--muted)}
+  .phr .y{font-weight:700}
+  .kv{display:grid;gap:7px;margin:0;padding:0;list-style:none;font-size:15.5px}
+  .kv li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:6px}
+  .kv b{font-family:"Space Mono",monospace;color:var(--danube)}
+  .emerg{background:var(--paprika);color:#fff;border-color:#8c2f1f}
+  .emerg h3{color:#fff}.emerg .hint{color:#ffe2da}
+  .emerg .kv li{border-color:rgba(255,255,255,.35)}
+  .emerg .kv b{color:#fff;font-size:18px}
+  .emerg a{color:#fff;font-weight:700}
+  .qrcard{text-align:center}
+  .qrcard img{width:190px;height:190px;margin:8px auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}
+  .tbtn{font-family:"Space Mono",monospace;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;
+    background:var(--danube);color:#fff;border:1px solid var(--danube);border-radius:10px;padding:9px 14px}
+  .tbtn:hover{background:var(--brass);color:var(--danube);border-color:var(--brass)}
+  footer{background:#081a26;color:#7e919b;text-align:center;padding:28px 22px;font-size:13px}
+  footer .mono{color:var(--brass)}
+  @media print{
+    .nav,.toolbar,footer,.qrcard{display:none!important}
+    body{background:#fff;font-size:12pt}
+    .card{box-shadow:none;border:1px solid #bbb;break-inside:avoid;page-break-inside:avoid}
+    .wrap{max-width:none;padding:0}
+  }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">Pocket guide <b>·</b> Budapest</div>
+    <div class="nav-links">
+      <a class="home" href="index.html">← Itinerary</a>
+      <a href="essentials-he.html">עברית</a>
+      <a href="map.html">🗺️ Map</a>
+      <button onclick="window.print()">🖨️ Print / PDF</button>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1 class="title">Pocket guide</h1>
+  <div class="sub">Budapest · 11–15 Oct 2026 · works offline</div>
+  <p class="lead">Everything worth knowing before and during the trip — packing list, documents, money, weather, useful phrases and emergency numbers. This page is saved on your device and works with no signal.</p>
+
+  <div class="toolbar">
+    <a class="tbtn" href="index.html">← Full itinerary</a>
+    <a class="tbtn" href="map.html">🗺️ Live map</a>
+    <button class="tbtn" onclick="window.print()">🖨️ Save as PDF / Print</button>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>🧳 Packing list</h3>
+      <p class="hint">Mid-October — cool, layered, a little rain</p>
+      <ul class="list">
+        <li>Comfortable walking shoes (lots of cobblestones)</li>
+        <li>Warm layers: sweater + light coat or jacket</li>
+        <li>Scarf and a compact umbrella / rain layer</li>
+        <li>Swimwear + flip-flops (the thermal baths!)</li>
+        <li>Sunglasses for crisp autumn days</li>
+        <li>Reusable water bottle</li>
+        <li>Personal medication + copy of prescriptions</li>
+        <li>Power bank and cables</li>
+        <li>EU power adapter (type C/F)</li>
+        <li>Some cash in Forint for small cafés &amp; markets</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>📄 Documents</h3>
+      <p class="hint">Check a week before the flight</p>
+      <ul class="list">
+        <li>Passports valid 6+ months past return date</li>
+        <li>Travel &amp; health insurance (policy number saved)</li>
+        <li>Flight confirmation — code <b style="font-family:'Space Mono',monospace">YIZU8L</b></li>
+        <li>Apartment address: Síp utca 16–18, District VII</li>
+        <li>Restaurant reservations (Carmel, etc.)</li>
+        <li>Digital copies of all documents on your phone</li>
+        <li>Emergency &amp; insurance contact numbers</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>💶 Money &amp; tipping</h3>
+      <p class="hint">Currency: Hungarian Forint (HUF)</p>
+      <ul class="kv">
+        <li><span>Currency</span> <b>Forint (Ft / HUF)</b></li>
+        <li><span>Cards</span> <b>Accepted almost everywhere</b></li>
+        <li><span>Cash</span> <b>Handy for markets &amp; small cafés</b></li>
+        <li><span>Restaurant tip</span> <b>~10–12%</b></li>
+        <li><span>Check the bill</span> <b>Service sometimes already added</b></li>
+        <li><span>ATMs</span> <b>Use bank ATMs; decline "conversion"</b></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🌤️ Weather</h3>
+      <p class="hint">Mid-October in Budapest</p>
+      <ul class="kv">
+        <li><span>Daytime highs</span> <b>15–17°C</b></li>
+        <li><span>Evenings / nights</span> <b>7–9°C, chilly</b></li>
+        <li><span>Rain</span> <b>A few showers likely</b></li>
+        <li><span>Daylight</span> <b>Sunset ~17:45</b></li>
+      </ul>
+      <p class="hint" style="margin-top:12px">So: layers for the day, a warm jacket for the evening Danube cruise.</p>
+    </div>
+
+    <div class="card">
+      <h3>🗣️ Useful phrases</h3>
+      <p class="hint">Hungarian</p>
+      <ul class="phr">
+        <li><span class="y">Hello</span> <span class="x">Szia / Jó napot</span></li>
+        <li><span class="y">Thank you</span> <span class="x">Köszönöm</span></li>
+        <li><span class="y">Please</span> <span class="x">Kérem</span></li>
+        <li><span class="y">Yes / No</span> <span class="x">Igen / Nem</span></li>
+        <li><span class="y">Excuse me</span> <span class="x">Elnézést</span></li>
+        <li><span class="y">How much is it?</span> <span class="x">Mennyibe kerül?</span></li>
+        <li><span class="y">Water</span> <span class="x">Víz</span></li>
+        <li><span class="y">The bill, please</span> <span class="x">A számlát, kérem</span></li>
+        <li><span class="y">Good morning</span> <span class="x">Jó reggelt</span></li>
+        <li><span class="y">Cheers!</span> <span class="x">Egészségedre</span></li>
+      </ul>
+    </div>
+
+    <div class="card emerg">
+      <h3>🚨 Emergency numbers</h3>
+      <p class="hint">Save these — tap to call</p>
+      <ul class="kv">
+        <li><span>General emergency (EU)</span> <a href="tel:112"><b>112</b></a></li>
+        <li><span>Ambulance</span> <a href="tel:104"><b>104</b></a></li>
+        <li><span>Police</span> <a href="tel:107"><b>107</b></a></li>
+        <li><span>Fire</span> <a href="tel:105"><b>105</b></a></li>
+      </ul>
+    </div>
+
+    <div class="card qrcard">
+      <h3 style="justify-content:center">📲 Share &amp; install</h3>
+      <p class="hint">Scan to open this guide on another phone</p>
+      <img src="qr-install.png" alt="QR code to install the guide">
+      <p class="hint" style="margin-top:10px">Install as an app: iPhone → Safari → Share → "Add to Home Screen". Android → Chrome → menu → "Install app".</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="mono">Budapest · pocket guide · 2026</div>
+  <p style="margin:8px 0 0">Works offline · times &amp; prices to confirm when booking</p>
+</footer>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
+</body>
+</html>

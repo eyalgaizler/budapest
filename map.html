@@ -48,6 +48,7 @@
   <span class="sp"></span>
   <button class="tbtn" id="dl">⬇️ Offline map</button>
   <button class="tbtn" id="locate">📍 Locate me</button>
+  <a class="tbtn ghost" href="essentials.html">🧳 Guide</a>
   <a class="tbtn ghost" href="index.html">← Itinerary</a>
 </div>
 <div id="map"></div>
@@ -81,13 +82,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribu
 
 L.polyline(stops.filter(s=>s.route).map(s=>[s.lat,s.lng]),{color:'#D4AF61',weight:3,opacity:.65,dashArray:'2,7'}).addTo(map);
 
-const GM=(la,ln)=>'https://www.google.com/maps/search/?api=1&query='+la+','+ln;
+const WAZE=(la,ln)=>'https://waze.com/ul?ll='+la+','+ln+'&navigate=yes';
 const bounds=[];
 stops.forEach((s,i)=>{
   bounds.push([s.lat,s.lng]);
   const icon=L.divIcon({className:'',html:`<div class="num" style="background:${s.c}">${i+1}</div>`,iconSize:[24,24],iconAnchor:[12,12]});
   L.marker([s.lat,s.lng],{icon}).addTo(map)
-    .bindPopup(`<b>${i+1}. ${s.n}</b><br>${s.d}<br><a href="${GM(s.lat,s.lng)}" target="_blank" rel="noopener">Open in Google Maps ↗</a>`);
+    .bindPopup(`<b>${i+1}. ${s.n}</b><br>${s.d}<br><a href="${WAZE(s.lat,s.lng)}" target="_blank" rel="noopener">\uD83E\uDDED Navigate in Waze ↗</a>`);
 });
 map.fitBounds(bounds,{padding:[50,50]});
 
