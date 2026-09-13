@@ -172,6 +172,78 @@
     .note,.callout{background:#f3f3f3!important;border:1px solid #ccc!important}
     a{color:#000!important}
   }
+
+  /* --- HOME BASE / APARTMENT --- */
+  .apt{background:linear-gradient(180deg,#efe7d6,#F6F1E7);border-top:1px solid var(--line)}
+  .apt .lede{max-width:64ch;font-size:16.5px;color:#33312c;margin:14px 0 0}
+  .aptchips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+  .aptchip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13.5px;box-shadow:var(--shadow);white-space:nowrap}
+  .aptchip b{font-family:"Space Mono",ui-monospace,monospace;font-size:12.5px;color:var(--paprika)}
+  .aptchip.score{background:var(--danube);border-color:var(--danube);color:#fff}
+  .aptchip.score b{color:var(--brass)}
+
+  .aptgal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:96px;gap:9px;margin-top:22px}
+  .aptgal button{padding:0;border:0;cursor:pointer;display:block;overflow:hidden;border-radius:13px;position:relative;
+    background:linear-gradient(135deg,#2a6f7c,#102f42);box-shadow:var(--shadow)}
+  .aptgal button img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .aptgal button:hover img,.aptgal button:focus-visible img{transform:scale(1.06)}
+  .aptgal button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+  .aptgal .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:start;
+    font-family:"Space Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.4px;color:#fff;
+    padding:16px 10px 7px;background:linear-gradient(180deg,transparent,rgba(8,26,38,.82))}
+  .aptgal .g-hero{grid-column:span 3;grid-row:span 2}
+  .aptgal .g-tall{grid-column:span 3;grid-row:span 2}
+  .aptgal .g-wide{grid-column:span 2}
+  .aptgal .g-sm{grid-column:span 2}
+  .aptgal .g-half{grid-column:span 3}
+
+  .aptgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(266px,1fr));gap:16px;margin-top:26px;align-items:start}
+  .aptcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 17px;box-shadow:var(--shadow)}
+  .aptcard h4{font-size:18.5px;margin:4px 0 10px}
+  .aptcard.wide{grid-column:1/-1}
+  .aptcard .kind{font-family:"Space Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .aptcard p{margin:0 0 10px;font-size:14.5px;color:#3a3833}
+  .aptcard p:last-child{margin-bottom:0}
+  .dl{display:grid;gap:8px;margin:0}
+  .dl div{display:flex;gap:12px;align-items:baseline;font-size:14.5px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+  .dl div:last-child{border-bottom:0;padding-bottom:0}
+  .dl dt{flex:none;min-width:96px;font-family:"Space Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;
+    text-transform:uppercase;color:var(--muted)}
+  .dl dd{margin:0;font-weight:600;color:var(--ink)}
+  .dl dd small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);letter-spacing:0;text-transform:none;font-family:"Hanken Grotesk",system-ui,sans-serif}
+  .aptcard .total{font-family:"Space Mono",ui-monospace,monospace;font-size:19px;font-weight:700;color:var(--danube)}
+  .heads-up{background:#fdf0ec;border:1px solid #eec3b6;border-radius:13px;padding:14px 16px;margin-top:16px}
+  .heads-up h4{font-size:16px;color:var(--paprika);margin:0 0 6px}
+  .heads-up p{margin:0;font-size:14px;color:#4a3a35}
+  .tel{font-family:"Space Mono",ui-monospace,monospace;font-size:13.5px;text-decoration:none;border-bottom:1px solid var(--line)}
+  .tel:hover{border-bottom-color:var(--paprika);color:var(--paprika)}
+  .btn.ghost{background:transparent;color:var(--danube);border-color:var(--line)}
+  .btn.ghost:hover{background:var(--danube);color:#fff;border-color:var(--danube)}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(8,22,32,.93);display:none;align-items:center;justify-content:center;padding:28px}
+  .lb.open{display:flex}
+  .lb img{max-width:min(1100px,94vw);max-height:82vh;width:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb .lbcap{position:absolute;left:0;right:0;bottom:24px;text-align:center;color:#e7eef1;
+    font-family:"Space Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.5px}
+  .lb button{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;
+    width:46px;height:46px;border-radius:50%;font-size:21px;cursor:pointer;line-height:1;display:grid;place-items:center;transition:.18s}
+  .lb button:hover{background:var(--brass);color:var(--danube);border-color:var(--brass)}
+  .lb .lbx{top:20px;right:20px}
+  .lb .lbp{left:18px;top:50%;transform:translateY(-50%)}
+  .lb .lbn{right:18px;top:50%;transform:translateY(-50%)}
+
+  @media (max-width:760px){
+    .aptgal{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+    .aptgal .g-hero{grid-column:span 2;grid-row:span 2}
+    .aptgal .g-tall,.aptgal .g-wide,.aptgal .g-sm{grid-column:span 1;grid-row:span 1}
+    .aptgal .g-half{grid-column:span 2;grid-row:span 1}
+    .lb button{width:40px;height:40px}
+  }
+  @media print{
+    .aptgal button:nth-child(n+5){display:none}
+    .lb{display:none!important}
+  }
 </style>
 </head>
 <body>
@@ -180,7 +252,7 @@
   <div class="nav-inner">
     <div class="brand">בודפשט <b>·</b> <span class="mono" style="font-size:14px">11–15 אוק׳</span></div>
     <div class="nav-links"><a href="essentials-he.html">🧳 מדריך כיס</a>
-      <a href="#overview">סקירה</a><a href="map.html" style="background:var(--teal);color:#fff">🗺️ מפה</a><a href="#day1">א׳</a><a href="#day2">ב׳</a>
+      <a href="#overview">סקירה</a><a href="#base">🏠 הדירה</a><a href="map.html" style="background:var(--teal);color:#fff">🗺️ מפה</a><a href="#day1">א׳</a><a href="#day2">ב׳</a>
       <a href="#day3">ג׳</a><a href="#day4">ד׳</a><a href="#day5">ה׳</a><a href="#notes">הערות</a>
       <a href="index.html" style="background:var(--brass);color:var(--danube)">English</a>
     </div>
@@ -215,6 +287,151 @@
       <div class="legend-item"><span class="badge b-reg">רגיל</span><span class="desc">בחירה מקומית מצוינת לשלושה שללא הגבלות (לא כשר).</span></div>
       <div class="legend-item"><span class="badge b-acc">נוח</span><span class="desc">שטוח ונינוח, עם מעליות ופוניקולר לדלג על הטיפוסים — קצב איטי עם עצירות לנוח.</span></div>
       <div class="legend-item"><span class="badge b-night">🌙 האחים</span><span class="desc">אפשרויות לילה מאוחרות לאחים בלבד.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOME BASE -->
+<section class="block apt" id="base">
+  <div class="wrap">
+    <div class="sec-label">הבסיס</div>
+    <h2>The Budapest Elegance Residence</h2>
+    <p class="lede">הדירה שלכם לכל ארבעת הלילות: 115 מ&quot;ר ברחוב S&iacute;p utca, ממש בתוך הרובע היהודי.
+      ארבעה חדרי שינה ושני חדרי רחצה — חדר לכל אחד — סביב סלון ופינת אוכל משותפים עם מטבח מלא.
+      שם הטיול באמת מתנהל: ההפוגה של 14:00–17:00 נוחתת שם בכל יום, והשולחן מושיב את כולכם לארוחות בוקר ולתה מאוחר.</p>
+
+    <div class="aptchips">
+      <span class="aptchip"><b>4</b> חדרי שינה</span>
+      <span class="aptchip"><b>2</b> חדרי רחצה</span>
+      <span class="aptchip"><b>115</b> מ&quot;ר</span>
+      <span class="aptchip"><b>4</b> מבוגרים · <b>4</b> לילות</span>
+      <span class="aptchip">מטבח מלא · מדיח</span>
+      <span class="aptchip">מכונת כביסה</span>
+      <span class="aptchip">מזגן · מעלית · מרפסת</span>
+      <span class="aptchip">אינטרנט אלחוטי חופשי</span>
+      <span class="aptchip score"><b>9.3</b>/10 · 56 ביקורות</span>
+    </div>
+
+    <div class="aptgal">
+      <button type="button" class="g-hero" data-src="apartment/living-dining.jpg" data-cap="חדר מגורים ופינת אוכל">
+        <img loading="lazy" src="apartment/living-dining.jpg" alt="חדר מגורים ופינת אוכל">
+        <span class="cap">חדר מגורים ופינת אוכל</span>
+      </button>
+      <button type="button" class="g-tall" data-src="apartment/kitchen.jpg" data-cap="המטבח והשולחן הגדול">
+        <img loading="lazy" src="apartment/kitchen.jpg" alt="המטבח והשולחן הגדול">
+        <span class="cap">המטבח והשולחן הגדול</span>
+      </button>
+      <button type="button" class="g-wide" data-src="apartment/living-room.jpg" data-cap="פינת הישיבה">
+        <img loading="lazy" src="apartment/living-room.jpg" alt="פינת הישיבה">
+        <span class="cap">פינת הישיבה</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-1.jpg" data-cap="חדר שינה 1 · מרפסת">
+        <img loading="lazy" src="apartment/bedroom-1.jpg" alt="חדר שינה 1 · מרפסת">
+        <span class="cap">חדר שינה 1 · מרפסת</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-2.jpg" data-cap="חדר שינה 2">
+        <img loading="lazy" src="apartment/bedroom-2.jpg" alt="חדר שינה 2">
+        <span class="cap">חדר שינה 2</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-3.jpg" data-cap="חדר שינה 3">
+        <img loading="lazy" src="apartment/bedroom-3.jpg" alt="חדר שינה 3">
+        <span class="cap">חדר שינה 3</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-4.jpg" data-cap="חדר שינה 4 · מקלחת צמודה">
+        <img loading="lazy" src="apartment/bedroom-4.jpg" alt="חדר שינה 4 · מקלחת צמודה">
+        <span class="cap">חדר שינה 4 · מקלחת צמודה</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/balcony.jpg" data-cap="דלתות המרפסת">
+        <img loading="lazy" src="apartment/balcony.jpg" alt="דלתות המרפסת">
+        <span class="cap">דלתות המרפסת</span>
+      </button>
+      <button type="button" class="g-half" data-src="apartment/bathroom-1.jpg" data-cap="חדר רחצה 1">
+        <img loading="lazy" src="apartment/bathroom-1.jpg" alt="חדר רחצה 1">
+        <span class="cap">חדר רחצה 1</span>
+      </button>
+      <button type="button" class="g-half" data-src="apartment/bathroom-2.jpg" data-cap="חדר רחצה 2">
+        <img loading="lazy" src="apartment/bathroom-2.jpg" alt="חדר רחצה 2">
+        <span class="cap">חדר רחצה 2</span>
+      </button>
+    </div>
+
+    <div class="aptgrid">
+
+      <div class="aptcard">
+        <span class="kind">כתובת</span>
+        <h4>S&iacute;p utca 16–18</h4>
+        <p>1075 בודפשט, רובע VII — שלוש דקות הליכה שטוחה לבית הכנסת הגדול ברחוב דוהאני, שתי דקות לסימפלה קרט,
+          וכארבע דקות לשוק המקורה בכיכר קלאוזל לקניות במכולת.</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=S%C3%ADp%20utca%2016-18%2C%201075%20Budapest" target="_blank" rel="noopener">📍 פתחו במפות</a>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">כניסה ויציאה</span>
+        <h4>ראשון 11 באוק׳ → חמישי 15 באוק׳</h4>
+        <dl class="dl">
+          <div><dt>כניסה</dt><dd>ראשון 11 באוק׳<small>חלון הנכס: 15:00–23:00</small></dd></div>
+          <div><dt>סוכם</dt><dd>21:00–22:00<small>אושר כבקשה מיוחדת בהזמנה</small></dd></div>
+          <div><dt>יציאה</dt><dd>חמישי 15 באוק׳, עד 11:00<small>בפועל יוצאים בערך ב-02:45 לטיסה של 05:00</small></dd></div>
+        </dl>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">איך נכנסים</span>
+        <h4>כניסה עצמית עם מנעול חכם</h4>
+        <p>אין עם מי להיפגש. המפתחות מחכים בתיבת מפתחות בבניין ולדלת יש מנעול חכם.</p>
+        <p>המארח שולח את הקוד ואת הוראות הכניסה המלאות <b>ביום ההגעה עצמו</b>, ברגע שהדירה מוכנה — אז שווה לעקוב
+          אחרי הטלפון ואחרי ההודעות באתר ההזמנות באותו יום ראשון.</p>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">המארחים</span>
+        <h4>צ׳ונגור ורובין</h4>
+        <dl class="dl">
+          <div><dt>צ׳ונגור</dt><dd><a class="tel" dir="ltr" href="tel:+36305459248">+36 30 545 9248</a></dd></div>
+          <div><dt>רובין</dt><dd><a class="tel" dir="ltr" href="tel:+4915206252376">+49 1520 625 2376</a></dd></div>
+        </dl>
+        <p style="margin-top:10px">כל אחד מהמספרים מתאים לכל דבר דחוף; אפשר גם לשלוח הודעה לנכס דרך אתר ההזמנות.</p>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">ההזמנה</span>
+        <h4>אישור מספר 5059234469</h4>
+        <dl class="dl">
+          <div><dt>דירה</dt><dd>&euro; 1,212.04</dd></div>
+          <div><dt>מע״מ</dt><dd>&euro; 60.60</dd></div>
+          <div><dt>מס עירוני</dt><dd>&euro; 48.48</dd></div>
+          <div><dt>סה״כ</dt><dd class="total">&euro; 1,321.12</dd></div>
+        </dl>
+        <p style="margin-top:11px">החיוב נגבה אוטומטית מהכרטיס דרך אתר ההזמנות — אין לשלם דרך קישורים מגורם אחר.
+          ביטול חינם היה אפשרי עד 9 באוקטובר 2026 בשעה 23:59.</p>
+        <a class="btn" href="https://www.booking.com/hotel/hu/the-budapest-elegance-residence-budapest.en-gb.html" target="_blank" rel="noopener">🔖 עמוד הנכס</a>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">חניה ואחסון מזוודות</span>
+        <h4>אם תצטרכו</h4>
+        <p><b>חניה</b> — יש חניית רחוב בסביבה, בתשלום במכונות, אבל חשוב לקרוא היטב את שילוט האזורים.
+          החניון הקרוב הוא Done Park Gozsdu: 1,500 פורינט לשעה או 24,000 פורינט ליום.</p>
+        <p><b>מזוודות</b> — נקודת אחסון של Bounce נמצאת במרחק הליכה קצר, אם תצטרכו להניח תיקים מחוץ לשעות הכניסה.</p>
+        <a class="btn ghost" href="https://maps.app.goo.gl/EStvRnovLw1dHi9g9" target="_blank" rel="noopener">🅿️ חניון</a>
+        <a class="btn ghost" href="https://maps.app.goo.gl/pYmkuPWfy9mX62ZN8" target="_blank" rel="noopener">🧳 מזוודות</a>
+      </div>
+
+      <div class="aptcard wide">
+        <span class="kind">כללי הבית</span>
+        <h4>הרשימה הקצרה</h4>
+        <p>אסור לעשן בכל הדירה · אין חיות מחמד · אין מסיבות. מדיניות נזקים: עד 100 אירו עשויים להיגבות אחרי היציאה.
+          יש לפנות את הדירה עד 11:00 כדי שצוות הניקיון יספיק להכין אותה.</p>
+      </div>
+
+    </div>
+
+    <div class="heads-up">
+      <h4>⚠️ דבר אחד לסדר לפני הטיסה</h4>
+      <p>חלון ההגעה שאושר בהזמנה הוא <b>21:00–22:00</b>, אבל הטיסה נוחתת רק ב-<b>23:25</b> —
+        תגיעו לדלת בערך ב-<b>00:15</b>. הכניסה העצמית עם המנעול החכם אמורה לפתור את זה, אבל כדאי לכתוב למארח מראש
+        שידע שאתם מגיעים אחרי חצות וישלח את הקוד מוקדם.</p>
     </div>
   </div>
 </section>
@@ -677,5 +894,32 @@
 <script>var TRIP={start:"2026-10-11",days:5,todayLabel:'היום'};</script>
 <script>(function(){try{var st=new Date(TRIP.start+"T00:00:00"),td=new Date();td.setHours(0,0,0,0);var df=Math.round((td-st)/86400000);if(df>=0&&df<TRIP.days){var el=document.getElementById("day"+(df+1));if(el){el.classList.add("is-today");var h=el.querySelector(".banner h2")||el.querySelector("h2");if(h){var t=document.createElement("span");t.className="todaytag";t.textContent=TRIP.todayLabel;h.appendChild(t);}if(!location.hash){setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"start"});},500);}}}}catch(e){}})();</script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="תמונות הדירה">
+  <button class="lbx" type="button" aria-label="סגירה">&times;</button>
+  <button class="lbp" type="button" aria-label="תמונה קודמת">&#8249;</button>
+  <button class="lbn" type="button" aria-label="תמונה הבאה">&#8250;</button>
+  <img id="lbimg" src="" alt="">
+  <div class="lbcap" id="lbcap"></div>
+</div>
+<script>
+(function(){
+  var shots=[].slice.call(document.querySelectorAll('.aptgal button'));
+  if(!shots.length) return;
+  var lb=document.getElementById('lb'),im=document.getElementById('lbimg'),cp=document.getElementById('lbcap'),i=0;
+  function show(n){i=(n+shots.length)%shots.length;var b=shots[i];im.src=b.dataset.src;im.alt=b.dataset.cap;cp.textContent=b.dataset.cap;}
+  function open(n){show(n);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';im.src='';}
+  shots.forEach(function(b,n){b.addEventListener('click',function(){open(n);});});
+  lb.querySelector('.lbx').addEventListener('click',close);
+  lb.querySelector('.lbp').addEventListener('click',function(e){e.stopPropagation();show(i-1);});
+  lb.querySelector('.lbn').addEventListener('click',function(e){e.stopPropagation();show(i+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target===im)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close(); else if(e.key==='ArrowRight')show(i+1); else if(e.key==='ArrowLeft')show(i-1);
+  });
+})();
+</script>
 </body>
 </html>

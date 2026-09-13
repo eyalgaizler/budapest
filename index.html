@@ -176,6 +176,78 @@
     .note,.callout{background:#f3f3f3!important;border:1px solid #ccc!important}
     a{color:#000!important}
   }
+
+  /* --- HOME BASE / APARTMENT --- */
+  .apt{background:linear-gradient(180deg,#efe7d6,#F6F1E7);border-top:1px solid var(--line)}
+  .apt .lede{max-width:64ch;font-size:16.5px;color:#33312c;margin:14px 0 0}
+  .aptchips{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 4px}
+  .aptchip{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13.5px;box-shadow:var(--shadow);white-space:nowrap}
+  .aptchip b{font-family:"Space Mono",ui-monospace,monospace;font-size:12.5px;color:var(--paprika)}
+  .aptchip.score{background:var(--danube);border-color:var(--danube);color:#fff}
+  .aptchip.score b{color:var(--brass)}
+
+  .aptgal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:96px;gap:9px;margin-top:22px}
+  .aptgal button{padding:0;border:0;cursor:pointer;display:block;overflow:hidden;border-radius:13px;position:relative;
+    background:linear-gradient(135deg,#2a6f7c,#102f42);box-shadow:var(--shadow)}
+  .aptgal button img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .aptgal button:hover img,.aptgal button:focus-visible img{transform:scale(1.06)}
+  .aptgal button:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+  .aptgal .cap{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:start;
+    font-family:"Space Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.4px;color:#fff;
+    padding:16px 10px 7px;background:linear-gradient(180deg,transparent,rgba(8,26,38,.82))}
+  .aptgal .g-hero{grid-column:span 3;grid-row:span 2}
+  .aptgal .g-tall{grid-column:span 3;grid-row:span 2}
+  .aptgal .g-wide{grid-column:span 2}
+  .aptgal .g-sm{grid-column:span 2}
+  .aptgal .g-half{grid-column:span 3}
+
+  .aptgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(266px,1fr));gap:16px;margin-top:26px;align-items:start}
+  .aptcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px 17px;box-shadow:var(--shadow)}
+  .aptcard h4{font-size:18.5px;margin:4px 0 10px}
+  .aptcard.wide{grid-column:1/-1}
+  .aptcard .kind{font-family:"Space Mono",ui-monospace,monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+  .aptcard p{margin:0 0 10px;font-size:14.5px;color:#3a3833}
+  .aptcard p:last-child{margin-bottom:0}
+  .dl{display:grid;gap:8px;margin:0}
+  .dl div{display:flex;gap:12px;align-items:baseline;font-size:14.5px;border-bottom:1px dashed var(--line);padding-bottom:7px}
+  .dl div:last-child{border-bottom:0;padding-bottom:0}
+  .dl dt{flex:none;min-width:96px;font-family:"Space Mono",ui-monospace,monospace;font-size:11.5px;letter-spacing:.6px;
+    text-transform:uppercase;color:var(--muted)}
+  .dl dd{margin:0;font-weight:600;color:var(--ink)}
+  .dl dd small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);letter-spacing:0;text-transform:none;font-family:"Hanken Grotesk",system-ui,sans-serif}
+  .aptcard .total{font-family:"Space Mono",ui-monospace,monospace;font-size:19px;font-weight:700;color:var(--danube)}
+  .heads-up{background:#fdf0ec;border:1px solid #eec3b6;border-radius:13px;padding:14px 16px;margin-top:16px}
+  .heads-up h4{font-size:16px;color:var(--paprika);margin:0 0 6px}
+  .heads-up p{margin:0;font-size:14px;color:#4a3a35}
+  .tel{font-family:"Space Mono",ui-monospace,monospace;font-size:13.5px;text-decoration:none;border-bottom:1px solid var(--line)}
+  .tel:hover{border-bottom-color:var(--paprika);color:var(--paprika)}
+  .btn.ghost{background:transparent;color:var(--danube);border-color:var(--line)}
+  .btn.ghost:hover{background:var(--danube);color:#fff;border-color:var(--danube)}
+
+  /* lightbox */
+  .lb{position:fixed;inset:0;z-index:200;background:rgba(8,22,32,.93);display:none;align-items:center;justify-content:center;padding:28px}
+  .lb.open{display:flex}
+  .lb img{max-width:min(1100px,94vw);max-height:82vh;width:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .lb .lbcap{position:absolute;left:0;right:0;bottom:24px;text-align:center;color:#e7eef1;
+    font-family:"Space Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.5px}
+  .lb button{position:absolute;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff;
+    width:46px;height:46px;border-radius:50%;font-size:21px;cursor:pointer;line-height:1;display:grid;place-items:center;transition:.18s}
+  .lb button:hover{background:var(--brass);color:var(--danube);border-color:var(--brass)}
+  .lb .lbx{top:20px;right:20px}
+  .lb .lbp{left:18px;top:50%;transform:translateY(-50%)}
+  .lb .lbn{right:18px;top:50%;transform:translateY(-50%)}
+
+  @media (max-width:760px){
+    .aptgal{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+    .aptgal .g-hero{grid-column:span 2;grid-row:span 2}
+    .aptgal .g-tall,.aptgal .g-wide,.aptgal .g-sm{grid-column:span 1;grid-row:span 1}
+    .aptgal .g-half{grid-column:span 2;grid-row:span 1}
+    .lb button{width:40px;height:40px}
+  }
+  @media print{
+    .aptgal button:nth-child(n+5){display:none}
+    .lb{display:none!important}
+  }
 </style>
 </head>
 <body>
@@ -184,7 +256,7 @@
   <div class="nav-inner">
     <div class="brand">Budapest <b>·</b> <span class="mono" style="font-size:14px">11–15 OCT</span></div>
     <div class="nav-links"><a href="essentials.html">🧳 Pocket guide</a>
-      <a href="#overview">Overview</a><a href="map.html" style="background:var(--teal);color:#fff">🗺️ Map</a><a href="#day1">Sun</a><a href="#day2">Mon</a>
+      <a href="#overview">Overview</a><a href="#base">🏠 The flat</a><a href="map.html" style="background:var(--teal);color:#fff">🗺️ Map</a><a href="#day1">Sun</a><a href="#day2">Mon</a>
       <a href="#day3">Tue</a><a href="#day4">Wed</a><a href="#day5">Thu</a><a href="#notes">Notes</a><a href="index-he.html" style="background:var(--brass);color:var(--danube)">עברית</a>
     </div>
   </div>
@@ -218,6 +290,154 @@
       <div class="legend-item"><span class="badge b-reg">Regular</span><span class="desc">A great local pick for the three without restrictions (not kosher).</span></div>
       <div class="legend-item"><span class="badge b-acc">Easy</span><span class="desc">Flat and unhurried, with lifts and funiculars to skip the climbs — a slow pace with stops to rest.</span></div>
       <div class="legend-item"><span class="badge b-night">🌙 Brothers</span><span class="desc">Late-night options for the brothers only.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- HOME BASE -->
+<section class="block apt" id="base">
+  <div class="wrap">
+    <div class="sec-label">Home base</div>
+    <h2>The Budapest Elegance Residence</h2>
+    <p class="lede">Your apartment for all four nights: 115 m&sup2; on S&iacute;p utca, right inside the Jewish Quarter.
+      Four bedrooms and two bathrooms — a room each — around a big shared living and dining room with a full kitchen.
+      That room is where the trip actually runs: the 14:00–17:00 break lands there every single day, and the table seats
+      all four of you for breakfasts and late-night tea.</p>
+
+    <div class="aptchips">
+      <span class="aptchip"><b>4</b> bedrooms</span>
+      <span class="aptchip"><b>2</b> bathrooms</span>
+      <span class="aptchip"><b>115</b> m&sup2;</span>
+      <span class="aptchip"><b>4</b> adults · <b>4</b> nights</span>
+      <span class="aptchip">Full kitchen · dishwasher</span>
+      <span class="aptchip">Washing machine</span>
+      <span class="aptchip">A/C · lift · balcony</span>
+      <span class="aptchip">Free Wi-Fi</span>
+      <span class="aptchip score"><b>9.3</b>/10 · 56 reviews</span>
+    </div>
+
+    <div class="aptgal">
+      <button type="button" class="g-hero" data-src="apartment/living-dining.jpg" data-cap="Living &amp; dining room">
+        <img loading="lazy" src="apartment/living-dining.jpg" alt="Living &amp; dining room">
+        <span class="cap">Living &amp; dining room</span>
+      </button>
+      <button type="button" class="g-tall" data-src="apartment/kitchen.jpg" data-cap="Kitchen &amp; the big table">
+        <img loading="lazy" src="apartment/kitchen.jpg" alt="Kitchen &amp; the big table">
+        <span class="cap">Kitchen &amp; the big table</span>
+      </button>
+      <button type="button" class="g-wide" data-src="apartment/living-room.jpg" data-cap="The lounge">
+        <img loading="lazy" src="apartment/living-room.jpg" alt="The lounge">
+        <span class="cap">The lounge</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-1.jpg" data-cap="Bedroom 1 · balcony">
+        <img loading="lazy" src="apartment/bedroom-1.jpg" alt="Bedroom 1 · balcony">
+        <span class="cap">Bedroom 1 · balcony</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-2.jpg" data-cap="Bedroom 2">
+        <img loading="lazy" src="apartment/bedroom-2.jpg" alt="Bedroom 2">
+        <span class="cap">Bedroom 2</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-3.jpg" data-cap="Bedroom 3">
+        <img loading="lazy" src="apartment/bedroom-3.jpg" alt="Bedroom 3">
+        <span class="cap">Bedroom 3</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/bedroom-4.jpg" data-cap="Bedroom 4 · en-suite shower">
+        <img loading="lazy" src="apartment/bedroom-4.jpg" alt="Bedroom 4 · en-suite shower">
+        <span class="cap">Bedroom 4 · en-suite shower</span>
+      </button>
+      <button type="button" class="g-sm" data-src="apartment/balcony.jpg" data-cap="Balcony doors">
+        <img loading="lazy" src="apartment/balcony.jpg" alt="Balcony doors">
+        <span class="cap">Balcony doors</span>
+      </button>
+      <button type="button" class="g-half" data-src="apartment/bathroom-1.jpg" data-cap="Bathroom 1">
+        <img loading="lazy" src="apartment/bathroom-1.jpg" alt="Bathroom 1">
+        <span class="cap">Bathroom 1</span>
+      </button>
+      <button type="button" class="g-half" data-src="apartment/bathroom-2.jpg" data-cap="Bathroom 2">
+        <img loading="lazy" src="apartment/bathroom-2.jpg" alt="Bathroom 2">
+        <span class="cap">Bathroom 2</span>
+      </button>
+    </div>
+
+    <div class="aptgrid">
+
+      <div class="aptcard">
+        <span class="kind">Address</span>
+        <h4>S&iacute;p utca 16–18</h4>
+        <p>1075 Budapest, District VII — a 3-minute flat walk to the Doh&aacute;ny Street Synagogue, 2 minutes to Szimpla Kert,
+          and about 4 minutes to the Klauz&aacute;l t&eacute;r market hall for the supermarket run.</p>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=S%C3%ADp%20utca%2016-18%2C%201075%20Budapest" target="_blank" rel="noopener">📍 Open in Maps</a>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">Check-in &amp; check-out</span>
+        <h4>Sun 11 Oct → Thu 15 Oct</h4>
+        <dl class="dl">
+          <div><dt>Check-in</dt><dd>Sun 11 Oct<small>Property window 15:00–23:00</small></dd></div>
+          <div><dt>Agreed</dt><dd>21:00–22:00<small>Approved as a special request on the booking</small></dd></div>
+          <div><dt>Check-out</dt><dd>Thu 15 Oct, by 11:00<small>You actually leave ~02:45 for the 05:00 flight</small></dd></div>
+        </dl>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">Getting in</span>
+        <h4>Self check-in, smart lock</h4>
+        <p>No one to meet. The keys sit in an on-site lockbox and the door has a smart lock.</p>
+        <p>The host sends the door code and the full check-in instructions <b>on the day of arrival</b>, once the apartment
+          is ready — so keep an eye on your phone and on the Booking.com messages that Sunday.</p>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">Your hosts</span>
+        <h4>Csongor &amp; Robin</h4>
+        <dl class="dl">
+          <div><dt>Csongor</dt><dd><a class="tel" dir="ltr" href="tel:+36305459248">+36 30 545 9248</a></dd></div>
+          <div><dt>Robin</dt><dd><a class="tel" dir="ltr" href="tel:+4915206252376">+49 1520 625 2376</a></dd></div>
+        </dl>
+        <p style="margin-top:10px">Either number works for anything urgent; you can also message the property through
+          Booking.com.</p>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">The booking</span>
+        <h4>Confirmation 5059234469</h4>
+        <dl class="dl">
+          <div><dt>Apartment</dt><dd>&euro; 1,212.04</dd></div>
+          <div><dt>VAT</dt><dd>&euro; 60.60</dd></div>
+          <div><dt>City tax</dt><dd>&euro; 48.48</dd></div>
+          <div><dt>Total</dt><dd class="total">&euro; 1,321.12</dd></div>
+        </dl>
+        <p style="margin-top:11px">Booking.com charges the card automatically — no payment links from anyone else.
+          Free cancellation ran until 9 Oct 2026, 23:59 CEST.</p>
+        <a class="btn" href="https://www.booking.com/hotel/hu/the-budapest-elegance-residence-budapest.en-gb.html" target="_blank" rel="noopener">🔖 The listing</a>
+      </div>
+
+      <div class="aptcard">
+        <span class="kind">Parking &amp; luggage</span>
+        <h4>If you need either</h4>
+        <p><b>Parking</b> — street parking nearby, paid at the machines, but read the zone signs carefully.
+          The nearest garage is Done Park Gozsdu: 1,500 HUF/hour or 24,000 HUF/day.</p>
+        <p><b>Luggage</b> — a Bounce storage point is a short walk away if you ever need to drop bags outside
+          check-in hours.</p>
+        <a class="btn ghost" href="https://maps.app.goo.gl/EStvRnovLw1dHi9g9" target="_blank" rel="noopener">🅿️ Garage</a>
+        <a class="btn ghost" href="https://maps.app.goo.gl/pYmkuPWfy9mX62ZN8" target="_blank" rel="noopener">🧳 Luggage</a>
+      </div>
+
+      <div class="aptcard wide">
+        <span class="kind">House rules</span>
+        <h4>The short list</h4>
+        <p>Non-smoking throughout · no pets · no parties. Damage policy: up to &euro;100 may be charged after check-out.
+          Check out by 11:00 so the cleaners can turn the flat around.</p>
+      </div>
+
+    </div>
+
+    <div class="heads-up">
+      <h4>⚠️ One thing to sort before you fly</h4>
+      <p>The arrival window approved on the booking is <b>21:00–22:00</b>, but flight W62528 does not land until
+        <b>23:25</b> — you will reach the door at roughly <b>00:15</b>. Self check-in by smart lock means it should be
+        fine, but message the host beforehand so they know to expect a post-midnight arrival and send the code early.</p>
     </div>
   </div>
 </section>
@@ -683,5 +903,32 @@
 <script>var TRIP={start:"2026-10-11",days:5,todayLabel:'Today'};</script>
 <script>(function(){try{var st=new Date(TRIP.start+"T00:00:00"),td=new Date();td.setHours(0,0,0,0);var df=Math.round((td-st)/86400000);if(df>=0&&df<TRIP.days){var el=document.getElementById("day"+(df+1));if(el){el.classList.add("is-today");var h=el.querySelector(".banner h2")||el.querySelector("h2");if(h){var t=document.createElement("span");t.className="todaytag";t.textContent=TRIP.todayLabel;h.appendChild(t);}if(!location.hash){setTimeout(function(){el.scrollIntoView({behavior:"smooth",block:"start"});},500);}}}}catch(e){}})();</script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Apartment photos">
+  <button class="lbx" type="button" aria-label="Close">&times;</button>
+  <button class="lbp" type="button" aria-label="Previous photo">&#8249;</button>
+  <button class="lbn" type="button" aria-label="Next photo">&#8250;</button>
+  <img id="lbimg" src="" alt="">
+  <div class="lbcap" id="lbcap"></div>
+</div>
+<script>
+(function(){
+  var shots=[].slice.call(document.querySelectorAll('.aptgal button'));
+  if(!shots.length) return;
+  var lb=document.getElementById('lb'),im=document.getElementById('lbimg'),cp=document.getElementById('lbcap'),i=0;
+  function show(n){i=(n+shots.length)%shots.length;var b=shots[i];im.src=b.dataset.src;im.alt=b.dataset.cap;cp.textContent=b.dataset.cap;}
+  function open(n){show(n);lb.classList.add('open');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');document.body.style.overflow='';im.src='';}
+  shots.forEach(function(b,n){b.addEventListener('click',function(){open(n);});});
+  lb.querySelector('.lbx').addEventListener('click',close);
+  lb.querySelector('.lbp').addEventListener('click',function(e){e.stopPropagation();show(i-1);});
+  lb.querySelector('.lbn').addEventListener('click',function(e){e.stopPropagation();show(i+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb||e.target===im)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close(); else if(e.key==='ArrowRight')show(i+1); else if(e.key==='ArrowLeft')show(i-1);
+  });
+})();
+</script>
 </body>
 </html>
