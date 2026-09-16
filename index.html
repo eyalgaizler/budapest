@@ -224,6 +224,20 @@
   .btn.ghost{background:transparent;color:var(--danube);border-color:var(--line)}
   .btn.ghost:hover{background:var(--danube);color:#fff;border-color:var(--danube)}
 
+  /* --- Day 4: Plan A / Plan B option box --- */
+  .altbox{background:var(--card);border:1.5px solid var(--brass);border-radius:16px;padding:20px 22px 18px;box-shadow:var(--shadow);margin:0 0 6px}
+  .altbox .opt{display:inline-flex;align-items:center;gap:6px;background:var(--brass);color:#3a2c08;font-family:"Space Mono","Heebo",monospace;font-size:11px;letter-spacing:1px;font-weight:700;padding:4px 10px;border-radius:999px}
+  .altbox h3{font-size:23px;margin:10px 0 8px}
+  .altbox p{margin:0 0 12px;color:#33312c;font-size:15.5px}
+  .altbox .kv{display:grid;gap:8px;margin:0 0 14px;padding:0;list-style:none;font-size:14.5px}
+  .altbox .kv li{display:flex;gap:12px;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:7px}
+  .altbox .kv li:last-child{border-bottom:0}
+  .altbox .kv .k{flex:none;min-width:112px;font-family:"Space Mono","Heebo",monospace;font-size:11.5px;letter-spacing:.5px;color:var(--muted)}
+  .altbox .kv .v{color:var(--ink)}
+  .altbox .btns{display:flex;gap:8px;flex-wrap:wrap}
+  .altbox .btns .btn{margin-top:4px}
+  .altbox .heads-up{margin-top:14px}
+
   /* lightbox */
   .lb{position:fixed;inset:0;z-index:200;background:rgba(8,22,32,.93);display:none;align-items:center;justify-content:center;padding:28px}
   .lb.open{display:flex}
@@ -665,10 +679,36 @@
     <img class="ph" alt="The Great Market Hall in Budapest"
       src="https://commons.wikimedia.org/wiki/Special:FilePath/Central%20market%20hall%2C%20Budapest.jpg?width=1600" onerror="this.remove()">
     <div class="banner-in"><div class="daytag"><span class="daynum">DAY 04 — WEDNESDAY</span></div>
-      <h2>A gentle last day in the city</h2><div class="when">Oct 14 · a market morning, a relaxed stroll, an early night</div></div>
+      <h2>A gentle last day in the city</h2><div class="when">Oct 14 · Plan A in the city, or Plan B the Balaton day trip · an early night</div></div>
   </div>
   <div class="wrap day-body">
-    <div class="daymeta"><span class="chip">Day budget <b>≈ €60 pp</b></span><span class="chip">🛍 Shopping ~2.5h</span><span class="chip">Easy &amp; flat</span><span class="badge b-acc">Gentle</span></div>
+    <div class="daymeta"><span class="chip">Day budget <b>≈ €60 pp</b></span><span class="chip">🛍 Shopping ~2.5h</span><span class="chip">Easy &amp; flat</span><span class="badge b-acc">Gentle</span><a class="chip" href="#balaton" style="text-decoration:none">Option B: <b>Balaton day trip</b></a></div>
+
+    <div class="subhead"><span class="sec-label">Two ways to spend Wednesday</span></div>
+    <div class="altbox" id="balaton">
+      <span class="opt">Option B · held as an option</span>
+      <h3>Day trip to Lake Balaton with the Banai family</h3>
+      <p>A Hebrew-guided shared day out to Hungary's big lake, instead of the city day below. We spoke to the guide: the walking is very easy, every stop has confirmed it will be open in mid-October, and the forecast looks good. Nothing is paid in advance. Six people had already signed up, so with the four of us the group runs at ten.</p>
+      <ul class="kv">
+        <li><span class="k">When</span><span class="v">Wed 14 Oct · 08:15 → about 19:00</span></li>
+        <li><span class="k">Meeting point</span><span class="v">Al Habtoor Palace, Erzsébet tér 9–10 — a 12-minute flat walk or a 5-minute Bolt from the flat</span></li>
+        <li><span class="k">Price</span><span class="v">€100 per adult, paid on the day · no prepayment</span></li>
+        <li><span class="k">Group</span><span class="v">Shared air-conditioned minibus · Hebrew-speaking guide (Banai family)</span></li>
+        <li><span class="k">Stops</span><span class="v">Summer toboggan run above the lake (ride optional) · porcelain factory · family winery with white-wine and cheese tasting · free time on the lakeside promenade · Tihany village and its famous cream-cake pâtisserie · ferry crossing back over the lake</span></li>
+        <li><span class="k">Food</span><span class="v">Lunch is not included. Kosher breakfast box from Brooklyn Bagel (Chabad) €18 pp, pre-ordered through Banai — omelette and salad are the gluten-free parts. Nothing kosher near the lake, so the kosher + GF traveller packs lunch from Carmel or Hummus Bar on Tuesday.</span></li>
+        <li><span class="k">Contact</span><span class="v"><a class="tel" dir="ltr" href="tel:+36703603559">+36 70 360 3559</a> (WhatsApp) · info@banaibudapest.co.il</span></li>
+      </ul>
+      <div class="btns">
+        <a class="btn" href="https://banaibudapest.co.il/%D7%A1%D7%99%D7%95%D7%A8%D7%99%D7%9D/%d7%98%d7%99%d7%95%d7%9c-%d7%99%d7%95%d7%9d-%d7%9c%d7%90%d7%92%d7%9d-%d7%91%d7%9c%d7%98%d7%95%d7%9f/" target="_blank" rel="noopener">🎟 Tour page</a>
+        <a class="btn ghost" href="https://wa.me/36703603559" target="_blank" rel="noopener">💬 WhatsApp the guide</a>
+        <a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=Al%20Habtoor%20Palace%20Budapest%20Erzs%C3%A9bet%20t%C3%A9r%209-10" target="_blank" rel="noopener">📍 Meeting point</a>
+      </div>
+      <div class="heads-up">
+        <h4>⚠️ If we go with Option B</h4>
+        <p>We are back around <b>19:00</b> and the airport transfer leaves at <b>~02:45</b>. Pack on Tuesday night or Wednesday morning before leaving, keep dinner short and close to home (Carmel Express takeaway runs till about midnight, Café Tel Aviv is two minutes away), and be in bed by 21:30. The market morning and the Andrássy stroll below are then skipped, or squeezed into Tuesday's slow break.</p>
+      </div>
+    </div>
+    <div class="subhead"><span class="sec-label">Plan A · in the city</span></div>
     <div class="spine">
       <div class="tblock reveal">
         <div class="imgwrap tphoto"><img loading="lazy" alt="Inside the Great Market Hall" src="https://commons.wikimedia.org/wiki/Special:FilePath/Central%20market%20hall%2C%20Budapest.jpg?width=800" onerror="this.remove()"></div>
