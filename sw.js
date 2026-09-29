@@ -1,5 +1,5 @@
 // Budapest trip — service worker v2 (offline app shell + offline map tiles)
-const CORE = 'bud-core-v6';
+const CORE = 'bud-core-v7';
 const RUNTIME = 'bud-runtime-v1';
 const TILES = 'bud-tiles-v1';
 const KEEP = [CORE, RUNTIME, TILES];

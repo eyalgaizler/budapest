@@ -53,7 +53,7 @@
 </div>
 <div id="map"></div>
 <div class="legend"><span><i style="background:#2A8C99"></i>Sights</span> &nbsp; <span><i style="background:#D4AF61"></i>Kosher food</span> &nbsp; <span><i style="background:#C0492E"></i>Base</span></div>
-<div id="info">Tap <b>📍 Locate me</b> to show your position and the distance to the nearest stop. Pins are numbered by day — tap one for details and navigation.</div>
+<div id="info">Tap <b>📍 Locate me</b> to show your position and the distance to the nearest stop. Pins are numbered by day — tap one for details and <b>Google Maps</b> directions.</div>
 
 <script>
 const SIGHT='#2A8C99', FOOD='#D4AF61', BASE='#C0492E', AIR='#5d6b72';
@@ -84,13 +84,13 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribu
 
 L.polyline(stops.filter(s=>s.route).map(s=>[s.lat,s.lng]),{color:'#D4AF61',weight:3,opacity:.65,dashArray:'2,7'}).addTo(map);
 
-const WAZE=(la,ln)=>'https://waze.com/ul?ll='+la+','+ln+'&navigate=yes';
+const GMAPS=(la,ln)=>'https://www.google.com/maps/dir/?api=1&destination='+la+','+ln;
 const bounds=[];
 stops.forEach((s,i)=>{
   bounds.push([s.lat,s.lng]);
   const icon=L.divIcon({className:'',html:`<div class="num" style="background:${s.c}">${i+1}</div>`,iconSize:[24,24],iconAnchor:[12,12]});
   L.marker([s.lat,s.lng],{icon}).addTo(map)
-    .bindPopup(`<b>${i+1}. ${s.n}</b><br>${s.d}<br><a href="${WAZE(s.lat,s.lng)}" target="_blank" rel="noopener">\uD83E\uDDED Navigate in Waze ↗</a>`);
+    .bindPopup(`<b>${i+1}. ${s.n}</b><br>${s.d}<br><a href="${GMAPS(s.lat,s.lng)}" target="_blank" rel="noopener">\uD83E\uDDED Directions in Google Maps ↗</a>`);
 });
 map.fitBounds(bounds,{padding:[50,50]});
 
