@@ -106,7 +106,6 @@
         <li>Comfortable walking shoes (lots of cobblestones)</li>
         <li>Warm layers: sweater + light coat or jacket</li>
         <li>Scarf and a compact umbrella / rain layer</li>
-        <li>Swimwear + flip-flops (the thermal baths!)</li>
         <li>Sunglasses for crisp autumn days</li>
         <li>Reusable water bottle</li>
         <li>Personal medication + copy of prescriptions</li>
@@ -161,6 +160,18 @@
         <li><span>Extra trolley</span> <b>Eran · 55×40×23, max 10 kg</b></li>
       </ul>
       <p class="hint" style="margin-top:12px"><b style="color:var(--paprika)">Not a boarding pass here either.</b> At BUD too, the Wizz Air desk passport check comes <b>before</b> security, and the checked bags go there. The 12:50 car gets you to the airport around 13:30.</p>
+    </div>
+
+    <div class="card">
+      <h3>🧳 Thursday: luggage &amp; links</h3>
+      <p class="hint">Check-out 11:00 · suitcases stored 11:00–12:30 · airport car 12:50</p>
+      <ul class="kv">
+        <li><span><strong>Bounce</strong> · Wesselényi u. 4 — the main pick: staffed, no size limit, ≈ €3.50 a bag, Thu 10:00–20:00. Book the five bags the day before.</span> <a href="https://bounce.com/stores/budapest/DFX7jO" target="_blank" rel="noopener" style="white-space:nowrap"><b>Book ↗</b></a></li>
+        <li><span><strong>Stow Your Bags</strong> · Wesselényi u. 2 — backup: self-service lockers, daily 07:00–23:00. Check a 20 kg suitcase fits.</span> <a href="https://www.stowyourbags.com/en/shop/budapest/luggage-storage-synagogue-city-center/" target="_blank" rel="noopener" style="white-space:nowrap"><b>Lockers ↗</b></a></li>
+        <li><span><strong>Locky</strong> — more locker points, including Rumbach Sebestyén u. 15 by the Rumbach synagogue.</span> <a href="https://locky.hu/" target="_blank" rel="noopener" style="white-space:nowrap"><b>Locations ↗</b></a></li>
+        <li><span><strong>Radical Storage</strong> — more partner shops across the city.</span> <a href="https://radicalstorage.com/luggage-storage/budapest" target="_blank" rel="noopener" style="white-space:nowrap"><b>Options ↗</b></a></li>
+        <li><span><strong>Great Market Hall</strong> — opening hours (Thu 06:00–18:00).</span> <a href="https://piaconline.hu/en/central-market-hall/" target="_blank" rel="noopener" style="white-space:nowrap"><b>Hours ↗</b></a></li>
+      </ul>
     </div>
 
     <div class="card">
@@ -249,21 +260,25 @@
 </footer>
 <script>
 (function(){
- var WX={locs:[{n:"Budapest",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15"}, L={locale:'en',future:'Live day-by-day forecast appears about two weeks before the trip. Conditions right now:',nowIn:'Now in {c}',unavail:'Live forecast needs a connection \u2014 see seasonal averages below.'};
+ var WX={locs:[{n:"Budapest",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15"}, L={locale:'en',upd:'Updated {t}',future:'Live day-by-day forecast appears about two weeks before the trip. Conditions right now:',nowIn:'Now in {c}',unavail:'Live forecast needs a connection \u2014 see seasonal averages below.'};
  var WMO={0:'\u2600\ufe0f',1:'\ud83c\udf24\ufe0f',2:'\u26c5',3:'\u2601\ufe0f',45:'\ud83c\udf2b\ufe0f',48:'\ud83c\udf2b\ufe0f',51:'\ud83c\udf26\ufe0f',53:'\ud83c\udf26\ufe0f',55:'\ud83c\udf26\ufe0f',56:'\ud83c\udf27\ufe0f',57:'\ud83c\udf27\ufe0f',61:'\ud83c\udf27\ufe0f',63:'\ud83c\udf27\ufe0f',65:'\ud83c\udf27\ufe0f',66:'\ud83c\udf27\ufe0f',67:'\ud83c\udf27\ufe0f',71:'\ud83c\udf28\ufe0f',73:'\ud83c\udf28\ufe0f',75:'\u2744\ufe0f',77:'\ud83c\udf28\ufe0f',80:'\ud83c\udf26\ufe0f',81:'\ud83c\udf26\ufe0f',82:'\u26c8\ufe0f',85:'\ud83c\udf28\ufe0f',86:'\u2744\ufe0f',95:'\u26c8\ufe0f',96:'\u26c8\ufe0f',99:'\u26c8\ufe0f'};
  var box=document.getElementById('wxlive'); if(!box) return;
  function ico(c){return WMO[c]||'\u2022';}
+ // never answer from the browser's HTTP cache: every load asks Open-Meteo again
+ var NS={cache:'no-store'}, last=0;
  function fmtDay(iso){var d=new Date(iso+'T00:00:00');return d.toLocaleDateString(L.locale,{weekday:'short',day:'numeric',month:'short'});}
  function rows(loc,t){var r=t.time.map(function(iso,i){return '<div class="wxd"><span class="wxdt">'+fmtDay(iso)+'</span><span class="wxic">'+ico(t.code[i])+'</span><span class="wxtemp">'+Math.round(t.tmax[i])+'\u00b0 / '+Math.round(t.tmin[i])+'\u00b0</span><span class="wxpr">'+(t.prc[i]!=null?('\ud83d\udca7'+t.prc[i]+'%'):'')+'</span></div>';}).join('');return (WX.locs.length>1?'<div class="wxloc">'+loc.n+'</div>':'')+r;}
  function base(loc){return 'https://api.open-meteo.com/v1/forecast?latitude='+loc.lat+'&longitude='+loc.lon+'&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto';}
  function get(loc){
-  return fetch(base(loc)+'&start_date='+WX.start+'&end_date='+WX.end).then(function(r){return r.json();}).then(function(d){
+  return fetch(base(loc)+'&start_date='+WX.start+'&end_date='+WX.end,NS).then(function(r){return r.json();}).then(function(d){
    if(d&&d.daily&&d.daily.time&&d.daily.temperature_2m_max&&d.daily.temperature_2m_max.some(function(v){return v!=null;})){
     return {mode:'f',loc:loc,t:{time:d.daily.time,tmax:d.daily.temperature_2m_max,tmin:d.daily.temperature_2m_min,prc:d.daily.precipitation_probability_max,code:d.daily.weathercode}};
    }
-   return fetch(base(loc)+'&current=temperature_2m,weather_code&forecast_days=1').then(function(r){return r.json();}).then(function(c){return {mode:'c',loc:loc,cur:(c&&c.current)?c.current:null};});
+   return fetch(base(loc)+'&current=temperature_2m,weather_code&forecast_days=1',NS).then(function(r){return r.json();}).then(function(c){return {mode:'c',loc:loc,cur:(c&&c.current)?c.current:null};});
   });
  }
+ function load(){
+ last=Date.now();
  Promise.all(WX.locs.map(get)).then(function(res){
   var anyF=res.some(function(x){return x.mode==='f';}), html='';
   if(anyF){ html=res.map(function(x){return x.mode==='f'?rows(x.loc,x.t):('<div class="wxloc">'+x.loc.n+'</div>');}).join(''); }
@@ -271,8 +286,14 @@
    html='<p class="hint">'+L.future+'</p>';
    html+=res.map(function(x){ if(x.cur){var nm=WX.locs.length>1?x.loc.n:L.nowIn.replace('{c}',x.loc.n);return '<div class="wxd"><span class="wxdt">'+nm+'</span><span class="wxic">'+ico(x.cur.weather_code)+'</span><span class="wxtemp">'+Math.round(x.cur.temperature_2m)+'\u00b0</span></div>';} return ''; }).join('');
   }
-  box.innerHTML=html||('<p class="hint">'+L.unavail+'</p>');
+  var at=new Date().toLocaleTimeString(L.locale,{hour:'2-digit',minute:'2-digit'});
+  box.innerHTML=html?(html+'<p class="hint" style="margin:8px 0 0">'+L.upd.replace('{t}',at)+'</p>'):('<p class="hint">'+L.unavail+'</p>');
  }).catch(function(){ box.innerHTML='<p class="hint">'+L.unavail+'</p>'; });
+ }
+ load();
+ // a page restored from the back/forward cache, or an installed app brought back to the front, skips the reload
+ window.addEventListener('pageshow',function(e){if(e.persisted)load();});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&Date.now()-last>600000)load();});
 })();
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
