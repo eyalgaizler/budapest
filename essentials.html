@@ -106,7 +106,6 @@
         <li>Comfortable walking shoes (lots of cobblestones)</li>
         <li>Warm layers: sweater + light coat or jacket</li>
         <li>Scarf and a compact umbrella / rain layer</li>
-        <li>Swimwear + flip-flops (the thermal baths!)</li>
         <li>Sunglasses for crisp autumn days</li>
         <li>Reusable water bottle</li>
         <li>Personal medication + copy of prescriptions</li>
@@ -124,7 +123,7 @@
           <a href="https://www.google.com/maps/search/?api=1&query=S%C3%ADp%20utca%2016-18%2C%201075%20Budapest" target="_blank" rel="noopener">open in Maps</a></li>
         <li>Booking confirmation <b style="font-family:'Space Mono',monospace">5059234469</b></li>
         <li>Check-in Sun 11 Oct (window 15:00–23:00) · check-out Thu 15 Oct by 11:00</li>
-        <li>Flights: Wizz Air W62528 TLV→BUD 11 Oct 20:55→23:25 · W62521 BUD→TLV 15 Oct 15:45→20:00 · late check-out requested · airport car 12:50, at BUD by 13:45</li>
+        <li>Flights: Wizz Air W62528 TLV→BUD 11 Oct 20:55→23:25 · W62521 BUD→TLV 15 Oct 15:45→20:00 · check-out 11:00, suitcases at Bounce (Wesselényi u. 4) until 12:30 · airport car 12:50 from there, at BUD by 13:45</li>
         <li>Self check-in: smart lock, keys in an on-site lockbox</li>
         <li><b>The door code arrives by message on the day of arrival</b> — save it offline</li>
         <li>Hosts: Csongor <b style="font-family:'Space Mono',monospace"><bdi>+36 30 545 9248</bdi></b> · Robin <b style="font-family:'Space Mono',monospace"><bdi>+49 1520 625 2376</bdi></b></li>
@@ -164,6 +163,18 @@
     </div>
 
     <div class="card">
+      <h3>🧳 Thursday: luggage &amp; links</h3>
+      <p class="hint">Check-out 11:00 · suitcases stored 11:00–12:30 · airport car 12:50</p>
+      <ul class="kv">
+        <li><span><strong>Bounce</strong> · Wesselényi u. 4 — the main pick: staffed, no size limit, ≈ €3.50 a bag, Thu 10:00–20:00. Book the five bags the day before.</span> <a href="https://bounce.com/stores/budapest/DFX7jO" target="_blank" rel="noopener" style="white-space:nowrap"><b>Book ↗</b></a></li>
+        <li><span><strong>Stow Your Bags</strong> · Wesselényi u. 2 — backup: self-service lockers, daily 07:00–23:00. Check a 20 kg suitcase fits.</span> <a href="https://www.stowyourbags.com/en/shop/budapest/luggage-storage-synagogue-city-center/" target="_blank" rel="noopener" style="white-space:nowrap"><b>Lockers ↗</b></a></li>
+        <li><span><strong>Locky</strong> — more locker points, including Rumbach Sebestyén u. 15 by the Rumbach synagogue.</span> <a href="https://locky.hu/" target="_blank" rel="noopener" style="white-space:nowrap"><b>Locations ↗</b></a></li>
+        <li><span><strong>Radical Storage</strong> — more partner shops across the city.</span> <a href="https://radicalstorage.com/luggage-storage/budapest" target="_blank" rel="noopener" style="white-space:nowrap"><b>Options ↗</b></a></li>
+        <li><span><strong>Great Market Hall</strong> — opening hours (Thu 06:00–18:00).</span> <a href="https://piaconline.hu/en/central-market-hall/" target="_blank" rel="noopener" style="white-space:nowrap"><b>Hours ↗</b></a></li>
+      </ul>
+    </div>
+
+    <div class="card">
       <h3>📄 Documents</h3>
       <p class="hint">Check a week before the flight</p>
       <ul class="list">
@@ -172,6 +183,7 @@
         <li>Flight confirmation — code <b style="font-family:'Space Mono',monospace">YIZU8L</b></li>
         <li>Apartment address &amp; door code — see <b>The apartment</b> below</li>
         <li>Restaurant reservations (Carmel, etc.)</li>
+        <li>GuruWalk: walking tour Mon 12 Oct 12:00 (Basilica) and bar crawl Wed 14 Oct 21:30 (Erzsébet krt. 41) — QR codes in the app</li>
         <li>Danube Bend day trip, Tue 13 Oct (Banai) — reference <b style="font-family:'Space Mono',monospace">BANAI-105541946</b></li>
         <li>Digital copies of all documents on your phone</li>
         <li>Emergency &amp; insurance contact numbers</li>
@@ -195,12 +207,16 @@
       <h3>🌤️ Weather</h3>
       <p class="hint">Mid-October in Budapest · live forecast</p>
       <div id="wxlive"><p class="hint">…</p></div>
-      <p class="hint" style="margin:14px 0 4px;font-weight:700;color:var(--ink)">Typical for the season</p>
+      <div id="wxnorm">
+      <p class="hint" style="margin:14px 0 4px;font-weight:700;color:var(--ink)">Usual for 11–15 Oct (30-year average)</p>
       <ul class="kv">
         <li><span>Daytime highs</span> <b>15–17°C</b></li>
         <li><span>Evenings / nights</span> <b>7–9°C, chilly</b></li>
-        <li><span>Rain</span> <b>A few showers likely</b></li>
-        <li><span>Daylight</span> <b>Sunset ~17:45</b></li>
+        <li><span>Rain</span> <b>About 1 day in 5</b></li>
+      </ul>
+      </div>
+      <ul class="kv" style="margin-top:10px">
+        <li><span>Daylight</span> <b>Sunset ~18:00</b></li>
       </ul>
       <p class="hint" style="margin-top:12px">So: layers for the day, a warm jacket for the evening Danube cruise.</p>
     </div>
@@ -249,30 +265,45 @@
 </footer>
 <script>
 (function(){
- var WX={locs:[{n:"Budapest",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15"}, L={locale:'en',future:'Live day-by-day forecast appears about two weeks before the trip. Conditions right now:',nowIn:'Now in {c}',unavail:'Live forecast needs a connection \u2014 see seasonal averages below.'};
+ var WX={locs:[{n:"Budapest",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15",normMax:16.3}, L={locale:'en',upd:'Updated {t}',warm:'Warmer than usual: the 30-year average high for these dates is about 16\u00b0C.',cold:'Colder than usual: the 30-year average high for these dates is about 16\u00b0C.',usual:'About usual for mid-October: the 30-year average high is about 16\u00b0C.',future:'Live day-by-day forecast appears about two weeks before the trip. Conditions right now:',nowIn:'Now in {c}',unavail:'Live forecast needs a connection \u2014 see seasonal averages below.'};
  var WMO={0:'\u2600\ufe0f',1:'\ud83c\udf24\ufe0f',2:'\u26c5',3:'\u2601\ufe0f',45:'\ud83c\udf2b\ufe0f',48:'\ud83c\udf2b\ufe0f',51:'\ud83c\udf26\ufe0f',53:'\ud83c\udf26\ufe0f',55:'\ud83c\udf26\ufe0f',56:'\ud83c\udf27\ufe0f',57:'\ud83c\udf27\ufe0f',61:'\ud83c\udf27\ufe0f',63:'\ud83c\udf27\ufe0f',65:'\ud83c\udf27\ufe0f',66:'\ud83c\udf27\ufe0f',67:'\ud83c\udf27\ufe0f',71:'\ud83c\udf28\ufe0f',73:'\ud83c\udf28\ufe0f',75:'\u2744\ufe0f',77:'\ud83c\udf28\ufe0f',80:'\ud83c\udf26\ufe0f',81:'\ud83c\udf26\ufe0f',82:'\u26c8\ufe0f',85:'\ud83c\udf28\ufe0f',86:'\u2744\ufe0f',95:'\u26c8\ufe0f',96:'\u26c8\ufe0f',99:'\u26c8\ufe0f'};
  var box=document.getElementById('wxlive'); if(!box) return;
  function ico(c){return WMO[c]||'\u2022';}
+ // never answer from the browser's HTTP cache: every load asks Open-Meteo again
+ var NS={cache:'no-store'}, last=0;
  function fmtDay(iso){var d=new Date(iso+'T00:00:00');return d.toLocaleDateString(L.locale,{weekday:'short',day:'numeric',month:'short'});}
  function rows(loc,t){var r=t.time.map(function(iso,i){return '<div class="wxd"><span class="wxdt">'+fmtDay(iso)+'</span><span class="wxic">'+ico(t.code[i])+'</span><span class="wxtemp">'+Math.round(t.tmax[i])+'\u00b0 / '+Math.round(t.tmin[i])+'\u00b0</span><span class="wxpr">'+(t.prc[i]!=null?('\ud83d\udca7'+t.prc[i]+'%'):'')+'</span></div>';}).join('');return (WX.locs.length>1?'<div class="wxloc">'+loc.n+'</div>':'')+r;}
  function base(loc){return 'https://api.open-meteo.com/v1/forecast?latitude='+loc.lat+'&longitude='+loc.lon+'&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto';}
  function get(loc){
-  return fetch(base(loc)+'&start_date='+WX.start+'&end_date='+WX.end).then(function(r){return r.json();}).then(function(d){
+  return fetch(base(loc)+'&start_date='+WX.start+'&end_date='+WX.end,NS).then(function(r){return r.json();}).then(function(d){
    if(d&&d.daily&&d.daily.time&&d.daily.temperature_2m_max&&d.daily.temperature_2m_max.some(function(v){return v!=null;})){
     return {mode:'f',loc:loc,t:{time:d.daily.time,tmax:d.daily.temperature_2m_max,tmin:d.daily.temperature_2m_min,prc:d.daily.precipitation_probability_max,code:d.daily.weathercode}};
    }
-   return fetch(base(loc)+'&current=temperature_2m,weather_code&forecast_days=1').then(function(r){return r.json();}).then(function(c){return {mode:'c',loc:loc,cur:(c&&c.current)?c.current:null};});
+   return fetch(base(loc)+'&current=temperature_2m,weather_code&forecast_days=1',NS).then(function(r){return r.json();}).then(function(c){return {mode:'c',loc:loc,cur:(c&&c.current)?c.current:null};});
   });
  }
+ function load(){
+ last=Date.now();
  Promise.all(WX.locs.map(get)).then(function(res){
   var anyF=res.some(function(x){return x.mode==='f';}), html='';
-  if(anyF){ html=res.map(function(x){return x.mode==='f'?rows(x.loc,x.t):('<div class="wxloc">'+x.loc.n+'</div>');}).join(''); }
+  if(anyF){ html=res.map(function(x){return x.mode==='f'?rows(x.loc,x.t):('<div class="wxloc">'+x.loc.n+'</div>');}).join('');
+   // compare the forecast highs with the 30-year average for 11-15 Oct (Open-Meteo archive, 1996-2025)
+   var hi=[];res.forEach(function(x){if(x.mode==='f')x.t.tmax.forEach(function(v){if(v!=null)hi.push(v);});});
+   if(hi.length){var dv=hi.reduce(function(a,b){return a+b;},0)/hi.length-WX.normMax;html+='<p class="hint" style="margin:8px 0 0">'+(dv>=2?L.warm:dv<=-2?L.cold:L.usual)+'</p>';}
+  }
   else {
    html='<p class="hint">'+L.future+'</p>';
    html+=res.map(function(x){ if(x.cur){var nm=WX.locs.length>1?x.loc.n:L.nowIn.replace('{c}',x.loc.n);return '<div class="wxd"><span class="wxdt">'+nm+'</span><span class="wxic">'+ico(x.cur.weather_code)+'</span><span class="wxtemp">'+Math.round(x.cur.temperature_2m)+'\u00b0</span></div>';} return ''; }).join('');
   }
-  box.innerHTML=html||('<p class="hint">'+L.unavail+'</p>');
- }).catch(function(){ box.innerHTML='<p class="hint">'+L.unavail+'</p>'; });
+  var at=new Date().toLocaleTimeString(L.locale,{hour:'2-digit',minute:'2-digit',hour12:false});
+  var norm=document.getElementById('wxnorm'); if(norm) norm.hidden=anyF;
+  box.innerHTML=html?(html+'<p class="hint" style="margin:8px 0 0">'+L.upd.replace('{t}',at)+'</p>'):('<p class="hint">'+L.unavail+'</p>');
+ }).catch(function(){ var n=document.getElementById('wxnorm'); if(n) n.hidden=false; box.innerHTML='<p class="hint">'+L.unavail+'</p>'; });
+ }
+ load();
+ // a page restored from the back/forward cache, or an installed app brought back to the front, skips the reload
+ window.addEventListener('pageshow',function(e){if(e.persisted)load();});
+ document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'&&Date.now()-last>600000)load();});
 })();
 </script>
 <script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}</script>
