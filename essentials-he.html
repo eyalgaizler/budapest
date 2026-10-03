@@ -208,12 +208,16 @@
       <h3>🌤️ מזג אוויר</h3>
       <p class="hint">אמצע אוקטובר · תחזית חיה</p>
       <div id="wxlive"><p class="hint">…</p></div>
-      <p class="hint" style="margin:14px 0 4px;font-weight:700;color:var(--ink)">טיפוסי לעונה</p>
+      <div id="wxnorm">
+      <p class="hint" style="margin:14px 0 4px;font-weight:700;color:var(--ink)">הרגיל ל-11–15 באוק׳ (ממוצע של 30 שנה)</p>
       <ul class="kv">
-        <li><span>שיא ביום</span> <b>15–17°C</b></li>
-        <li><span>ערב / לילה</span> <b>7–9°C, קריר</b></li>
-        <li><span>גשם</span> <b>ייתכנו ממטרים בודדים</b></li>
-        <li><span>אור יום</span> <b>שקיעה ~17:45</b></li>
+        <li><span>שיא ביום</span> <b><bdi dir="ltr">15–17°C</bdi></b></li>
+        <li><span>ערב / לילה</span> <b><bdi dir="ltr">7–9°C</bdi>, קריר</b></li>
+        <li><span>גשם</span> <b>בערך יום אחד מכל חמישה</b></li>
+      </ul>
+      </div>
+      <ul class="kv" style="margin-top:10px">
+        <li><span>אור יום</span> <b>שקיעה ~18:00</b></li>
       </ul>
       <p class="hint" style="margin-top:12px">לכן: שכבות ליום, ומעיל חם לשיט הערב על הדנובה.</p>
     </div>
@@ -262,7 +266,7 @@
 </footer>
 <script>
 (function(){
- var WX={locs:[{n:"\u05d1\u05d5\u05d3\u05e4\u05e9\u05d8",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15"}, L={locale:'he',upd:'עודכן ב-{t}',future:'\u05ea\u05d7\u05d6\u05d9\u05ea \u05d9\u05d5\u05de\u05d9\u05ea \u05de\u05d3\u05d5\u05d9\u05e7\u05ea \u05ea\u05d5\u05e4\u05d9\u05e2 \u05db\u05e9\u05d1\u05d5\u05e2\u05d9\u05d9\u05dd \u05dc\u05e4\u05e0\u05d9 \u05d4\u05d8\u05d9\u05d5\u05dc. \u05de\u05d6\u05d2 \u05d4\u05d0\u05d5\u05d5\u05d9\u05e8 \u05db\u05e8\u05d2\u05e2:',nowIn:'\u05db\u05e8\u05d2\u05e2 \u05d1{c}',unavail:'\u05d0\u05d9\u05df \u05d7\u05d9\u05d1\u05d5\u05e8 \u05dc\u05ea\u05d7\u05d6\u05d9\u05ea \u2014 \u05e8\u05d0\u05d5 \u05de\u05de\u05d5\u05e6\u05e2\u05d9\u05dd \u05dc\u05de\u05d8\u05d4.'};
+ var WX={locs:[{n:"\u05d1\u05d5\u05d3\u05e4\u05e9\u05d8",lat:47.498,lon:19.061}],start:"2026-10-11",end:"2026-10-15",normMax:16.3}, L={locale:'he',upd:'עודכן ב-{t}',warm:'חם מהרגיל: ממוצע השיא בתאריכים האלה ב-30 השנים האחרונות הוא בערך 16 מעלות.',cold:'קר מהרגיל: ממוצע השיא בתאריכים האלה ב-30 השנים האחרונות הוא בערך 16 מעלות.',usual:'בערך כרגיל לאמצע אוקטובר: ממוצע השיא ב-30 השנים האחרונות הוא בערך 16 מעלות.',future:'\u05ea\u05d7\u05d6\u05d9\u05ea \u05d9\u05d5\u05de\u05d9\u05ea \u05de\u05d3\u05d5\u05d9\u05e7\u05ea \u05ea\u05d5\u05e4\u05d9\u05e2 \u05db\u05e9\u05d1\u05d5\u05e2\u05d9\u05d9\u05dd \u05dc\u05e4\u05e0\u05d9 \u05d4\u05d8\u05d9\u05d5\u05dc. \u05de\u05d6\u05d2 \u05d4\u05d0\u05d5\u05d5\u05d9\u05e8 \u05db\u05e8\u05d2\u05e2:',nowIn:'\u05db\u05e8\u05d2\u05e2 \u05d1{c}',unavail:'\u05d0\u05d9\u05df \u05d7\u05d9\u05d1\u05d5\u05e8 \u05dc\u05ea\u05d7\u05d6\u05d9\u05ea \u2014 \u05e8\u05d0\u05d5 \u05de\u05de\u05d5\u05e6\u05e2\u05d9\u05dd \u05dc\u05de\u05d8\u05d4.'};
  var WMO={0:'\u2600\ufe0f',1:'\ud83c\udf24\ufe0f',2:'\u26c5',3:'\u2601\ufe0f',45:'\ud83c\udf2b\ufe0f',48:'\ud83c\udf2b\ufe0f',51:'\ud83c\udf26\ufe0f',53:'\ud83c\udf26\ufe0f',55:'\ud83c\udf26\ufe0f',56:'\ud83c\udf27\ufe0f',57:'\ud83c\udf27\ufe0f',61:'\ud83c\udf27\ufe0f',63:'\ud83c\udf27\ufe0f',65:'\ud83c\udf27\ufe0f',66:'\ud83c\udf27\ufe0f',67:'\ud83c\udf27\ufe0f',71:'\ud83c\udf28\ufe0f',73:'\ud83c\udf28\ufe0f',75:'\u2744\ufe0f',77:'\ud83c\udf28\ufe0f',80:'\ud83c\udf26\ufe0f',81:'\ud83c\udf26\ufe0f',82:'\u26c8\ufe0f',85:'\ud83c\udf28\ufe0f',86:'\u2744\ufe0f',95:'\u26c8\ufe0f',96:'\u26c8\ufe0f',99:'\u26c8\ufe0f'};
  var box=document.getElementById('wxlive'); if(!box) return;
  function ico(c){return WMO[c]||'\u2022';}
@@ -283,14 +287,19 @@
  last=Date.now();
  Promise.all(WX.locs.map(get)).then(function(res){
   var anyF=res.some(function(x){return x.mode==='f';}), html='';
-  if(anyF){ html=res.map(function(x){return x.mode==='f'?rows(x.loc,x.t):('<div class="wxloc">'+x.loc.n+'</div>');}).join(''); }
+  if(anyF){ html=res.map(function(x){return x.mode==='f'?rows(x.loc,x.t):('<div class="wxloc">'+x.loc.n+'</div>');}).join('');
+   // compare the forecast highs with the 30-year average for 11-15 Oct (Open-Meteo archive, 1996-2025)
+   var hi=[];res.forEach(function(x){if(x.mode==='f')x.t.tmax.forEach(function(v){if(v!=null)hi.push(v);});});
+   if(hi.length){var dv=hi.reduce(function(a,b){return a+b;},0)/hi.length-WX.normMax;html+='<p class="hint" style="margin:8px 0 0">'+(dv>=2?L.warm:dv<=-2?L.cold:L.usual)+'</p>';}
+  }
   else {
    html='<p class="hint">'+L.future+'</p>';
    html+=res.map(function(x){ if(x.cur){var nm=WX.locs.length>1?x.loc.n:L.nowIn.replace('{c}',x.loc.n);return '<div class="wxd"><span class="wxdt">'+nm+'</span><span class="wxic">'+ico(x.cur.weather_code)+'</span><span class="wxtemp">'+Math.round(x.cur.temperature_2m)+'\u00b0</span></div>';} return ''; }).join('');
   }
-  var at=new Date().toLocaleTimeString(L.locale,{hour:'2-digit',minute:'2-digit'});
+  var at=new Date().toLocaleTimeString(L.locale,{hour:'2-digit',minute:'2-digit',hour12:false});
+  var norm=document.getElementById('wxnorm'); if(norm) norm.hidden=anyF;
   box.innerHTML=html?(html+'<p class="hint" style="margin:8px 0 0">'+L.upd.replace('{t}',at)+'</p>'):('<p class="hint">'+L.unavail+'</p>');
- }).catch(function(){ box.innerHTML='<p class="hint">'+L.unavail+'</p>'; });
+ }).catch(function(){ var n=document.getElementById('wxnorm'); if(n) n.hidden=false; box.innerHTML='<p class="hint">'+L.unavail+'</p>'; });
  }
  load();
  // a page restored from the back/forward cache, or an installed app brought back to the front, skips the reload
