@@ -1,11 +1,11 @@
 // Budapest trip — service worker v2 (offline app shell + offline map tiles)
-const CORE = 'bud-core-v7';
+const CORE = 'bud-core-v8';
 const RUNTIME = 'bud-runtime-v1';
 const TILES = 'bud-tiles-v1';
 const KEEP = [CORE, RUNTIME, TILES];
 const ASSETS = [
   './', './index.html', './index-he.html', './map.html', './essentials.html', './essentials-he.html', './qr-install.png',
-  './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
+  './gmaps.js', './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
   // apartment photos — available offline on the trip
   './apartment/living-dining.jpg', './apartment/kitchen.jpg', './apartment/living-room.jpg', './apartment/bedroom-1.jpg', './apartment/bedroom-2.jpg', './apartment/bedroom-3.jpg', './apartment/bedroom-4.jpg', './apartment/balcony.jpg', './apartment/bathroom-1.jpg', './apartment/bathroom-2.jpg'
 ];
